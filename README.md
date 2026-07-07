@@ -5,7 +5,7 @@ Public information and machine-readable metadata supporting Specset's **Initial 
 - **Provider:** Specset
 - **Offering:** Specset Cloud Platform
 - **Website:** https://specset.com
-- **Trust Center:** https://specset.com/trust
+- **Trust Center:** https://trust.specbook.ai
 - **Current stage:** Initial Implementation
 - **Target framework:** FedRAMP 20x Class A
 - **Federal use case:** Indirect Use — Specset is intended to be included as a third-party information resource within other cloud service offerings operated by FedRAMP-certified providers.
@@ -18,7 +18,7 @@ Progress is measured against the goals below and updated at least quarterly, per
 | Milestone | Target | Status |
 |---|---|---|
 | Initial Implementation marketplace listing requested | Jul 2026 | In progress |
-| Public Trust Center / milestones page live at specset.com/trust | Jul 2026 | Planned |
+| Public Trust Center / milestones page live at trust.specbook.ai | Jul 2026 | Planned |
 | Define minimum assessment scope / authorization boundary | Q3 2026 | Planned |
 | Enter FedRAMP 20x Class A pipeline (opens Aug 3, 2026) | Aug 2026 | Planned |
 | Baseline Key Security Indicators (KSI) evidence assembled | Q4 2026 | Planned |

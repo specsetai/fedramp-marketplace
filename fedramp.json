@@ -2,7 +2,7 @@
   "provider_name": "Specset",
   "offering_name": "Specset Cloud Platform",
   "product_website": "https://specset.com",
-  "trust_center": "https://specset.com/trust",
+  "trust_center": "https://trust.specbook.ai",
   "current_stage": "Initial Implementation",
   "listing_request_date": "2026-07-07",
   "target_framework": "FedRAMP 20x Class A",

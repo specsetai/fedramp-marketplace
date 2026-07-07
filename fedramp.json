@@ -1,0 +1,26 @@
+{
+  "provider_name": "Specset",
+  "offering_name": "Specset Cloud Platform",
+  "product_website": "https://specset.com",
+  "trust_center": "https://specset.com/trust",
+  "current_stage": "Initial Implementation",
+  "listing_request_date": "2026-07-07",
+  "target_framework": "FedRAMP 20x Class A",
+  "federal_use_case": "Indirect Use",
+  "federal_use_case_description": "Specset is intended to be included as a third-party information resource within other cloud service offerings operated by FedRAMP-certified providers, rather than sold directly to agencies.",
+  "organization_size": 3,
+  "contacts": {
+    "sales": "sales@specset.com",
+    "security": "security@specset.com"
+  },
+  "assessment_commitment": {
+    "target_classes": ["B", "C", "D"],
+    "scheduled_by": "2028-07-07",
+    "note": "Per the FedRAMP 2026 Consolidated Rules, an independent assessment for a full operational class (B, C, or D) will be scheduled within 24 months of initial listing."
+  },
+  "references": {
+    "fedramp_marketplace_listing_rules": "https://www.fedramp.gov/2026/providers/implement/marketplace/marketplace-listing/",
+    "fedramp_20x": "https://www.fedramp.gov/20x/"
+  },
+  "_note": "This is an intent/placeholder metadata file supporting an Initial Implementation marketplace listing request. The authoritative machine-readable format for FedRAMP public offering information (CDS-CSO-PUB) is FedRAMP's own published JSON Schema / OSCAL; see https://github.com/FedRAMP/rules. This file will be replaced with a schema-conformant package before Class A submission."
+}

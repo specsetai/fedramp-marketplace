@@ -8,7 +8,7 @@ Public information and machine-readable metadata supporting Specset's **Initial 
 - **Trust Center:** https://trust.specset.com
 - **Current stage:** Initial Implementation
 - **Target framework:** FedRAMP 20x Class A
-- **Federal use case:** Indirect Use — Specset is intended to be included as a third-party information resource within other cloud service offerings operated by FedRAMP-certified providers.
+- **Federal use case:** Direct Use and Indirect Use — used directly by agency customers integrated into a federal information system, and/or included as a third-party information resource within other FedRAMP-certified cloud service offerings.
 - **Machine-readable metadata:** [`fedramp.json`](./fedramp.json)
 
 ## Milestones toward FedRAMP Certification

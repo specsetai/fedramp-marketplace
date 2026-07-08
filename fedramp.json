@@ -6,8 +6,8 @@
   "current_stage": "Initial Implementation",
   "listing_request_date": "2026-07-07",
   "target_framework": "FedRAMP 20x Class A",
-  "federal_use_case": "Indirect Use",
-  "federal_use_case_description": "Specset is intended to be included as a third-party information resource within other cloud service offerings operated by FedRAMP-certified providers, rather than sold directly to agencies.",
+  "federal_use_case": ["Direct Use", "Indirect Use"],
+  "federal_use_case_description": "Specset supports both Direct Use — used directly by agency customers and integrated into a federal information system — and Indirect Use — included as a third-party information resource within other cloud service offerings operated by FedRAMP-certified providers.",
   "organization_size": 3,
   "contacts": {
     "sales": "sales@specset.com",

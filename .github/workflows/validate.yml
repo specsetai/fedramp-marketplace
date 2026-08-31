@@ -1,0 +1,50 @@
+name: validate
+
+# FRC-CSO-JSN: fedramp.json must be valid against FedRAMP's published
+# Certification Package Overview schema. CDS-CSO-CBF: index.html must be the
+# exact output of build.py for the committed fedramp.json.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet jsonschema referencing
+      - name: Fetch FedRAMP schemas (2026-06-24 series)
+        run: |
+          mkdir -p .schemas
+          for s in fedramp-certification-package-overview-schema-2026-06-24 fedramp-common-definitions-schema-2026-06-24; do
+            curl -sSfL -o ".schemas/$s.json" "https://www.fedramp.gov/schemas/$s.json"
+          done
+      - name: Validate fedramp.json
+        run: |
+          python - <<'PY'
+          import json, sys
+          from jsonschema import Draft202012Validator
+          from referencing import Registry, Resource
+          schema = json.load(open(".schemas/fedramp-certification-package-overview-schema-2026-06-24.json"))
+          common = json.load(open(".schemas/fedramp-common-definitions-schema-2026-06-24.json"))
+          reg = Registry().with_resource(common["$id"], Resource.from_contents(common))
+          doc = json.load(open("fedramp.json"))
+          errs = sorted(Draft202012Validator(schema, registry=reg).iter_errors(doc), key=lambda e: list(e.path))
+          for e in errs:
+              print(f"::error file=fedramp.json::{'/'.join(map(str, e.path)) or '(root)'}: {e.message}")
+          print(f"schema $schemaVersion={schema.get('$schemaVersion')} errors={len(errs)}")
+          sys.exit(1 if errs else 0)
+          PY
+      - name: index.html is generated from fedramp.json
+        run: |
+          cp index.html /tmp/index.committed.html
+          python build.py
+          # ignore the generation-date line; everything else must match
+          diff <(grep -vi 'generated' /tmp/index.committed.html) <(grep -vi 'generated' index.html)

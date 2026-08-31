@@ -13,6 +13,7 @@ https://specset.com/fedramp/
 """
 import json
 import html
+import re
 from datetime import date, timezone, datetime
 from pathlib import Path
 
@@ -67,9 +68,26 @@ else:
                 'categories are being finalized alongside our Minimum Assessment Scope definition and will be '
                 'published here (CDS-CSO-SVC).</span>')
 
+tp = data.get("thirdPartyInformationResources")
+if tp:
+    cert = tp.get("certified", []); nonc = tp.get("nonCertified", [])
+    cert_rows = "".join(
+        f'<tr><td><a href="https://www.fedramp.gov/marketplace/products/{esc(r["fedRampCertifiedThirdPartyInformationResource"])}/">{esc(r["fedRampCertifiedThirdPartyInformationResource"])}</a></td><td>{esc(r["useCase"])}</td></tr>'
+        for r in cert)
+    nonc_rows = "".join(
+        f'<tr><td>{esc(r["name"])}<br><small>{esc(r["provider"])}</small></td><td>{esc(r["useCase"])}</td></tr>'
+        for r in nonc)
+    tp_html = (f'<p><strong>FedRAMP Certified ({len(cert)})</strong></p><table class="inner"><thead><tr><th>FedRAMP ID</th><th>Use</th></tr></thead><tbody>{cert_rows}</tbody></table>'
+               f'<p><strong>Not FedRAMP Certified ({len(nonc)})</strong></p><table class="inner"><thead><tr><th>Resource</th><th>Use</th></tr></thead><tbody>{nonc_rows}</tbody></table>')
+else:
+    tp_html = na("no third-party information resources declared")
+
 FIELDS = [
     ("FedRAMP ID",
-     esc(si["fedRampPackageId"]) + '<br><em>No FedRAMP ID has been assigned yet; the provider name and service acronym are used as the package identifier per FedRAMP schema guidance.</em>'),
+     esc(si["fedRampPackageId"]) + (
+         f'<br><a href="https://www.fedramp.gov/marketplace/products/{esc(si["fedRampPackageId"])}/">FedRAMP Marketplace listing</a>'
+         if re.match(r"^FR\d{10}", si["fedRampPackageId"])
+         else '<br><em>No FedRAMP ID has been assigned yet; the provider name and service acronym are used as the package identifier per FedRAMP schema guidance.</em>')),
     ("Service Model", esc(", ".join(sp["serviceType"]))),
     ("Deployment Model", esc(sp["deploymentModel"])),
     ("Business Category", esc(", ".join(sp.get("businessCategory", []))) or na("not categorized")),
@@ -88,6 +106,8 @@ FIELDS = [
     ("Next Ongoing Certification Report Date",
      esc(sp["nextOngoingCertificationReportDate"]) if sp.get("nextOngoingCertificationReportDate")
      else na("Specset is at the Initial Implementation stage and does not yet hold a FedRAMP certification, so no Ongoing Certification Report is scheduled")),
+    ("Third-Party Information Resources",
+     tp_html),
     ("FedRAMP Recognized Independent Assessor",
      f'{esc(assessor["name"])} (Assessor ID {esc(assessor["assessorID"])})' if assessor
      else na("an independent assessor has not yet been engaged; per MKT-IIP-DLA an independent assessment will be scheduled within 24 months of initial listing")),

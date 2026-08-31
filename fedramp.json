@@ -60,6 +60,10 @@
     {
       "contactType": "Security",
       "contactEmail": "security@specset.com"
+    },
+    {
+      "contactType": "FedRAMP Security Inbox",
+      "contactEmail": "fedramp@specset.com"
     }
   ],
   "certifiedServices": [
@@ -109,19 +113,13 @@
         "name": "Intercom",
         "provider": "Intercom, Inc.",
         "website": "https://www.intercom.com",
-        "useCase": "In-app customer support chat. Processes customer user contact details and support conversation content; no project documents."
+        "useCase": "In-app customer support chat for commercial organizations. Processes customer user contact details and support conversation content; no project documents. Disabled for customer organizations flagged as handling CUI — the messenger never boots for a CUI organization and CUI memberships are never shared with it."
       },
       {
         "name": "Customer.io",
         "provider": "Customer.io, Inc.",
         "website": "https://customer.io",
-        "useCase": "Product email and lifecycle messaging. Processes customer user contact details and product-usage events; no project documents."
-      },
-      {
-        "name": "Laminar",
-        "provider": "lmnr-ai, Inc.",
-        "website": "https://www.lmnr.ai",
-        "useCase": "LLM observability and tracing for the provider's engineering team. Tracing is disabled for customer organizations flagged as handling CUI."
+        "useCase": "Product email and lifecycle messaging for commercial organizations. Processes customer user contact details and product-usage events; no project documents. Excluded from the federal/CUI data path; per-organization CUI gating (mirroring the in-app messenger) is being applied before any federal customer onboarding."
       },
       {
         "name": "Google AI Studio (Gemini API)",
@@ -139,25 +137,13 @@
         "name": "Cloudflare",
         "provider": "Cloudflare, Inc.",
         "website": "https://www.cloudflare.com",
-        "useCase": "Edge fronting for the Trust Center custom hostname (trust.specset.com) as provided by Vanta. No customer data; the Cloudflare for Government offering is not used."
+        "useCase": "Two uses: (1) edge fronting for the Trust Center custom hostname (trust.specset.com) as provided by Vanta — no customer data; (2) Cloudflare AI Gateway proxying experimental model traffic for commercial organizations only — excluded for customer organizations flagged as handling CUI via the per-organization routing control. The Cloudflare for Government offering is not used."
       },
       {
         "name": "Apryse (PDFTron) SDK",
         "provider": "Apryse Software Inc.",
         "website": "https://apryse.com",
         "useCase": "Document rendering SDK embedded in the application; only license-validation pings leave the environment. No customer data."
-      },
-      {
-        "name": "Firecrawl",
-        "provider": "Mendable, Inc.",
-        "website": "https://www.firecrawl.dev",
-        "useCase": "Public web page fetching for AI agent features. Receives public URLs only; no customer documents."
-      },
-      {
-        "name": "Procore",
-        "provider": "Procore Technologies, Inc.",
-        "website": "https://www.procore.com",
-        "useCase": "Optional customer-initiated integration to the customer's own Procore tenant via OAuth; data exchanged is chosen and authorized by the customer."
       },
       {
         "name": "Autodesk Platform Services",

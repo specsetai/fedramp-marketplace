@@ -110,6 +110,12 @@
     ],
     "nonCertified": [
       {
+        "name": "Intercom",
+        "provider": "Intercom, Inc.",
+        "website": "https://www.intercom.com",
+        "useCase": "In-app customer support chat for commercial organizations. Processes customer user contact details and support conversation content; no project documents. Disabled for customer organizations flagged as handling CUI — the messenger never boots for a CUI organization and CUI memberships are never shared with it."
+      },
+      {
         "name": "Customer.io",
         "provider": "Customer.io, Inc.",
         "website": "https://customer.io",

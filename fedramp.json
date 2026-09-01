@@ -50,7 +50,8 @@
         "authenticationRequired": true,
         "accessRequestInstructions": "Request access from the Trust Center page. FedRAMP staff and agency customers are granted access without accepting terms or an NDA; contact security@specset.com if access is not granted within one business day."
       }
-    ]
+    ],
+    "nextOngoingCertificationReportDate": "2026-12-01"
   },
   "contactInformation": [
     {

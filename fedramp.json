@@ -60,7 +60,7 @@
     },
     {
       "contactType": "Security",
-      "contactEmail": "security@specset.com"
+      "contactEmail": "fedramp@specset.com"
     },
     {
       "contactType": "FedRAMP Security Inbox",
@@ -153,5 +153,59 @@
         "useCase": "Optional customer-initiated integration to the customer's own Autodesk tenant via OAuth; data exchanged is chosen and authorized by the customer."
       }
     ]
-  }
+  },
+  "metadata": {
+    "accountableOfficial": {
+      "name": "Gordon Hempton",
+      "title": "Co-founder",
+      "email": "gordon@specset.com"
+    },
+    "version": "2026.09.01",
+    "lastUpdated": "2026-09-01T20:05:47Z",
+    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; validated by the validate workflow; published to specset.com/fedramp/)"
+  },
+  "documentation": [
+    {
+      "name": "Security Decision Record (SDR)",
+      "type": "JSON + Markdown (FedRAMP 2026-06-24 schema)",
+      "summary": "Per-rule and per-KSI implementation, validation and assessment statements for the Class A package, with SOC 2 control mappings.",
+      "availability": "Trust center (trust.specset.com), no NDA; on request via fedramp@specset.com"
+    },
+    {
+      "name": "Ongoing Certification Report (OCR)",
+      "type": "JSON + Markdown (FedRAMP 2026-06-24 schema)",
+      "summary": "Quarterly report of certification-data changes, planned changes, accepted vulnerabilities, agencies and reportable incidents. Example report available now; first live report 2026-12-01.",
+      "availability": "Trust center, no NDA"
+    },
+    {
+      "name": "Information-resources inventory (MAS-CSO-IIR)",
+      "type": "JSON (generated)",
+      "summary": "Every cloud account, project and third-party service likely to handle federal customer data, with location, boundary membership, encryption and CUI routing.",
+      "availability": "Trust center, no NDA"
+    },
+    {
+      "name": "SOC 2 Type II report and management representation letter",
+      "type": "PDF (restricted use)",
+      "summary": "Prescient Assurance LLC, issued 2026-08-31, Security TSC, period 2026-04-15 to 2026-07-15, unqualified opinion, no exceptions.",
+      "availability": "Trust center on request, no NDA for FedRAMP staff and agency reviewers"
+    },
+    {
+      "name": "Security policies and procedures",
+      "type": "PDF / web",
+      "summary": "Information security, access control, incident response, vulnerability management, change management and related policies maintained in Vanta; the operational incident-response and vulnerability-management procedures.",
+      "availability": "Trust center, no NDA"
+    },
+    {
+      "name": "Vulnerability activity reports",
+      "type": "Markdown + JSON, monthly",
+      "summary": "Monthly vulnerability detection and response activity (VER-TFR-MHR); first report 2026-10-01.",
+      "availability": "Trust center, no NDA"
+    },
+    {
+      "name": "Secure configuration guidance",
+      "type": "Web page",
+      "summary": "Customer-side configuration guidance (SSO, roles, CUI mode). In development.",
+      "availability": "Will be linked here when published"
+    }
+  ]
 }

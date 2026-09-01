@@ -82,6 +82,28 @@ if tp:
 else:
     tp_html = na("no third-party information resources declared")
 
+
+docs = data.get("documentation")
+if docs:
+    doc_rows = "".join(
+        f"<tr><td>{esc(x['name'])}</td><td>{esc(x['type'])}</td><td>{esc(x['summary'])}</td><td>{esc(x['availability'])}</td></tr>"
+        for x in docs)
+    doc_html = f'<table class="inner"><thead><tr><th>Document</th><th>Type</th><th>Summary</th><th>Availability</th></tr></thead><tbody>{doc_rows}</tbody></table>'
+else:
+    doc_html = '<span class="pending">In development — an overview of provider-supplied documentation (name, type, summary, availability) will be published here.</span>'
+
+meta = data.get("metadata")
+if meta:
+    ao = meta.get("accountableOfficial", {})
+    meta_html = (f'<table><tbody>'
+                 f'<tr><th>Accountable official</th><td>{esc(ao.get("name", ""))}, {esc(ao.get("title", ""))} · <a href="mailto:{esc(ao.get("email", ""))}">{esc(ao.get("email", ""))}</a></td></tr>'
+                 f'<tr><th>Version</th><td>{esc(meta.get("version", ""))}</td></tr>'
+                 f'<tr><th>Last updated</th><td>{esc(meta.get("lastUpdated", ""))}</td></tr>'
+                 f'<tr><th>Source of update</th><td>{esc(meta.get("updateSource", ""))}</td></tr>'
+                 f'</tbody></table>')
+else:
+    meta_html = ""
+
 FIELDS = [
     ("FedRAMP ID",
      esc(si["fedRampPackageId"]) + (
@@ -100,8 +122,7 @@ FIELDS = [
     ("Services and Security Categories", svc_html),
     ("Secure Configuration Guidance",
      link(scg["url"]) if scg else '<span class="pending">In development — secure configuration guidance is being authored and will be linked here.</span>'),
-    ("Documentation Overview",
-     '<span class="pending">In development — an overview of provider-supplied documentation (name, type, summary, availability) will be published here.</span>'),
+    ("Documentation Overview", doc_html),
     ("Trust Center", tc_html),
     ("Next Ongoing Certification Report Date",
      esc(sp["nextOngoingCertificationReportDate"]) if sp.get("nextOngoingCertificationReportDate")
@@ -157,6 +178,9 @@ page = f"""<!doctype html>
   <table>
     <tbody>{rows}</tbody>
   </table>
+
+  <h2>Package metadata (CPO-CSO-MTD)</h2>
+  {meta_html}
 
   <footer>
     This page is generated automatically from <a href="https://specset.com/fedramp/fedramp.json">fedramp.json</a>

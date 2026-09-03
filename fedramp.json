@@ -78,7 +78,7 @@
     "certified": [
       {
         "fedRampCertifiedThirdPartyInformationResource": "FR1805751477",
-        "useCase": "Google Cloud Platform (Google Services) — primary hosting of all production infrastructure: GKE Autopilot, Cloud SQL, Cloud Storage, Memorystore, Cloud KMS, Cloud Load Balancing and Cloud Armor, Cloud Logging and Monitoring, Secret Manager, Artifact Registry, and Vertex AI (Gemini) model inference and embeddings. Stores and processes customer data."
+        "useCase": "Google Cloud Platform (Google Services) — primary hosting of all production infrastructure: GKE Autopilot, Cloud SQL, Cloud Storage, Memorystore, Cloud KMS, Cloud Load Balancing and Cloud Armor, Cloud Logging and Monitoring, Secret Manager, Artifact Registry, and Vertex AI (Gemini) model inference and embeddings, including Web Grounding for Enterprise (web search for organizations flagged as handling CUI). Stores and processes customer data."
       },
       {
         "fedRampCertifiedThirdPartyInformationResource": "AGENCYAMAZONEW",
@@ -106,21 +106,21 @@
       },
       {
         "fedRampCertifiedThirdPartyInformationResource": "FR2604643715",
-        "useCase": "Perplexity Enterprise and API Platform — web search for AI agent features. Receives search queries; customer documents are not sent. Excluded for customer organizations flagged as handling CUI."
+        "useCase": "Perplexity Enterprise and API Platform (FedRAMP Certified, Class B / Low) — web search for AI agent features of commercial organizations. Receives search queries; customer documents are not sent. Not used for organizations flagged as handling CUI: their web lookups run on Vertex AI Web Grounding for Enterprise inside the Google Cloud boundary."
       }
     ],
     "nonCertified": [
+      {
+        "name": "Anthropic API (Claude)",
+        "provider": "Anthropic, PBC",
+        "website": "https://www.anthropic.com",
+        "useCase": "Direct Claude model inference for a small set of models not served through Amazon Bedrock, selectable only by Specset administrators; prompts may include customer document text. Never enabled for organizations flagged as handling CUI."
+      },
       {
         "name": "Intercom",
         "provider": "Intercom, Inc.",
         "website": "https://www.intercom.com",
         "useCase": "In-app customer support chat for commercial organizations. Processes customer user contact details and support conversation content; no project documents. Disabled for customer organizations flagged as handling CUI — the messenger never boots for a CUI organization and CUI memberships are never shared with it."
-      },
-      {
-        "name": "Customer.io",
-        "provider": "Customer.io, Inc.",
-        "website": "https://customer.io",
-        "useCase": "Product email and lifecycle messaging for commercial organizations. Processes customer user contact details and product-usage events; no project documents. Excluded from the federal/CUI data path; per-organization CUI gating (mirroring the in-app messenger) is being applied before any federal customer onboarding."
       },
       {
         "name": "Google AI Studio (Gemini API)",
@@ -150,7 +150,13 @@
         "name": "Autodesk Platform Services",
         "provider": "Autodesk, Inc.",
         "website": "https://aps.autodesk.com",
-        "useCase": "Optional customer-initiated integration to the customer's own Autodesk tenant via OAuth; data exchanged is chosen and authorized by the customer."
+        "useCase": "Optional customer-initiated integration to the customer's own Autodesk tenant via OAuth; data exchanged is chosen and authorized by the customer. Not used unless a customer connects it."
+      },
+      {
+        "name": "Procore",
+        "provider": "Procore Technologies, Inc.",
+        "website": "https://www.procore.com",
+        "useCase": "Optional customer-initiated integration to the customer's own Procore tenant via OAuth; data exchanged is chosen and authorized by the customer. Not used unless a customer connects it."
       }
     ]
   },
@@ -160,8 +166,8 @@
       "title": "CEO and Co-Founder",
       "email": "gordon@specset.com"
     },
-    "version": "2026.09.01",
-    "lastUpdated": "2026-09-01T20:05:47Z",
+    "version": "2026.09.02",
+    "lastUpdated": "2026-09-03T17:30:34Z",
     "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; validated by the validate workflow; published to specset.com/fedramp/)"
   },
   "documentation": [

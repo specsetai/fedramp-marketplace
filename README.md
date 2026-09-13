@@ -16,7 +16,8 @@ Source repository for Specset's public FedRAMP information supporting our **Init
 - **Trust Center:** https://trust.specset.com (live; landing page public, no login)
 - **Current stage:** Initial Implementation
 - **Target framework:** FedRAMP 20x Class A (pipeline open since 2026-08-03)
-- **Federal use case:** Direct Use and Indirect Use — used directly by agency customers integrated into a federal information system, and/or included as a third-party information resource within other FedRAMP-certified cloud service offerings.
+- **Federal use case:** Direct Use (MKT-IIP-AGU) — a federal agency evaluation tenant with CUI mode enabled since 2026-09-13, ahead of a paid agency pilot that the agency procures through one of its contractors; agency staff use the platform directly. Contractor tenants are the contractor's own information systems; a contractor holding a federal contract may invite agency personnel as members of its tenant, and contractors handling CUI under their own contracts may request CUI mode. Specset is not included as a third-party information resource in another cloud service offering, so the Indirect Use case does not apply.
+- **Security contact / FedRAMP Security Inbox:** fedramp@specset.com
 
 ## Milestones toward FedRAMP Certification
 
@@ -29,11 +30,12 @@ Progress is measured against the goals below and updated at least quarterly, per
 | CDS-CSO-PUB public information published (JSON + human-readable) | Aug 2026 | **Complete** — this repository, served at specset.com/fedramp/ |
 | Public service list (CDS-CSO-SVC) and third-party information resources (MAS-CSO-TPR) published | Aug 2026 | **Complete** — `certifiedServices` / `thirdPartyInformationResources` in `fedramp.json` |
 | Define minimum assessment scope / authorization boundary (MAS-CSO-IIR) | Q3 2026 | **Complete** — GCP project `specset-prod-assured` (Assured Workloads, us-west1) plus the third-party resources listed |
-| Certification Package (CPO, Security Decision Record, example Ongoing Certification Report) assembled and self-verified | Sep 2026 | In progress |
-| SOC 2 Type II report (Class A basis, FRC-CLA-ASF) issued | Sep 2026 | In progress — audit period Apr 15 – Jul 15, 2026 |
-| FedRAMP 20x Class A application submitted | Sep 2026 | Planned |
+| SOC 2 Type II report (Class A basis, FRC-CLA-ASF) issued | Sep 2026 | **Complete** — Prescient Assurance LLC, issued 2026-08-31, Security TSC, period 2026-04-15 to 2026-07-15, unqualified, no exceptions; published on the Trust Center |
+| Certification Package (CPO, Security Decision Record, example Ongoing Certification Report, information-resources inventory, procedures) assembled on the Trust Center | Sep 2026 | Assembled — final versions are republished to the Trust Center with the application and self-verified within 7 days of it (FRC-CSO-SVP) |
+| FedRAMP 20x Class A application submitted | Sep 2026 | Planned — September 2026 |
+| First Ongoing Certification Report published | 2026-12-01 | Scheduled — date published in `fedramp.json` (`nextOngoingCertificationReportDate`) |
 | Baseline Key Security Indicators (KSI) evidence assembled | Q4 2026 | In progress — persistent validation (drift detection, vulnerability detection, alerting) running since 2026-08-22 |
-| Independent assessment for a full operational class (B/C/D) **scheduled** | Within 24 months of listing (by Jul 2028) | Committed |
+| Independent assessment for a full operational class (B/C/D) **scheduled** | Within 24 months of listing (by Aug 2028) | Committed |
 
 ## Updating the listing
 

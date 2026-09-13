@@ -135,46 +135,16 @@
         "website": "https://www.cloudflare.com"
       },
       {
-        "name": "Firecrawl",
-        "provider": "Mendable Labs, Inc.",
-        "useCase": "Public-web scraping of bid-portal and specification-research pages. Receives public URLs only; no customer data.",
-        "website": "https://www.firecrawl.dev"
-      },
-      {
         "name": "NOAA / National Weather Service APIs",
         "provider": "US National Oceanic and Atmospheric Administration (federal agency)",
         "useCase": "Public weather and tide data for project daily logs. Receives a project site's latitude and longitude only; forecasts and tide data are returned to the daily log. Nothing is stored at the service. A US federal government data service, not a cloud service offering.",
         "website": "https://www.weather.gov"
       },
       {
-        "name": "Better Stack",
-        "provider": "Better Stack, Inc.",
-        "useCase": "External uptime monitoring, on-call scheduling and the public status page (status.specset.com). Availability metadata and provider on-call contacts only; no customer data.",
-        "website": "https://betterstack.com"
-      },
-      {
-        "name": "Replit (specset.com marketing site hosting)",
-        "provider": "Replit, Inc.",
-        "useCase": "Hosts the public marketing site at specset.com, including the public FedRAMP information at specset.com/fedramp/. Outside the offering; serves public content and prospect inquiry forms only. No customer data.",
-        "website": "https://replit.com"
-      },
-      {
         "name": "Apryse (PDFTron) SDK",
         "provider": "Apryse Software Inc.",
         "useCase": "Document rendering SDK that executes in the customer's browser; only license-validation pings leave the environment. No customer data.",
         "website": "https://apryse.com"
-      },
-      {
-        "name": "CARTO basemaps",
-        "provider": "CARTO, Inc.",
-        "useCase": "Browser-loaded map tiles for the facility map view. CARTO receives the user's IP address and the requested tile coordinates, which indicate the approximate facility location; no server-side data.",
-        "website": "https://carto.com"
-      },
-      {
-        "name": "Google Fonts",
-        "provider": "Google LLC",
-        "useCase": "Web fonts loaded by the user's browser on each application page. Google receives the browser's IP address and user agent; no customer content.",
-        "website": "https://fonts.google.com"
       },
       {
         "name": "Autodesk Platform Services",

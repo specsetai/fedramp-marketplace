@@ -66,7 +66,7 @@ if services:
 else:
     svc_html = ('<span class="pending">In development — the detailed service list and per-service security '
                 'categories are being finalized alongside our Minimum Assessment Scope definition and will be '
-                'published here (CDS-CSO-SVC).</span>')
+                'published here.</span>')
 
 tp = data.get("thirdPartyInformationResources")
 if tp:
@@ -131,7 +131,7 @@ FIELDS = [
      tp_html),
     ("FedRAMP Recognized Independent Assessor",
      f'{esc(assessor["name"])} (Assessor ID {esc(assessor["assessorID"])})' if assessor
-     else na("an independent assessor has not yet been engaged; per MKT-IIP-DLA an independent assessment will be scheduled within 24 months of initial listing")),
+     else na("Class A rests on an approved alternative security framework assessment (FRC-CLA-ASF) and independent verification and validation of the package is optional at Class A (FRC-CLA-IVV); an assessor is engaged for the Class C assessment, scheduled well inside the 24 months MKT-IIP-DLA allows from initial listing")),
 ]
 
 rows = "".join(f"<tr><th>{esc(name)}</th><td>{value}</td></tr>" for name, value in FIELDS)
@@ -179,7 +179,7 @@ page = f"""<!doctype html>
     <tbody>{rows}</tbody>
   </table>
 
-  <h2>Package metadata (CPO-CSO-MTD)</h2>
+  <h2>Package metadata</h2>
   {meta_html}
 
   <footer>

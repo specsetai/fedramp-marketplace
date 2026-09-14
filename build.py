@@ -64,9 +64,7 @@ if services:
     )
     svc_html = f'<table class="inner"><thead><tr><th>Service</th><th>Description</th><th>Available since</th></tr></thead><tbody>{svc_rows}</tbody></table>'
 else:
-    svc_html = ('<span class="pending">In development — the detailed service list and per-service security '
-                'categories are being finalized alongside our Minimum Assessment Scope definition and will be '
-                'published here.</span>')
+    raise SystemExit("fedramp.json has no certifiedServices; the public page must not be generated without them")
 
 tp = data.get("thirdPartyInformationResources")
 if tp:
@@ -90,7 +88,7 @@ if docs:
         for x in docs)
     doc_html = f'<table class="inner"><thead><tr><th>Document</th><th>Type</th><th>Summary</th><th>Availability</th></tr></thead><tbody>{doc_rows}</tbody></table>'
 else:
-    doc_html = '<span class="pending">In development — an overview of provider-supplied documentation (name, type, summary, availability) will be published here.</span>'
+    raise SystemExit("fedramp.json has no documentation entries; the public page must not be generated without them")
 
 meta = data.get("metadata")
 if meta:
@@ -121,7 +119,7 @@ FIELDS = [
     ("Overall Service Description", esc(si["serviceDescription"])),
     ("Services and Security Categories", svc_html),
     ("Secure Configuration Guidance",
-     link(scg["url"]) if scg else '<span class="pending">In development — secure configuration guidance is being authored and will be linked here.</span>'),
+     link(scg["url"]) if scg else '<span class="pending">Not required at Class A (SCG-CSO rules apply from Class B); published before the Class C application.</span>'),
     ("Documentation Overview", doc_html),
     ("Trust Center", tc_html),
     ("Next Ongoing Certification Report Date",
@@ -135,7 +133,7 @@ FIELDS = [
 ]
 
 rows = "".join(f"<tr><th>{esc(name)}</th><td>{value}</td></tr>" for name, value in FIELDS)
-today = datetime.now(timezone.utc).date().isoformat()
+today = meta.get('lastUpdated', '')[:10] if isinstance(meta, dict) else datetime.now(timezone.utc).date().isoformat()  # date of the JSON it renders, not the build time
 
 page = f"""<!doctype html>
 <html lang="en">

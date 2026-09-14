@@ -58,7 +58,7 @@
   "certifiedServices": [
     {
       "serviceName": "Specset Cloud Platform",
-      "serviceDescription": "The Specset Cloud Platform is a single multi-tenant SaaS service for construction document intelligence. Security category: Moderate (FIPS 199), reflecting the Controlled Unclassified Information the service handles for defense and federal customers. The platform is offered as a single service, and no component of it carries a different security category. It ingests customer project documents (project manuals and specifications, drawing sheets, shop drawings and submittals) and provides automated submittal review against project specifications, UFGS and specification compliance checking, design review automation, document search and question answering across a project's documents, and asset management logic. Customers use the service through a web application. Optional customer-initiated integrations connect to the customer's own Procore or Autodesk tenants. Production runs on Google Cloud Platform in project specset-prod-assured (Assured Workloads, FEDRAMP_MODERATE control package, us-west1), with supporting services on Amazon Web Services and Microsoft Azure as listed under third-party information resources. A per-organization CUI mode restricts model, embedding and web-grounding calls to the Assured Workloads project (Vertex AI, location us), disables the commercial AI and support-chat integrations, and never calls Perplexity. Federal tenants are provisioned with CUI mode enabled.",
+      "serviceDescription": "The Specset Cloud Platform is a single multi-tenant SaaS service for construction document intelligence. Security category: Moderate (FIPS 199), reflecting the Controlled Unclassified Information the service handles for defense and federal customers. The platform is offered as a single service, and no component of it carries a different security category. It ingests customer project documents (project manuals and specifications, drawing sheets, shop drawings and submittals) and provides automated submittal review against project specifications, UFGS and specification compliance checking, design review automation, document search and question answering across a project's documents, and asset management logic. Customers use the service through a web application. Optional customer-initiated integrations connect to the customer's own Procore or Autodesk tenants. Production runs on Google Cloud Platform in project specset-prod-assured (Assured Workloads, FEDRAMP_MODERATE control package, us-west1), with supporting services on Amazon Web Services and Microsoft Azure as listed under third-party information resources. A per-organization CUI mode restricts model, embedding and web-grounding calls to the Assured Workloads project (Vertex AI, location us), disables the commercial AI and support-chat integrations and the customer-initiated Procore and Autodesk integrations, and never calls Perplexity. Federal tenants are provisioned with CUI mode enabled.",
       "dateAvailable": "2025-01-22"
     }
   ],
@@ -137,13 +137,13 @@
       {
         "name": "Autodesk Platform Services",
         "provider": "Autodesk, Inc.",
-        "useCase": "Optional customer-initiated integration to the customer's own Autodesk tenant through OAuth; the customer chooses and authorizes the data exchanged. Not used unless a customer connects it. Gap: the application gate that stops an organization in CUI mode from connecting the integration, and makes an existing connection inert, is written and reviewed but not yet deployed, so CUI mode does not disable this integration today. Plan: deploy the gate before the paid federal pilot.",
+        "useCase": "Optional customer-initiated integration to the customer's own Autodesk tenant through OAuth; the customer chooses and authorizes the data exchanged. Disabled for organizations in CUI mode. Not used unless a customer connects it. Gap: the application gate that stops an organization in CUI mode from connecting the integration, and makes an existing connection inert, is written and reviewed but not yet deployed, so CUI mode does not disable this integration today. Plan: deploy the gate before the paid federal pilot.",
         "website": "https://aps.autodesk.com"
       },
       {
         "name": "Procore",
         "provider": "Procore Technologies, Inc.",
-        "useCase": "Optional customer-initiated integration to the customer's own Procore tenant through OAuth; the customer chooses and authorizes the data exchanged. Not used unless a customer connects it. Gap: the application gate that stops an organization in CUI mode from connecting the integration, and makes an existing connection inert, is written and reviewed but not yet deployed, so CUI mode does not disable this integration today. Plan: deploy the gate before the paid federal pilot.",
+        "useCase": "Optional customer-initiated integration to the customer's own Procore tenant through OAuth; the customer chooses and authorizes the data exchanged. Disabled for organizations in CUI mode. Not used unless a customer connects it. Gap: the application gate that stops an organization in CUI mode from connecting the integration, and makes an existing connection inert, is written and reviewed but not yet deployed, so CUI mode does not disable this integration today. Plan: deploy the gate before the paid federal pilot.",
         "website": "https://www.procore.com"
       },
       {
@@ -184,8 +184,8 @@
       "title": "CEO and Co-Founder",
       "email": "gordon@specset.com"
     },
-    "version": "2026.09.13.2",
-    "lastUpdated": "2026-09-13T00:00:00Z",
+    "version": "2026.09.14",
+    "lastUpdated": "2026-09-14T04:30:00Z",
     "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/)"
   },
   "documentation": [

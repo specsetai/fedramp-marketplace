@@ -28,9 +28,9 @@
         "Assessment Reports"
       ],
       "url": "https://trust.specset.com",
-      "repositoryDescription": "Specset Trust Center, the single repository for FedRAMP Certification Data for the Specset Cloud Platform. The landing page, compliance posture summary, subprocessor list and FedRAMP milestone information are public. The SOC 2 Type II report is published there as a restricted resource today. The remaining Class A certification data — the Security Decision Record, the example Ongoing Certification Report, the information-resources inventory with its generator and sources, the Incident Response Procedure, the Vulnerability Management Procedure, the security policies maintained in Vanta, and twelve supporting-evidence documents, one per artifact the Security Decision Record cites — is supplied with the Class A application and published here as restricted resources when that application is filed. The Security Decision Record, the example Ongoing Certification Report and the inventory are published in both machine-readable and human-readable form. Gap: only the SOC 2 Type II report is open to access requests today. Plan: publish the rest as restricted resources, byte-identical to the filed package, when the Class A application is filed.",
+      "repositoryDescription": "Specset Trust Center, the single repository for FedRAMP Certification Data for the Specset Cloud Platform. The landing page, compliance posture summary, subprocessor list and FedRAMP milestone information are public. The Class A certification data has been published there since 2026-09-14 as 24 restricted resources, with no non-disclosure agreement or acceptance of terms required. Twenty-two are open to access requests: the Security Decision Record, the example Ongoing Certification Report and the information-resources inventory, each in machine-readable and human-readable form; the Incident Response Procedure; the Vulnerability Management Procedure; the SOC 2 Type II report and the engagement letter for that examination, both view only; and twelve supporting-evidence documents, one per artifact the Security Decision Record cites. The other two, the management representation letter and the SOC 2 renewal engagement letter, are private resources supplied on request to fedramp@specset.com.",
       "authenticationRequired": true,
-      "accessRequestInstructions": "The landing page at https://trust.specset.com requires no login. FedRAMP staff and agency reviewers request access to the restricted FedRAMP Certification Data from the Trust Center page. Specset approves requests manually and does not require acceptance of terms or a non-disclosure agreement. If a request is not approved within one business day, email fedramp@specset.com."
+      "accessRequestInstructions": "The landing page at https://trust.specset.com requires no login. FedRAMP staff and agency reviewers request access to the restricted FedRAMP Certification Data from the Trust Center page. Requests from fedramp.gov and gsa.gov email addresses are approved automatically; Specset approves all other requests manually. Specset does not require acceptance of terms or a non-disclosure agreement. If a request is not approved within one business day, email fedramp@specset.com."
     },
     "additionalRepositories": [
       {
@@ -70,7 +70,7 @@
       },
       {
         "fedRampCertifiedThirdPartyInformationResource": "AGENCYAMAZONEW",
-        "useCase": "AWS US East/West — supporting services: Amazon SES (transactional email), Route 53 (DNS), S3 (CI build cache, CloudTrail audit logs, and a legacy database-backup bucket from the pre-2026 hosting platform), GuardDuty (threat detection), and Amazon Bedrock (Claude model inference in us-west-2, for organizations not in CUI mode; prompts may include customer document text)."
+        "useCase": "AWS US East/West — supporting services: Amazon SES (transactional email), Route 53 (DNS), S3 (CI build cache, CloudTrail audit logs, and a legacy database-backup bucket from the pre-2026 hosting platform), GuardDuty (threat detection), and Amazon Bedrock (Claude model inference entered in us-west-2 through United States inference profiles, except Claude Sonnet 5.5, whose global profile may process requests in any AWS commercial Region; for organizations not in CUI mode only; prompts may include customer document text)."
       },
       {
         "fedRampCertifiedThirdPartyInformationResource": "F1209051525",
@@ -82,7 +82,7 @@
       },
       {
         "fedRampCertifiedThirdPartyInformationResource": "FR1812058188",
-        "useCase": "GitHub Enterprise Cloud — source control and CI/CD for the application and infrastructure-as-code. Dependabot security alerts and CodeQL code scanning run on the application and infrastructure repositories, with Dependabot version updates on the infrastructure repository. Deploys to production through OpenID Connect workload identity federation. No customer data."
+        "useCase": "GitHub Enterprise Cloud — source control and CI/CD for the application and infrastructure-as-code. Dependabot security alerts and CodeQL code scanning run on the application and infrastructure repositories, with Dependabot version updates on the infrastructure repository. Deploys to production through OpenID Connect workload identity federation. GitHub also hosts the marketing website repository, whose continuous integration publishes the website and the public copy of this document; Dependabot runs on it, and the website publisher can write only the website bucket. No customer data."
       },
       {
         "fedRampCertifiedThirdPartyInformationResource": "FR2525556241",
@@ -90,7 +90,7 @@
       },
       {
         "fedRampCertifiedThirdPartyInformationResource": "FR1823447014",
-        "useCase": "Slack — operational alerting and change-notification channel for the provider (infrastructure change notifications, security alerts). Resource metadata only; no customer data."
+        "useCase": "Slack — operational alerting and change-notification channel for the provider (infrastructure change notifications, security alerts), and delivery of prospect inquiries from the public website's contact form. Resource metadata and prospect contact details only; no customer content or customer-user data."
       },
       {
         "fedRampCertifiedThirdPartyInformationResource": "FR2604643715",
@@ -137,13 +137,13 @@
       {
         "name": "Autodesk Platform Services",
         "provider": "Autodesk, Inc.",
-        "useCase": "Optional customer-initiated integration to the customer's own Autodesk tenant through OAuth; the customer chooses and authorizes the data exchanged. Disabled for organizations in CUI mode. Not used unless a customer connects it. Gap: the application gate that stops an organization in CUI mode from connecting the integration, and makes an existing connection inert, is written and reviewed but not yet deployed, so CUI mode does not disable this integration today. Plan: deploy the gate before the paid federal pilot.",
+        "useCase": "Optional customer-initiated integration to the customer's own Autodesk tenant through OAuth; the customer chooses and authorizes the data exchanged. Not used unless a customer connects it. Disabled for organizations in CUI mode: an application gate, deployed 2026-09-13, stops an organization in CUI mode from connecting the integration and makes an existing connection inert.",
         "website": "https://aps.autodesk.com"
       },
       {
         "name": "Procore",
         "provider": "Procore Technologies, Inc.",
-        "useCase": "Optional customer-initiated integration to the customer's own Procore tenant through OAuth; the customer chooses and authorizes the data exchanged. Disabled for organizations in CUI mode. Not used unless a customer connects it. Gap: the application gate that stops an organization in CUI mode from connecting the integration, and makes an existing connection inert, is written and reviewed but not yet deployed, so CUI mode does not disable this integration today. Plan: deploy the gate before the paid federal pilot.",
+        "useCase": "Optional customer-initiated integration to the customer's own Procore tenant through OAuth; the customer chooses and authorizes the data exchanged. Not used unless a customer connects it. Disabled for organizations in CUI mode: an application gate, deployed 2026-09-13, stops an organization in CUI mode from connecting the integration and makes an existing connection inert.",
         "website": "https://www.procore.com"
       },
       {
@@ -184,58 +184,58 @@
       "title": "CEO and Co-Founder",
       "email": "gordon@specset.com"
     },
-    "version": "2026.09.14",
-    "lastUpdated": "2026-09-14T04:30:00Z",
-    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/)"
+    "version": "2026.09.30",
+    "lastUpdated": "2026-09-30T22:00:00Z",
+    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Provider correction during FedRAMP review of the Class A application: corrects statements in the filed version 2026.09.14 that became outdated after the application was filed."
   },
   "documentation": [
     {
       "name": "Security Decision Record (SDR)",
       "type": "JSON + Markdown (FedRAMP 2026-06-24 schema)",
       "summary": "Per-rule and per-KSI implementation, validation and assessment statements for the Class A package, with SOC 2 Type II control mappings and a gap statement for each partially implemented rule.",
-      "availability": "Supplied with the Class A application; published as a restricted trust-center resource, no NDA, when that application is filed"
+      "availability": "Supplied with the Class A application; a restricted trust-center resource open to access requests since 2026-09-14, no NDA."
     },
     {
       "name": "Ongoing Certification Report (OCR) — example",
       "type": "JSON + Markdown (FedRAMP 2026-06-24 schema)",
       "summary": "Schema-conformant example of the quarterly report of certification-data changes, planned changes, accepted vulnerabilities, agencies and reportable incidents, labeled as an example. The first report is due 2026-12-01.",
-      "availability": "Supplied with the Class A application; published as a restricted trust-center resource, no NDA, when that application is filed"
+      "availability": "Supplied with the Class A application; a restricted trust-center resource open to access requests since 2026-09-14, no NDA."
     },
     {
       "name": "Information-resources inventory (MAS-CSO-IIR)",
       "type": "JSON + Markdown (generated), with generator, sources and derivation method",
       "summary": "Every cloud account, project and third-party service that handles federal customer data or can affect its confidentiality, integrity or availability, with location, boundary membership, encryption and CUI routing.",
-      "availability": "Supplied with the Class A application; published as a restricted trust-center resource, no NDA, when that application is filed"
+      "availability": "Supplied with the Class A application; a restricted trust-center resource open to access requests since 2026-09-14, no NDA."
     },
     {
       "name": "SOC 2 Type II report",
       "type": "PDF (restricted use)",
       "summary": "Prescient Assurance LLC, issued 2026-08-31, Security Trust Services Criteria, period 2026-04-15 to 2026-07-15, unqualified opinion, no exceptions on 131 tested controls. This is the approved alternative security framework assessment that Class A rests on (FRC-CLA-ASF). Independent verification and validation of the certification package by a FedRAMP Recognized independent assessment service is optional at Class A (FRC-CLA-IVV), and none is engaged for this submission. An independent assessor is engaged for the Class C assessment that follows. The management representation letter accompanying the report is retained in the evidence repository and supplied with the application and on request to fedramp@specset.com.",
-      "availability": "Trust center (trust.specset.com), restricted resource, view only, no NDA — published today"
+      "availability": "Trust center (trust.specset.com), restricted resource open to access requests, view only, no NDA"
     },
     {
       "name": "SOC 2 Type II engagement documentation",
       "type": "PDF (restricted use)",
-      "summary": "Verified engagement documentation for the completed examination, dated 2026-08-25. The next report is planned after the 2026-07-16 to 2027-07-15 period ends and before 2027-08-31. The renewal engagement letter for that period is signed by the assessor; the client signature is pending. Gap: no assessor bridge or gap letter covers 2026-07-16 to the application date. Plan: settle the bridge-letter position with the assessor before the application is filed, and supply the letter with the assessment materials if one is issued.",
-      "availability": "Retained in the evidence repository; supplied with the Class A application and on request to fedramp@specset.com"
+      "summary": "Verified engagement documentation for the completed examination, dated 2026-08-25. The next report is planned after the 2026-07-16 to 2027-07-15 period ends and before 2027-08-31. The renewal engagement letter for that period with Prescient Assurance LLC, dated 2026-09-08, was executed on 2026-09-25. Gap: no assessor bridge or gap letter covers 2026-07-16 to the application date. Plan: settle the bridge-letter position with the assessor during the FedRAMP review and supply any letter issued with the assessment materials.",
+      "availability": "Trust center: the 2026-08-25 engagement letter is a restricted resource open to access requests (view only, no NDA); the executed renewal letter is a private resource supplied on request to fedramp@specset.com."
     },
     {
       "name": "Incident Response Procedure",
       "type": "Markdown / PDF",
       "summary": "Detection, triage, FedRAMP reportability evaluation, initial and final incident reporting (IEC-CSO-EFR / IIR / OIR / FIR), and the FedRAMP Security Inbox procedure.",
-      "availability": "Supplied with the Class A application; published as a restricted trust-center resource, no NDA, when that application is filed"
+      "availability": "Supplied with the Class A application; a restricted trust-center resource open to access requests since 2026-09-14, no NDA."
     },
     {
       "name": "Vulnerability Management Procedure",
       "type": "Markdown / PDF",
       "summary": "Persistent detection (Dependabot security alerts and CodeQL code scanning on the application and infrastructure repositories, Artifact Registry image scanning of deployed digests), PAIN-based evaluation within 14 days, Class A remediation timeframes, and adoption of the VDR / VER rulesets ahead of the 2026-12-07 mandate.",
-      "availability": "Supplied with the Class A application; published as a restricted trust-center resource, no NDA, when that application is filed"
+      "availability": "Supplied with the Class A application; a restricted trust-center resource open to access requests since 2026-09-14, no NDA."
     },
     {
       "name": "Security policies",
       "type": "PDF / web",
       "summary": "The policy set maintained in Vanta, with employee acceptance recorded there: information security, access control, data management, cryptography, operations security (which carries the change management requirements), acceptable use, password, mobile device, data leakage prevention and third-party management policies, plus the incident response plan and the business continuity and disaster recovery plan. Gap: the revised business continuity and disaster recovery plan that aligns the recovery time objective with the recovery plan is pending approval, and the approved version still records the earlier objective. Plan: approve the revision by 2026-11-30, before the 2026-12-01 Ongoing Certification Report.",
-      "availability": "Supplied with the Class A application; published as a restricted trust-center resource, no NDA, when that application is filed"
+      "availability": "Maintained in Vanta with employee acceptance records; not published on the trust center; supplied on request to fedramp@specset.com."
     },
     {
       "name": "Vulnerability activity reports",
@@ -247,25 +247,25 @@
       "name": "Recovery plan",
       "type": "Markdown / PDF",
       "summary": "The recovery plan for the offering (KSI-RPL-ARP): service recovery objectives of RTO 24 elapsed hours and RPO 15 minutes (KSI-RPL-RRO), per-datastore backup and recovery procedures aligned to those objectives (KSI-RPL-ABO), and the recovery testing cadence (KSI-RPL-TRC). Delivered as supporting-evidence document 12, \"Recovery and Backup Configuration\".",
-      "availability": "Supplied with the Class A application; published as a restricted trust-center resource, no NDA, when that application is filed"
+      "availability": "Published as supporting-evidence document 12, \"Recovery and Backup Configuration\", a restricted trust-center resource open to access requests, no NDA."
     },
     {
       "name": "Training effectiveness review (KSI-CED-RAT)",
       "type": "JSON",
       "summary": "Four-category review of security training effectiveness for all staff, completed 2026-09-12, with follow-up actions. Next review 2026-12-01.",
-      "availability": "Supplied with the Class A application; published as a restricted trust-center resource, no NDA, when that application is filed"
+      "availability": "Supplied with the Class A application; published within supporting-evidence document 6, \"Training Effectiveness Review\", a restricted trust-center resource open to access requests since 2026-09-14, no NDA."
     },
     {
       "name": "Incident register and simulated Final Incident Report",
       "type": "Markdown + JSON (FedRAMP incident report schema)",
       "summary": "Incident register entries, the quarterly review record, and a simulated tabletop exercise with its reportability evaluation and schema-valid Final Incident Report.",
-      "availability": "Supplied with the Class A application; published as a restricted trust-center resource, no NDA, when that application is filed"
+      "availability": "Supplied with the Class A application; published within supporting-evidence document 7, \"Incident Response Records\", a restricted trust-center resource open to access requests since 2026-09-14, no NDA."
     },
     {
       "name": "Class A supporting evidence documents",
       "type": "Twelve PDFs, each with its source exports as appendices",
       "summary": "Twelve documents, one per artifact the Security Decision Record cites by name, so a reviewer opens exactly what the record points to: change management record; network boundary and Cloud Armor configuration; egress enforcement verification; identity and access configuration; staff authentication verification; training effectiveness review; incident response records; encryption and secrets configuration; vulnerability detection baseline and exception EX-2026-001; information resources inventory sources; assessment materials and schedule; and recovery and backup configuration. Each states the facts, the rule identifiers it evidences and its source records, with the machine-readable export appended.",
-      "availability": "Supplied with the Class A application; published as a restricted trust-center resource, no NDA, when that application is filed"
+      "availability": "Supplied with the Class A application; a restricted trust-center resource open to access requests since 2026-09-14, no NDA."
     },
     {
       "name": "Service availability (CDS-CSO-AVR)",

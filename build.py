@@ -129,7 +129,7 @@ FIELDS = [
      tp_html),
     ("FedRAMP Recognized Independent Assessor",
      f'{esc(assessor["name"])} (Assessor ID {esc(assessor["assessorID"])})' if assessor
-     else na("Class A rests on an approved alternative security framework assessment (FRC-CLA-ASF) and independent verification and validation of the package is optional at Class A (FRC-CLA-IVV); an assessor is engaged for the Class C assessment, scheduled well inside the 24 months MKT-IIP-DLA allows from initial listing")),
+     else na("Class A rests on an approved alternative security framework assessment (FRC-CLA-ASF) and independent verification and validation of the package is optional at Class A (FRC-CLA-IVV); an assessor is engaged for the Class C assessment; its dates are not yet set, and MKT-IIP-DLA requires the assessment to be scheduled within 24 months of the initial listing")),
 ]
 
 rows = "".join(f"<tr><th>{esc(name)}</th><td>{value}</td></tr>" for name, value in FIELDS)

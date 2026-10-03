@@ -119,7 +119,7 @@ FIELDS = [
     ("Overall Service Description", esc(si["serviceDescription"])),
     ("Services and Security Categories", svc_html),
     ("Secure Configuration Guidance",
-     link(scg["url"]) if scg else '<span class="pending">Not required at Class A (SCG-CSO rules apply from Class B); published before the Class C application.</span>'),
+     link(scg["url"]) + "<br>" + esc(scg["repositoryDescription"]) if scg else '<span class="pending">Not required at Class A (SCG-CSO rules apply from Class B); published before the Class C application.</span>'),
     ("Documentation Overview", doc_html),
     ("Trust Center", tc_html),
     ("Next Ongoing Certification Report Date",

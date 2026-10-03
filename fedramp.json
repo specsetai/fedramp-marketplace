@@ -32,6 +32,14 @@
       "authenticationRequired": true,
       "accessRequestInstructions": "The landing page at https://trust.specset.com requires no login. FedRAMP staff and agency reviewers request access to the restricted FedRAMP Certification Data from the Trust Center page. Requests from fedramp.gov and gsa.gov email addresses are approved automatically; Specset approves all other requests manually. Specset does not require acceptance of terms or a non-disclosure agreement. If a request is not approved within one business day, email fedramp@specset.com."
     },
+    "secureConfigurationGuidance": {
+      "repositoryType": [
+        "Secure Configuration Guidance"
+      ],
+      "url": "https://docs.specset.com/docs/secure-configuration",
+      "repositoryDescription": "Specset's Secure Configuration Guide (SCG-CSO-RSC), a public page in the product documentation written for the administrators of a customer organization: the roles that control an organization and the FedRAMP term for each, the recommended security settings for an organization that holds federal information or CUI and what each does, how Admin accounts are set up, reviewed and removed, and how account access is requested and recovered. It gives the recommended settings in JSON with the API query that exports an organization's current settings for comparison, and the version history of the recommended settings.",
+      "authenticationRequired": false
+    },
     "additionalRepositories": [
       {
         "repositoryType": [
@@ -184,9 +192,9 @@
       "title": "CEO and Co-Founder",
       "email": "gordon@specset.com"
     },
-    "version": "2026.09.30",
-    "lastUpdated": "2026-09-30T22:00:00Z",
-    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Provider correction during FedRAMP review of the Class A application: corrects statements in the filed version 2026.09.14 that became outdated after the application was filed."
+    "version": "2026.10.03",
+    "lastUpdated": "2026-10-03T16:29:00Z",
+    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Provider update during FedRAMP review of the Class A application: links the Secure Configuration Guide, published on 2026-10-03, as the Security Decision Record planned, and replaces the statement that it was not yet published. Version 2026.09.30 corrected statements in the filed version 2026.09.14 that became outdated after the application was filed."
   },
   "documentation": [
     {
@@ -276,8 +284,8 @@
     {
       "name": "Secure configuration guidance",
       "type": "Web page",
-      "summary": "Customer-side configuration guidance (single sign-on, roles, CUI mode). The Secure Configuration Guide rules (SCG-CSO) apply to Classes B, C and D, not to Class A, so no guide is required for this application. Gap: not yet published. Plan: publish it on the Trust Center and link it from serviceProperties.secureConfigurationGuidance in this document before the Class C application.",
-      "availability": "Not yet published"
+      "summary": "The Secure Configuration Guide for the administrators of a customer organization: the roles that control an organization, the recommended security settings for an organization that holds federal information or CUI, managing Admin accounts, and account access. The Secure Configuration Guide rules (SCG-CSO) apply to Classes B, C and D, not to Class A; the guide was published on 2026-10-03, ahead of the Class C application, and is linked from serviceProperties.secureConfigurationGuidance in this document.",
+      "availability": "Public, no login: https://docs.specset.com/docs/secure-configuration"
     }
   ]
 }

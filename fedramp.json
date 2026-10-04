@@ -192,9 +192,9 @@
       "title": "CEO and Co-Founder",
       "email": "gordon@specset.com"
     },
-    "version": "2026.10.03",
-    "lastUpdated": "2026-10-03T16:29:00Z",
-    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Provider update during FedRAMP review of the Class A application: links the Secure Configuration Guide, published on 2026-10-03, as the Security Decision Record planned, and replaces the statement that it was not yet published. Version 2026.09.30 corrected statements in the filed version 2026.09.14 that became outdated after the application was filed."
+    "version": "2026.10.05",
+    "lastUpdated": "2026-10-05T00:00:00Z",
+    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Provider update during FedRAMP review of the Class A application: the Vulnerability Management Procedure summary states the procedure's current evaluation and remediation timeframes (the Class C response table, adopted 2026-10-01) instead of the Class A ones. Version 2026.10.03 linked the Secure Configuration Guide; version 2026.09.30 corrected statements in the filed version 2026.09.14 that became outdated after the application was filed."
   },
   "documentation": [
     {
@@ -236,7 +236,7 @@
     {
       "name": "Vulnerability Management Procedure",
       "type": "Markdown / PDF",
-      "summary": "Persistent detection (Dependabot security alerts and CodeQL code scanning on the application and infrastructure repositories, Artifact Registry image scanning of deployed digests), PAIN-based evaluation within 14 days, Class A remediation timeframes, and adoption of the VDR / VER rulesets ahead of the 2026-12-07 mandate.",
+      "summary": "Persistent detection (Dependabot security alerts and CodeQL code scanning on the application and infrastructure repositories, Artifact Registry image scanning of deployed digests), PAIN-based evaluation within 14 days of detection (5 days from 2026-11-01), the Class C remediation timeframes, which also meet the Class A ones, and adoption of the VDR / VER rulesets ahead of the 2026-12-07 mandate.",
       "availability": "Supplied with the Class A application; a restricted trust-center resource open to access requests since 2026-09-14, no NDA."
     },
     {

@@ -193,7 +193,7 @@
       "email": "gordon@specset.com"
     },
     "version": "2026.10.05",
-    "lastUpdated": "2026-10-05T00:00:00Z",
+    "lastUpdated": "2026-10-05T15:00:00Z",
     "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Provider update during FedRAMP review of the Class A application: the Vulnerability Management Procedure summary states the procedure's current evaluation and remediation timeframes (the Class C response table, adopted 2026-10-01) instead of the Class A ones. Version 2026.10.03 linked the Secure Configuration Guide; version 2026.09.30 corrected statements in the filed version 2026.09.14 that became outdated after the application was filed."
   },
   "documentation": [

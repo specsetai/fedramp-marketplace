@@ -63,6 +63,10 @@
       "contactEmail": "fedramp@specset.com"
     }
   ],
+  "assessor": {
+    "name": "Prescient Security, LLC.",
+    "assessorID": "202040"
+  },
   "certifiedServices": [
     {
       "serviceName": "Specset Cloud Platform",
@@ -192,9 +196,9 @@
       "title": "CEO and Co-Founder",
       "email": "gordon@specset.com"
     },
-    "version": "2026.10.05",
-    "lastUpdated": "2026-10-05T15:00:00Z",
-    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Provider update during FedRAMP review of the Class A application: the Vulnerability Management Procedure summary states the procedure's current evaluation and remediation timeframes (the Class C response table, adopted 2026-10-01) instead of the Class A ones. Version 2026.10.03 linked the Secure Configuration Guide; version 2026.09.30 corrected statements in the filed version 2026.09.14 that became outdated after the application was filed."
+    "version": "2026.10.07",
+    "lastUpdated": "2026-10-07T17:00:00Z",
+    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Provider update during FedRAMP review of the Class A application: names the FedRAMP Recognized independent assessment service engaged for the Class C assessment, Prescient Security, LLC. (Assessor ID 202040), and gives the status page's machine-readable addresses that are served as JSON and RSS. Version 2026.10.05 stated the Vulnerability Management Procedure's current timeframes; version 2026.10.03 linked the Secure Configuration Guide; version 2026.09.30 corrected statements in the filed version 2026.09.14 that became outdated after the application was filed."
   },
   "documentation": [
     {
@@ -218,7 +222,7 @@
     {
       "name": "SOC 2 Type II report",
       "type": "PDF (restricted use)",
-      "summary": "Prescient Assurance LLC, issued 2026-08-31, Security Trust Services Criteria, period 2026-04-15 to 2026-07-15, unqualified opinion, no exceptions on 131 tested controls. This is the approved alternative security framework assessment that Class A rests on (FRC-CLA-ASF). Independent verification and validation of the certification package by a FedRAMP Recognized independent assessment service is optional at Class A (FRC-CLA-IVV), and none is engaged for this submission. An independent assessor is engaged for the Class C assessment that follows. The management representation letter accompanying the report is retained in the evidence repository and supplied with the application and on request to fedramp@specset.com.",
+      "summary": "Prescient Assurance LLC, issued 2026-08-31, Security Trust Services Criteria, period 2026-04-15 to 2026-07-15, unqualified opinion, no exceptions on 131 tested controls. This is the approved alternative security framework assessment that Class A rests on (FRC-CLA-ASF). Independent verification and validation of the certification package by a FedRAMP Recognized independent assessment service is optional at Class A (FRC-CLA-IVV), and none is engaged for this submission. An independent assessor, Prescient Security, LLC. (Assessor ID 202040, the assessor named in this document), is engaged for the Class C assessment that follows. The management representation letter accompanying the report is retained in the evidence repository and supplied with the application and on request to fedramp@specset.com.",
       "availability": "Trust center (trust.specset.com), restricted resource open to access requests, view only, no NDA"
     },
     {
@@ -277,8 +281,8 @@
     },
     {
       "name": "Service availability (CDS-CSO-AVR)",
-      "type": "Web page + JSON",
-      "summary": "Current status, 90-day per-service history and incidents, hosted independently of the offering; machine-readable at https://status.specset.com/index.json.",
+      "type": "Web page + JSON + RSS",
+      "summary": "Current status, 90-day per-service history and incidents, hosted independently of the offering; machine-readable at https://status.specset.com/index.json?format=json (JSON) and https://status.specset.com/feed.rss (incident RSS).",
       "availability": "Public: https://status.specset.com"
     },
     {

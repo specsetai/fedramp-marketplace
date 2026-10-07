@@ -58,11 +58,23 @@ assessor = data.get("assessor")
 services = data.get("certifiedServices")
 
 if services:
+    # CDS-CSO-SVC: each service with its security category and whether it is in the
+    # Minimum Assessment Scope; servicesNotIncluded names what a customer might take for
+    # part of the offering but is not.
     svc_rows = "".join(
-        f"<tr><td>{esc(s['serviceName'])}</td><td>{esc(s['serviceDescription'])}</td><td>{esc(s['dateAvailable'])}</td></tr>"
+        f"<tr><td>{esc(s['serviceName'])}</td><td>{esc(s['serviceDescription'])}</td>"
+        f"<td>{esc(s.get('securityCategory', ''))}</td><td>{esc(s.get('minimumAssessmentScope', ''))}</td>"
+        f"<td>{esc(s.get('dateAvailable', ''))}</td></tr>"
         for s in services
     )
-    svc_html = f'<table class="inner"><thead><tr><th>Service</th><th>Description</th><th>Available since</th></tr></thead><tbody>{svc_rows}</tbody></table>'
+    svc_html = f'<table class="inner"><thead><tr><th>Service</th><th>Description</th><th>Security category</th><th>Minimum Assessment Scope</th><th>Available since</th></tr></thead><tbody>{svc_rows}</tbody></table>'
+    excluded = data.get("servicesNotIncluded", [])
+    if excluded:
+        exc_rows = "".join(
+            f"<tr><td>{esc(s['serviceName'])}</td><td>{esc(s['serviceDescription'])}</td><td>{esc(s['minimumAssessmentScope'])}</td></tr>"
+            for s in excluded
+        )
+        svc_html += f'<p><strong>Not included</strong></p><table class="inner"><thead><tr><th>Item</th><th>Why</th><th>Minimum Assessment Scope</th></tr></thead><tbody>{exc_rows}</tbody></table>'
 else:
     raise SystemExit("fedramp.json has no certifiedServices; the public page must not be generated without them")
 
@@ -89,6 +101,39 @@ if docs:
     doc_html = f'<table class="inner"><thead><tr><th>Document</th><th>Type</th><th>Summary</th><th>Availability</th></tr></thead><tbody>{doc_rows}</tbody></table>'
 else:
     raise SystemExit("fedramp.json has no documentation entries; the public page must not be generated without them")
+
+# CDS-CSO-IRP: the policy and procedure reference. Written into fedramp.json from the documents
+# themselves by the private infrastructure repository's fedramp/policy_reference.py.
+policies = data.get("policiesAndProcedures")
+if policies:
+    pol_rows = "".join(
+        f"<tr><td>{esc(p['name'])}<br><small>{esc(p['type'])}</small></td><td>{esc(p['file'])}</td>"
+        f"<td>{esc(p['summary'])}</td><td>{esc(p['wordCount'])}</td><td>{esc(p['currentVersion'])}</td>"
+        f"<td>{esc(p['lastUpdated'])}</td><td>{esc(', '.join(p['relatedFedRampPractices']) or '—')}</td>"
+        f"<td>{esc(p['availability'])}</td></tr>"
+        for p in policies)
+    pol_html = (f'<h2>Policies and procedures</h2>'
+                f'<p>Every policy and procedure in the FedRAMP Certification Data '
+                f'(<a href="https://www.fedramp.gov/2026/reference/certification-data-sharing/#include-relevant-policies">CDS-CSO-IRP</a>), '
+                f'with the version and word count of the edition currently supplied. The availability column says how to obtain each; '
+                f'restricted documents are requested on the trust center or from the security contact above.</p>'
+                f'<table class="inner"><thead><tr><th>Name</th><th>File</th><th>Summary</th><th>Words</th><th>Version</th>'
+                f'<th>Last updated</th><th>Related FedRAMP practices</th><th>Availability</th></tr></thead><tbody>{pol_rows}</tbody></table>')
+else:
+    pol_html = ""
+
+# CMU-CSO-CMD: the cryptographic modules that protect federal customer data.
+crypto = data.get("cryptographicModules")
+if crypto:
+    cm_rows = "".join(
+        f"<tr><td>{esc(c['protects'])}</td><td>{esc(c['module'])}</td><td>{esc(c['operatedBy'])}</td>"
+        f"<td>{esc(c['cmvpStatus'])}</td></tr>"
+        for c in crypto.get("modules", []))
+    cm_html = (f'<h2>Cryptographic modules</h2><p>{esc(crypto.get("summary", ""))}</p>'
+               f'<table class="inner"><thead><tr><th>What it protects</th><th>Module</th><th>Operated by</th>'
+               f'<th>NIST CMVP status</th></tr></thead><tbody>{cm_rows}</tbody></table>')
+else:
+    cm_html = ""
 
 meta = data.get("metadata")
 if meta:
@@ -176,6 +221,10 @@ page = f"""<!doctype html>
   <table>
     <tbody>{rows}</tbody>
   </table>
+
+  {pol_html}
+
+  {cm_html}
 
   <h2>Package metadata</h2>
   {meta_html}

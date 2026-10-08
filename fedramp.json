@@ -28,7 +28,7 @@
         "Assessment Reports"
       ],
       "url": "https://trust.specset.com",
-      "repositoryDescription": "Specset Trust Center, the single repository for FedRAMP Certification Data for the Specset Cloud Platform. The landing page, compliance posture summary, subprocessor list and FedRAMP milestone information are public. The Class A certification data has been published there since 2026-09-14 as 24 restricted resources, with no non-disclosure agreement or acceptance of terms required. Twenty-two are open to access requests: the Security Decision Record, the example Ongoing Certification Report and the information-resources inventory, each in machine-readable and human-readable form; the Incident Response Procedure; the Vulnerability Management Procedure; the SOC 2 Type II report and the engagement letter for that examination, both view only; and twelve supporting-evidence documents, one per artifact the Security Decision Record cites. The other two, the management representation letter and the SOC 2 renewal engagement letter, are private resources supplied on request to fedramp@specset.com.",
+      "repositoryDescription": "Specset Trust Center, the single repository for FedRAMP Certification Data for the Specset Cloud Platform. The landing page, compliance posture summary, subprocessor list and FedRAMP milestone information are public. The Class A certification data has been published there since 2026-09-14 as restricted resources, with no non-disclosure agreement or acceptance of terms required. Twenty-four are open to access requests: the Security Decision Record, the example Ongoing Certification Report and the information-resources inventory, each in machine-readable and human-readable form; the Incident Response Procedure; the Vulnerability Management Procedure; the monthly vulnerability activity reports; the record of significant change notifications and incident reports sent to FedRAMP, in machine-readable and human-readable form; the SOC 2 Type II report, view only; and twelve supporting-evidence documents, one per artifact the Security Decision Record cites. The engagement letter for the completed SOC 2 examination, the management representation letter and the SOC 2 renewal engagement letter are private resources supplied on request to fedramp@specset.com.",
       "authenticationRequired": true,
       "accessRequestInstructions": "The landing page at https://trust.specset.com requires no login. FedRAMP staff and agency reviewers request access to the restricted FedRAMP Certification Data from the Trust Center page. Requests from fedramp.gov and gsa.gov email addresses are approved automatically; Specset approves all other requests manually. Specset does not require acceptance of terms or a non-disclosure agreement. If a request is not approved within one business day, email fedramp@specset.com."
     },
@@ -383,9 +383,9 @@
       "title": "CEO and Co-Founder",
       "email": "gordon@specset.com"
     },
-    "version": "2026.10.07",
-    "lastUpdated": "2026-10-07T23:20:00Z",
-    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Provider update during FedRAMP review of the Class A application: names the FedRAMP Recognized independent assessment service engaged for the Class C assessment, Prescient Security, LLC. (Assessor ID 202040), and gives the status page's machine-readable addresses that are served as JSON and RSS; and adds what the Class C rules ask the overview to carry: the service list item by item, with each item's security category and whether it is in the Minimum Assessment Scope (CDS-CSO-SVC), the reference to every policy and procedure in the certification data (CDS-CSO-IRP, policiesAndProcedures) and the cryptographic module list (CMU-CSO-CMD, cryptographicModules), and names the fifteen approved security policies. CARTO basemaps is removed from the third-party information resources: the closeout dashboard's facility map, its only use, was removed from the application (specbook #1154, deployed 2026-10-07), so no map-tile request leaves the offering. Version 2026.10.05 stated the Vulnerability Management Procedure's current timeframes; version 2026.10.03 linked the Secure Configuration Guide; version 2026.09.30 corrected statements in the filed version 2026.09.14 that became outdated after the application was filed."
+    "version": "2026.10.08",
+    "lastUpdated": "2026-10-08T19:00:00Z",
+    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Provider update during FedRAMP review of the Class A application, published with Security Decision Record v2026.09.14.10: the engagement letter for the completed SOC 2 examination is now a private resource supplied on request, because its e-signature record carries a signer's personal details; the trust-center description lists the resources open to access requests as they now stand; and the policy and procedure reference carries the republished Incident Response Procedure (2026-10-08) and Vulnerability Management Procedure (2026-10-07). Version 2026.10.07 named the FedRAMP Recognized independent assessment service engaged for the Class C assessment, Prescient Security, LLC. (Assessor ID 202040), gave the status page's machine-readable addresses that are served as JSON and RSS, and added what the Class C rules ask the overview to carry: the service list item by item, with each item's security category and whether it is in the Minimum Assessment Scope (CDS-CSO-SVC), the reference to every policy and procedure in the certification data (CDS-CSO-IRP, policiesAndProcedures) and the cryptographic module list (CMU-CSO-CMD, cryptographicModules), and named the fifteen approved security policies. It removed CARTO basemaps from the third-party information resources: the closeout dashboard's facility map, its only use, was removed from the application (specbook #1154, deployed 2026-10-07), so no map-tile request leaves the offering. Version 2026.10.05 stated the Vulnerability Management Procedure's current timeframes; version 2026.10.03 linked the Secure Configuration Guide; version 2026.09.30 corrected statements in the filed version 2026.09.14 that became outdated after the application was filed."
   },
   "documentation": [
     {
@@ -416,7 +416,7 @@
       "name": "SOC 2 Type II engagement documentation",
       "type": "PDF (restricted use)",
       "summary": "Verified engagement documentation for the completed examination, dated 2026-08-25. The next report is planned after the 2026-07-16 to 2027-07-15 period ends and before 2027-08-31. The renewal engagement letter for that period with Prescient Assurance LLC, dated 2026-09-08, was executed on 2026-09-25. Gap: no assessor bridge or gap letter covers 2026-07-16 to the application date. Plan: settle the bridge-letter position with the assessor during the FedRAMP review and supply any letter issued with the assessment materials.",
-      "availability": "Trust center: the 2026-08-25 engagement letter is a restricted resource open to access requests (view only, no NDA); the executed renewal letter is a private resource supplied on request to fedramp@specset.com."
+      "availability": "Trust center: the 2026-08-25 engagement letter and the executed renewal letter are private resources supplied on request to fedramp@specset.com."
     },
     {
       "name": "Incident Response Procedure",
@@ -485,9 +485,9 @@
       "type": "Procedure",
       "file": "incident-response.pdf",
       "summary": "Incident detection, triage, FedRAMP reportability evaluation, initial, ongoing and final incident reports, the FedRAMP Security Inbox procedure and the quarterly review.",
-      "wordCount": 3169,
-      "currentVersion": "2026-10-01",
-      "lastUpdated": "2026-10-01",
+      "wordCount": 3687,
+      "currentVersion": "2026-10-08",
+      "lastUpdated": "2026-10-08",
       "relatedFedRampPractices": [
         "IEC-CSO-EFR",
         "IEC-CSO-EFI",
@@ -516,9 +516,9 @@
       "type": "Procedure",
       "file": "vulnerability-management.pdf",
       "summary": "Persistent vulnerability detection, PAIN-based evaluation, response timeframes, exceptions and risk acceptance, and the monthly vulnerability activity report.",
-      "wordCount": 3657,
-      "currentVersion": "2026-10-02",
-      "lastUpdated": "2026-10-02",
+      "wordCount": 4262,
+      "currentVersion": "2026-10-07",
+      "lastUpdated": "2026-10-07",
       "relatedFedRampPractices": [
         "VDR (all rules)",
         "VER (all rules)"
@@ -546,9 +546,9 @@
       "type": "Procedure",
       "file": "https://docs.specset.com/docs/secure-configuration",
       "summary": "For the administrators of a customer organization: the accounts that control an organization, the recommended security settings for one holding federal information or CUI, and how account access is requested and recovered.",
-      "wordCount": 1222,
+      "wordCount": 1288,
       "currentVersion": "2026.09.18.2",
-      "lastUpdated": "2026-10-05",
+      "lastUpdated": "2026-10-07",
       "relatedFedRampPractices": [
         "SCG-CSO-RSC",
         "SCG-CSO-PUB",
@@ -623,7 +623,7 @@
       "type": "Procedure",
       "file": "privileged-access.md",
       "summary": "How the founders obtain administrative access to production per task, with a reason and for a limited time, through Privileged Access Manager, and the last-resort path.",
-      "wordCount": 2628,
+      "wordCount": 2629,
       "currentVersion": "edition 2026-10-07",
       "lastUpdated": "2026-10-07",
       "relatedFedRampPractices": [

@@ -384,7 +384,7 @@
       "email": "gordon@specset.com"
     },
     "version": "2026.10.08",
-    "lastUpdated": "2026-10-08T19:00:00Z",
+    "lastUpdated": "2026-10-08T20:35:00Z",
     "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Version 2026.10.08, published with Security Decision Record v2026.09.14.10: the 2026-08-25 SOC 2 engagement letter is private, supplied on request; the trust-center description is current; the policy and procedure reference gives the republished Incident Response and Vulnerability Management Procedures. Earlier versions are in this repository's history."
   },
   "documentation": [

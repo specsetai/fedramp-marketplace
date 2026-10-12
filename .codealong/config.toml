@@ -1,0 +1,19 @@
+# Codealong settings for everyone who works on this repo. Codealong reads this file from the branch
+# a pull request merges into, so a change here goes for the team once it's merged.
+# `codealong config check --repo .` checks it.
+
+[reviews]
+# Added after each person's own instructions for the agent that reviews a pull request.
+instructions = "Look only for major issues and security concerns. Don't be overly picky."
+# Suggested: each person takes these in Settings › Automation, or doesn't.
+auto = true                          # an agent reviews each pull request that waits on your review
+post = "comment"                     # its review goes on the pull request as a comment
+
+[reviews.own]
+# Suggested, as above.
+auto = true                          # an agent on another model reviews the pull requests your sessions open
+send = true                          # each of those reviews is handed to the session that opened the pull request
+
+[pull_requests]
+nudge_about = "feedback-and-checks"  # for everyone: a nudge tells of comments, requests for changes and failing checks
+nudge_by_default = true              # suggested: each pull request of yours tells the session that opened it what happens on it

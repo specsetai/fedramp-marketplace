@@ -354,13 +354,13 @@
       {
         "name": "Claude Code (Anthropic) — engineering assistant",
         "provider": "Anthropic, PBC",
-        "useCase": "Coding assistant used by the founders on operator laptops. It is in the assessment scope because what it reads can include federal customer data: production configuration, cluster state, metadata and application logs read as a dedicated read-only service account, and database rows read through a time-limited tunnel that a founder approves each session. What it reads is sent to the model provider. The service account holds reader roles only and has no write permission on production. Database reads use Cloud SQL IAM authentication with SELECT-only grants. Every tunnel start is recorded as an Admin Activity audit entry, and an alert fires if the account ever appears as the principal of a write. Gap: rows of organizations in CUI mode are not yet excluded from that read-only database role. Plan: enforce the exclusion with row-level security before the 2026-12-01 Ongoing Certification Report.",
+        "useCase": "Coding assistant used by the founders on operator laptops. It is in the assessment scope because what it reads is sent to the model provider and can include federal customer data. It acts with the operating founder's own access, and the founder operating it is responsible for what it reads. Specset's rule since 2026-10-09 is that data of organizations in CUI mode must not reach an engineering assistant, and the tooling keeps the defaults inside that rule. Infrastructure reads go through a dedicated read-only service account with reader roles only and no write permission on production; since 2026-10-10 it cannot read the database rows of organizations in CUI mode, credential tables, secret values or Data Access audit logs, and it sees those organizations' application log entries only as sanitized copies. Database rows are read through a time-limited tunnel that a founder approves each session, with Cloud SQL IAM authentication and SELECT-only grants. Every tunnel start is recorded as an Admin Activity audit entry, and an alert fires if the account ever appears as the principal of a write.",
         "website": "https://www.anthropic.com"
       },
       {
         "name": "OpenAI Codex — engineering assistant",
         "provider": "OpenAI",
-        "useCase": "Coding assistant used by the founders on operator laptops. It is in the assessment scope under the same production-access protocol as Claude Code. It reads as the dedicated read-only service account with no write permission on production, and reads database rows only through the founder-approved, SELECT-only, time-limited tunnel. Every tunnel start is recorded as an Admin Activity audit entry, and an alert fires on any write. What it reads is sent to the model provider. The same planned exclusion of CUI-mode rows applies.",
+        "useCase": "Coding assistant used by the founders on operator laptops, in the assessment scope on the same terms as Claude Code. It acts with the operating founder's own access, under the founder's responsibility for what it reads and the rule that data of organizations in CUI mode must not reach an engineering assistant. It reads the infrastructure as the same read-only service account, with no write permission on production, and reads database rows through the founder-approved, SELECT-only, time-limited tunnel. Every tunnel start is recorded as an Admin Activity audit entry, and an alert fires on any write by that account. What it reads is sent to the model provider.",
         "website": "https://openai.com/codex"
       },
       {
@@ -383,9 +383,9 @@
       "title": "CEO and Co-Founder",
       "email": "gordon@specset.com"
     },
-    "version": "2026.10.08",
-    "lastUpdated": "2026-10-08T20:35:00Z",
-    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Version 2026.10.08, published with Security Decision Record v2026.09.14.10: the 2026-08-25 SOC 2 engagement letter is private, supplied on request; the trust-center description is current; the policy and procedure reference gives the republished Incident Response and Vulnerability Management Procedures. Earlier versions are in this repository's history."
+    "version": "2026.10.14",
+    "lastUpdated": "2026-10-14T00:00:00Z",
+    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Version 2026.10.14, published with Security Decision Record v2026.09.14.11: the engineering assistants are described as acting with the operating founder's own access, under the rule that data of organizations in CUI mode must not reach them, and the exclusion of those organizations' rows from their read-only database role is in place since 2026-10-10; the policy and procedure reference gives the republished Incident Response and Vulnerability Management Procedures and Operations Security Policy 3.2. Earlier versions are in this repository's history."
   },
   "documentation": [
     {
@@ -485,9 +485,9 @@
       "type": "Procedure",
       "file": "incident-response.pdf",
       "summary": "Incident detection, triage, FedRAMP reportability evaluation, initial, ongoing and final incident reports, the FedRAMP Security Inbox procedure and the quarterly review.",
-      "wordCount": 3687,
-      "currentVersion": "2026-10-08",
-      "lastUpdated": "2026-10-08",
+      "wordCount": 3771,
+      "currentVersion": "2026-10-14",
+      "lastUpdated": "2026-10-14",
       "relatedFedRampPractices": [
         "IEC-CSO-EFR",
         "IEC-CSO-EFI",
@@ -516,9 +516,9 @@
       "type": "Procedure",
       "file": "vulnerability-management.pdf",
       "summary": "Persistent vulnerability detection, PAIN-based evaluation, response timeframes, exceptions and risk acceptance, and the monthly vulnerability activity report.",
-      "wordCount": 4262,
-      "currentVersion": "2026-10-07",
-      "lastUpdated": "2026-10-07",
+      "wordCount": 4385,
+      "currentVersion": "2026-10-14",
+      "lastUpdated": "2026-10-14",
       "relatedFedRampPractices": [
         "VDR (all rules)",
         "VER (all rules)"
@@ -623,9 +623,9 @@
       "type": "Procedure",
       "file": "privileged-access.md",
       "summary": "How the founders obtain administrative access to production per task, with a reason and for a limited time, through Privileged Access Manager, and the last-resort path.",
-      "wordCount": 2629,
-      "currentVersion": "edition 2026-10-07",
-      "lastUpdated": "2026-10-07",
+      "wordCount": 2661,
+      "currentVersion": "edition 2026-10-09",
+      "lastUpdated": "2026-10-09",
       "relatedFedRampPractices": [
         "KSI-IAM-JIT",
         "KSI-IAM-ELP"
@@ -782,9 +782,9 @@
       "type": "Policy",
       "file": "Operations Security Policy (Vanta policy document)",
       "summary": "Secure operation of information-processing systems, including change management, logging and monitoring, malware and vulnerability handling and data leakage prevention.",
-      "wordCount": 3483,
-      "currentVersion": "3.1",
-      "lastUpdated": "2026-09-14",
+      "wordCount": 3497,
+      "currentVersion": "3.2",
+      "lastUpdated": "2026-10-08",
       "relatedFedRampPractices": [
         "KSI-CMT-LMC",
         "KSI-CMT-RVP",

@@ -271,7 +271,7 @@
     "certified": [
       {
         "fedRampCertifiedThirdPartyInformationResource": "FR1805751477",
-        "useCase": "Google Cloud Platform (Google Services) — primary hosting of all production infrastructure in project specset-prod-assured (Assured Workloads): GKE Autopilot, Cloud SQL, Cloud Storage, Memorystore, Cloud KMS, Cloud Load Balancing and Cloud Armor, Cloud Logging and Monitoring, Secret Manager, Artifact Registry, and Vertex AI (Gemini) model inference, embeddings and Web Grounding for Enterprise. Organizations in CUI mode use Vertex AI in the Assured Workloads project at location us only; other organizations use Vertex AI in a peer Google Cloud project, specbook-production, outside Assured Workloads. Stores and processes customer data. A third Google Cloud project, specbook-development, holds the development user-content buckets, development service identity and development vendor-key secrets; it sits outside Assured Workloads and inside the assessment scope because it shares integration credentials and software delivery with production. A founder-run project-clone tool can copy a production project's documents into that development environment for debugging, so development stores may hold customer content. Two further Google Cloud projects are inside the assessment scope and hold no customer content: specset-dataroom, an investor data room with no connection to the offering, and vanta-scanner, which holds the compliance scanner's federated identity and read-only custom roles outside the boundary project. Gap: the clone tool does not yet exclude the projects of organizations in CUI mode. Plan: block cloning of CUI-mode organizations in the tool and record the rule in the production-access procedure before the 2026-12-01 Ongoing Certification Report."
+        "useCase": "Google Cloud Platform (Google Services) — primary hosting of all production infrastructure in project specset-prod-assured (Assured Workloads): GKE Autopilot, Cloud SQL, Cloud Storage, Memorystore, Cloud KMS, Cloud Load Balancing and Cloud Armor, Cloud Logging and Monitoring, Secret Manager, Artifact Registry, and Vertex AI (Gemini) model inference, embeddings and Web Grounding for Enterprise. Organizations in CUI mode use Vertex AI in the Assured Workloads project at location us only; other organizations use Vertex AI in a peer Google Cloud project, specbook-production, outside Assured Workloads. Stores and processes customer data. A third Google Cloud project, specbook-development, holds the development user-content buckets, development service identity and development vendor-key secrets; it sits outside Assured Workloads and inside the assessment scope because it shares integration credentials and software delivery with production. It does not handle federal customer data. A founder-run project-clone tool is built to copy a production project into the founder's local development environment on their laptop for debugging, not into this project (a full clone does not check that its object store is local), so a founder's laptop may hold customer content of organizations not in CUI mode. Specset enables CUI mode on any tenant provisioned for a federal customer before federal content is uploaded; the clone tool refuses any organization in CUI mode, for a full clone since 2026-10-12 and for a re-copy of an already-cloned project's files since 2026-10-13, and no organization now in CUI mode has been cloned. Two further Google Cloud projects are inside the assessment scope and hold no customer content: specset-dataroom, an investor data room with no connection to the offering, and vanta-scanner, which holds the compliance scanner's federated identity and read-only custom roles outside the boundary project."
       },
       {
         "fedRampCertifiedThirdPartyInformationResource": "AGENCYAMAZONEW",
@@ -354,13 +354,13 @@
       {
         "name": "Claude Code (Anthropic) — engineering assistant",
         "provider": "Anthropic, PBC",
-        "useCase": "Coding assistant used by the founders on operator laptops. It is in the assessment scope because what it reads can include federal customer data: production configuration, cluster state, metadata and application logs read as a dedicated read-only service account, and database rows read through a time-limited tunnel that a founder approves each session. What it reads is sent to the model provider. The service account holds reader roles only and has no write permission on production. Database reads use Cloud SQL IAM authentication with SELECT-only grants. Every tunnel start is recorded as an Admin Activity audit entry, and an alert fires if the account ever appears as the principal of a write. Gap: rows of organizations in CUI mode are not yet excluded from that read-only database role. Plan: enforce the exclusion with row-level security before the 2026-12-01 Ongoing Certification Report.",
+        "useCase": "Coding assistant used by the founders on operator laptops. It is in the assessment scope because what it reads is sent to the model provider and can include federal customer data. It acts with the operating founder's own access, and the founder operating it is responsible for what it reads. Specset's rule since 2026-10-09 is that data of organizations in CUI mode must not reach an engineering assistant, and the tooling keeps its default reads inside that rule. Infrastructure reads go through a dedicated read-only service account with reader roles only, no secret values and no write permission on production; since 2026-10-10 it cannot read the database rows of organizations in CUI mode, credential tables or Data Access audit logs, and it sees those organizations' application log entries only as sanitized copies. Database rows are read through a time-limited tunnel that a founder approves each session, with Cloud SQL IAM authentication and SELECT-only grants. Every tunnel start is recorded as an Admin Activity audit entry, and an alert fires if the account ever appears as the principal of a write.",
         "website": "https://www.anthropic.com"
       },
       {
         "name": "OpenAI Codex — engineering assistant",
         "provider": "OpenAI",
-        "useCase": "Coding assistant used by the founders on operator laptops. It is in the assessment scope under the same production-access protocol as Claude Code. It reads as the dedicated read-only service account with no write permission on production, and reads database rows only through the founder-approved, SELECT-only, time-limited tunnel. Every tunnel start is recorded as an Admin Activity audit entry, and an alert fires on any write. What it reads is sent to the model provider. The same planned exclusion of CUI-mode rows applies.",
+        "useCase": "Coding assistant used by the founders on operator laptops, in the assessment scope on the same terms as Claude Code. It acts with the operating founder's own access, under the founder's responsibility for what it reads and the rule that data of organizations in CUI mode must not reach an engineering assistant. It reads the infrastructure as the same read-only service account, which has no write permission on production, and reads database rows through the founder-approved, SELECT-only, time-limited tunnel. Every tunnel start is recorded as an Admin Activity audit entry, and an alert fires on any write by that account. What it reads is sent to the model provider.",
         "website": "https://openai.com/codex"
       },
       {
@@ -383,9 +383,9 @@
       "title": "CEO and Co-Founder",
       "email": "gordon@specset.com"
     },
-    "version": "2026.10.08",
-    "lastUpdated": "2026-10-08T20:35:00Z",
-    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Version 2026.10.08, published with Security Decision Record v2026.09.14.10: the 2026-08-25 SOC 2 engagement letter is private, supplied on request; the trust-center description is current; the policy and procedure reference gives the republished Incident Response and Vulnerability Management Procedures. Earlier versions are in this repository's history."
+    "version": "2026.10.14",
+    "lastUpdated": "2026-10-14T17:27:00Z",
+    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Version 2026.10.14, published with Security Decision Record v2026.09.14.11: the engineering assistants are described as acting with the operating founder's own access, under the rule that data of organizations in CUI mode must not reach them, and the exclusion of those organizations' rows from the read-only service account's database role is in place since 2026-10-10; the project-clone tool refuses organizations in CUI mode, and the Google Cloud entry corrects where it is built to copy to: the founder's local development environment, not the development project. Version 2026.10.08's plan to also record that rule in the production-access procedure is withdrawn, since the tool enforces it; the policy and procedure reference gives the republished Incident Response and Vulnerability Management Procedures, the Privileged access procedure (edition 2026-10-09) and Operations Security Policy 3.2. Earlier versions are in this repository's history."
   },
   "documentation": [
     {
@@ -485,9 +485,9 @@
       "type": "Procedure",
       "file": "incident-response.pdf",
       "summary": "Incident detection, triage, FedRAMP reportability evaluation, initial, ongoing and final incident reports, the FedRAMP Security Inbox procedure and the quarterly review.",
-      "wordCount": 3687,
-      "currentVersion": "2026-10-08",
-      "lastUpdated": "2026-10-08",
+      "wordCount": 3788,
+      "currentVersion": "2026-10-14",
+      "lastUpdated": "2026-10-14",
       "relatedFedRampPractices": [
         "IEC-CSO-EFR",
         "IEC-CSO-EFI",
@@ -516,9 +516,9 @@
       "type": "Procedure",
       "file": "vulnerability-management.pdf",
       "summary": "Persistent vulnerability detection, PAIN-based evaluation, response timeframes, exceptions and risk acceptance, and the monthly vulnerability activity report.",
-      "wordCount": 4262,
-      "currentVersion": "2026-10-07",
-      "lastUpdated": "2026-10-07",
+      "wordCount": 4385,
+      "currentVersion": "2026-10-14",
+      "lastUpdated": "2026-10-14",
       "relatedFedRampPractices": [
         "VDR (all rules)",
         "VER (all rules)"
@@ -623,9 +623,9 @@
       "type": "Procedure",
       "file": "privileged-access.md",
       "summary": "How the founders obtain administrative access to production per task, with a reason and for a limited time, through Privileged Access Manager, and the last-resort path.",
-      "wordCount": 2629,
-      "currentVersion": "edition 2026-10-07",
-      "lastUpdated": "2026-10-07",
+      "wordCount": 2661,
+      "currentVersion": "edition 2026-10-09",
+      "lastUpdated": "2026-10-09",
       "relatedFedRampPractices": [
         "KSI-IAM-JIT",
         "KSI-IAM-ELP"
@@ -782,9 +782,9 @@
       "type": "Policy",
       "file": "Operations Security Policy (Vanta policy document)",
       "summary": "Secure operation of information-processing systems, including change management, logging and monitoring, malware and vulnerability handling and data leakage prevention.",
-      "wordCount": 3483,
-      "currentVersion": "3.1",
-      "lastUpdated": "2026-09-14",
+      "wordCount": 3497,
+      "currentVersion": "3.2",
+      "lastUpdated": "2026-10-08",
       "relatedFedRampPractices": [
         "KSI-CMT-LMC",
         "KSI-CMT-RVP",

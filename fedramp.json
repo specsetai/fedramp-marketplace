@@ -360,7 +360,7 @@
       {
         "name": "OpenAI Codex — engineering assistant",
         "provider": "OpenAI",
-        "useCase": "Coding assistant used by the founders on operator laptops, in the assessment scope on the same terms as Claude Code. It acts with the operating founder's own access, under the founder's responsibility for what it reads and the rule that data of organizations in CUI mode must not reach an engineering assistant. It reads the infrastructure as the same read-only service account, with no write permission on production, and reads database rows through the founder-approved, SELECT-only, time-limited tunnel. Every tunnel start is recorded as an Admin Activity audit entry, and an alert fires on any write by that account. What it reads is sent to the model provider.",
+        "useCase": "Coding assistant used by the founders on operator laptops, in the assessment scope on the same terms as Claude Code. It acts with the operating founder's own access, under the founder's responsibility for what it reads and the rule that data of organizations in CUI mode must not reach an engineering assistant. It reads the infrastructure as the same read-only service account, which has no write permission on production, and reads database rows through the founder-approved, SELECT-only, time-limited tunnel. Every tunnel start is recorded as an Admin Activity audit entry, and an alert fires on any write by that account. What it reads is sent to the model provider.",
         "website": "https://openai.com/codex"
       },
       {

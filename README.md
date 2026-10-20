@@ -15,7 +15,7 @@ Source repository for Specset's public FedRAMP information supporting our **Init
 - **Website:** https://specset.com
 - **Trust Center:** https://trust.specset.com (live; landing page public, no login)
 - **Current stage:** Initial Implementation
-- **Target framework:** FedRAMP 20x Class A (pipeline open since 2026-08-03; application filed 2026-09-14, help.fedramp.gov #67451, under FedRAMP review — nothing is certified yet), then Class C on the same boundary
+- **Target framework:** FedRAMP 20x Class A (pipeline open since 2026-08-03; application filed 2026-09-14, help.fedramp.gov #67451, under FedRAMP review — nothing is certified yet), then Class C on the same boundary (application targeted for the first week of December 2026)
 - **Federal use case:** Direct Use (MKT-IIP-AGU) — agency staff will use the platform directly. The evidence of intent: a federal agency evaluation tenant provisioned with CUI mode enabled since 2026-09-13, the agency's confirmation of the Direct Use case on 2026-08-24, and a paid pilot pending procurement through one of the agency's contractors. No agency has used the service in production yet; the tenant will be listed in the Ongoing Certification Report when agency use begins. Contractor tenants are the contractor's own information systems; a contractor holding a federal contract may invite agency personnel as members of its tenant, and contractors handling CUI under their own contracts may request CUI mode. Specset is not included as a third-party information resource in another cloud service offering, so the Indirect Use case does not apply.
 - **Security contact / FedRAMP Security Inbox:** fedramp@specset.com
 
@@ -36,7 +36,7 @@ Progress is measured against the goals below and updated at least quarterly, per
 | FedRAMP 20x Class A certification decision | Oct 2026 | In review — FedRAMP's stated goal is a decision within 30 days of the application; during review the package changes only for corrections and reviewer requests |
 | First Ongoing Certification Report published | 2026-12-01 | Scheduled — date published in `fedramp.json` (`nextOngoingCertificationReportDate`) |
 | Baseline Key Security Indicators (KSI) evidence assembled | Q4 2026 | In progress — persistent validation (drift detection, vulnerability detection, alerting) running since 2026-08-22 |
-| Independent assessment for a full operational class (B/C/D) **scheduled** | Within 24 months of listing (by Aug 2028) | In progress — assessor engaged for a Class C certification assessment (Prescient Security, LLC; statement of work issued 2026-07-15 and signed by Specset 2026-07-30); assessment dates not set. Class A itself requires no independent assessment (FRC-CLA-IVV is optional) |
+| Independent assessment for a full operational class (B/C/D) **scheduled** | Within 24 months of listing (by Aug 2028) | In progress — Class C certification assessment by Prescient Security, LLC (statement of work issued 2026-07-15 and signed by Specset 2026-07-30), under way since October 2026: interviews in late October, the assessment report about a week later, and the Class C application targeted for the first week of December 2026. Class A itself requires no independent assessment (FRC-CLA-IVV is optional) |
 
 ## Updating the listing
 

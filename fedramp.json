@@ -485,7 +485,7 @@
       "type": "Procedure",
       "file": "incident-response.pdf",
       "summary": "Incident detection, triage, FedRAMP reportability evaluation, initial, ongoing and final incident reports, the FedRAMP Security Inbox procedure and the quarterly review.",
-      "wordCount": 3788,
+      "wordCount": 3808,
       "currentVersion": "2026-10-21",
       "lastUpdated": "2026-10-21",
       "relatedFedRampPractices": [
@@ -516,7 +516,7 @@
       "type": "Procedure",
       "file": "vulnerability-management.pdf",
       "summary": "Persistent vulnerability detection, PAIN-based evaluation, response timeframes, exceptions and risk acceptance, and the monthly vulnerability activity report.",
-      "wordCount": 4775,
+      "wordCount": 4859,
       "currentVersion": "2026-10-21",
       "lastUpdated": "2026-10-21",
       "relatedFedRampPractices": [

@@ -366,7 +366,7 @@
       {
         "name": "Cursor (Anysphere) — coding agent",
         "provider": "Anysphere, Inc.",
-        "useCase": "Coding agent. Since 2026-10-23 a developer uses its local agent on the application and infrastructure source; its GitHub App, installed on the marketing website repository only, reads that site's source and proposes changes to it, and model inference runs through Cursor's service. It is in the assessment scope because its edits affect software integrity, and because a script it writes could use the developer's own credentials. Specset's rule is that it works on code only and reads no customer data, and a fail-closed hook in each repository refuses the known paths to production, customer data and credentials; what the developer's credentials reach is bounded by Google Cloud IAM (no production access beyond minting the read-only service account's tokens, and no grant on customer documents) and by the application. Changes reach the application, the infrastructure and www.specset.com only through pull requests that a founder approves under each repository's branch protection.",
+        "useCase": "Coding agent. Its GitHub App, installed on the marketing website repository only, has read that site's source and proposed changes to it since 2026-09-29; since 2026-10-23 a developer also uses its local agent on the application and infrastructure source. Model inference runs through Cursor's service. It was outside the assessment scope while it reached only the marketing website, and is in it since the local agent began, because its edits affect software integrity and because a script it writes could use the developer's own credentials. Specset's rule is that it works on code only and reads no customer data, and a fail-closed hook in the application and infrastructure repositories refuses the known paths to production, customer data and credentials; what the developer's credentials reach is bounded by Google Cloud IAM (no production access beyond minting the read-only service account's tokens, and no grant on customer documents) and by the application. Changes reach the application, the infrastructure and www.specset.com only through pull requests that a founder approves under each repository's branch protection.",
         "website": "https://cursor.com"
       },
       {
@@ -390,8 +390,8 @@
       "email": "gordon@specset.com"
     },
     "version": "2026.10.28",
-    "lastUpdated": "2026-10-28T03:36:00Z",
-    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Version 2026.10.28, published with Security Decision Record v2026.09.14.15 and the information-resources inventory edition 2026-10-27: the Claude Code and Codex entries say who runs them, a technical founder or, since 2026-10-23, a developer whose only production access is minting the read-only service account's tokens; Cursor, which a developer uses on code since 2026-10-23, is listed; the Vanta entry states what its scanner's grant can read instead of saying no customer data; the cryptographic module list no longer lists the administrative load balancer's path to the vector database, retired on 2026-10-26, names the commercial Vertex AI route and gives the deployed component versions. The policy and procedure reference is regenerated: the Vulnerability Management Procedure at edition 2026-10-22, and the privileged access procedure as on the main branch, whose text specsetai/specbook-infra #237 lengthened on 2026-10-23 (2,935 words, was 2,694); the reference gives the date of the file's last commit, 2026-10-21, as its edition. Earlier versions are in this repository's history."
+    "lastUpdated": "2026-10-28T04:13:00Z",
+    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Version 2026.10.28, published with Security Decision Record v2026.09.14.15 and the information-resources inventory edition 2026-10-27: the Claude Code and Codex entries say who runs them, a technical founder or, since 2026-10-23, a developer whose only production access is minting the read-only service account's tokens; Cursor is listed: its GitHub App has worked on the marketing website's source since 2026-09-29, and a developer has used its local agent on the application and infrastructure source since 2026-10-23; the Vanta entry states what its scanner's grant can read instead of saying no customer data; the cryptographic module list no longer lists the administrative load balancer's path to the vector database, retired on 2026-10-26, names the commercial Vertex AI route and gives the deployed component versions. The policy and procedure reference is regenerated, each repository document dated by when its change reached the main branch (UTC): the Vulnerability Management Procedure at edition 2026-10-22, the privileged access procedure at edition 2026-10-24, the significant change notification and representative-samples procedures at edition 2026-10-17, and the Secure Configuration Guide last updated 2026-10-21. This edition replaces a first cut of 2026.10.28 that was merged but never published. Earlier versions are in this repository's history."
   },
   "documentation": [
     {
@@ -554,7 +554,7 @@
       "summary": "For the administrators of a customer organization: the accounts that control an organization, the recommended security settings for one holding federal information or CUI, and how account access is requested and recovered.",
       "wordCount": 1355,
       "currentVersion": "2026.09.18.2",
-      "lastUpdated": "2026-10-20",
+      "lastUpdated": "2026-10-21",
       "relatedFedRampPractices": [
         "SCG-CSO-RSC",
         "SCG-CSO-PUB",
@@ -602,8 +602,8 @@
       "file": "significant-change-notification.md",
       "summary": "How each production change is evaluated for significance, confirmed by an operator, recorded and, when significant, notified.",
       "wordCount": 3151,
-      "currentVersion": "edition 2026-10-16",
-      "lastUpdated": "2026-10-16",
+      "currentVersion": "edition 2026-10-17",
+      "lastUpdated": "2026-10-17",
       "relatedFedRampPractices": [
         "SCN (all rules)",
         "KSI-CMT-LMC"
@@ -616,8 +616,8 @@
       "file": "use-of-representative-samples.md",
       "summary": "Every place where Specset's own verification and validation looks at a sample instead of a whole population, and why the sample stands for the rest.",
       "wordCount": 489,
-      "currentVersion": "edition 2026-10-16",
-      "lastUpdated": "2026-10-16",
+      "currentVersion": "edition 2026-10-17",
+      "lastUpdated": "2026-10-17",
       "relatedFedRampPractices": [
         "IVV-CSO-USR",
         "IVV-CSO-DUS"
@@ -630,8 +630,8 @@
       "file": "privileged-access.md",
       "summary": "How the founders obtain administrative access to production per task, with a reason and for a limited time, through Privileged Access Manager, and the last-resort path.",
       "wordCount": 2935,
-      "currentVersion": "edition 2026-10-21",
-      "lastUpdated": "2026-10-21",
+      "currentVersion": "edition 2026-10-24",
+      "lastUpdated": "2026-10-24",
       "relatedFedRampPractices": [
         "KSI-IAM-JIT",
         "KSI-IAM-ELP"

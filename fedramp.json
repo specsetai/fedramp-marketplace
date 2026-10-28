@@ -179,7 +179,7 @@
     }
   ],
   "cryptographicModules": {
-    "summary": "Each place where cryptography protects federal customer data in the Specset Cloud Platform, the module that performs it and its status under the NIST Cryptographic Module Validation Program (CMVP). Modules that Google operates inside its services are BoringCrypto: Google states that it holds FIPS 140-3 certificate 5104, which NIST lists as active, and Google Cloud KMS keys at the software protection level use the same module. Which certificate covers the build behind each Google service is Google's statement, which Specset relies on and cannot test. The TLS libraries inside the containers Specset runs are not CMVP-validated as deployed. The list was checked against the information-resources inventory and the Terraform configuration on 2026-10-07; certificate status and component releases are re-read at each quarterly Ongoing Certification Report.",
+    "summary": "Each place where cryptography protects federal customer data in the Specset Cloud Platform, the module that performs it and its status under the NIST Cryptographic Module Validation Program (CMVP). Modules that Google operates inside its services are BoringCrypto: Google states that it holds FIPS 140-3 certificate 5104, which NIST lists as active, and Google Cloud KMS keys at the software protection level use the same module. Which certificate covers the build behind each Google service is Google's statement, which Specset relies on and cannot test. The TLS libraries inside the containers Specset runs are not CMVP-validated as deployed. The list was checked against the information-resources inventory and the Terraform configuration on 2026-10-07; its administrative load-balancer and commercial Vertex AI entries against the inventory edition 2026-10-27 and the Terraform configuration, and its component versions against the deployed images, on 2026-10-28; certificate status and component releases are re-read at each quarterly Ongoing Certification Report.",
     "modules": [
       {
         "protects": "Data at rest: Cloud SQL application and workflow databases and their backups. AES-256 under a customer-managed Cloud KMS key, software protection level, rotated every 90 days.",
@@ -213,7 +213,7 @@
       },
       {
         "protects": "Data in transit: application and workers to Cloud SQL. TLS 1.2 or later with the server certificate verified against the instance's own certificate authority; the instance refuses unencrypted connections.",
-        "module": "Clients: OpenSSL as bundled with Node.js 24.21.0 in the application image; Go's standard TLS library in Temporal 1.32.0. Server: Cloud SQL.",
+        "module": "Clients: OpenSSL as bundled with Node.js 24.22.1 in the application image; Go's standard TLS library in Temporal 1.32.0. Server: Cloud SQL.",
         "operatedBy": "Specset (clients); Google (server)",
         "cmvpStatus": "Not CMVP-validated as deployed (not built or run in an approved mode) for the clients; the server side is Google's, and Specset makes no separate claim for it"
       },
@@ -225,13 +225,13 @@
       },
       {
         "protects": "Data in transit: application and workers to the Qdrant vector database, and between Qdrant peers. TLS from the in-cluster certificate authority, an API key for clients and mutually authenticated TLS between peers.",
-        "module": "Client: Node.js OpenSSL. Server and peers: rustls as built into Qdrant 1.19.0.",
+        "module": "Client: Node.js OpenSSL. Server and peers: rustls as built into Qdrant 1.19.2.",
         "operatedBy": "Specset",
         "cmvpStatus": "Not CMVP-validated as deployed (not built or run in an approved mode)"
       },
       {
         "protects": "Data in transit: to the Temporal workflow service and between its services. TLS from the in-cluster certificate authority, verified by every client.",
-        "module": "Server: Go's standard TLS library in Temporal 1.32.0. Clients: the Temporal TypeScript SDK 1.24.0 in the application image (worker connections through the SDK's Rust core on rustls; client connections on Node.js OpenSSL); Go's standard TLS library in the Temporal web UI 2.54.1, the Temporal admin tools 1.32.0 and the autoscaler (KEDA 2.21.0).",
+        "module": "Server: Go's standard TLS library in Temporal 1.32.0. Clients: the Temporal TypeScript SDK 1.24.0 in the application image (worker connections through the SDK's Rust core on rustls; client connections on Node.js OpenSSL); Go's standard TLS library in the Temporal web UI 2.57.0, the Temporal admin tools 1.32.0 and the autoscaler (KEDA 2.21.0).",
         "operatedBy": "Specset",
         "cmvpStatus": "Not CMVP-validated as deployed (not built or run in an approved mode)"
       },
@@ -243,18 +243,18 @@
       },
       {
         "protects": "Data in transit: administrative path to Cloud SQL. An operator's session reaches the in-cluster Cloud SQL Auth Proxy through a TLS-protected port-forward over Connect Gateway; the proxy carries it to the instance over TLS 1.3 with verified client and server identities.",
-        "module": "Go's standard TLS library in Cloud SQL Auth Proxy 2.25.4 and in kubectl on the operator's machine; Google Front End TLS for Connect Gateway.",
+        "module": "Go's standard TLS library in Cloud SQL Auth Proxy 2.26.2 and in kubectl on the operator's machine; Google Front End TLS for Connect Gateway.",
         "operatedBy": "Specset (proxy, kubectl); Google (Connect Gateway)",
         "cmvpStatus": "Not CMVP-validated as deployed (not built or run in an approved mode) for the Go library; Google's front end as above"
       },
       {
-        "protects": "Data in transit: administrative browser path to the workflow console and the vector database, behind Identity-Aware Proxy on a second global HTTPS load balancer with the same restricted SSL policy. Behind it, the hop to the workflow console is inside Google's network and inherited, and the hop to the vector database is TLS.",
-        "module": "Edge: Google Front End TLS. Vector database: rustls in Qdrant 1.19.0.",
-        "operatedBy": "Google (edge); Specset (Qdrant)",
-        "cmvpStatus": "Edge: Validated: BoringCrypto, FIPS 140-3 certificate 5104 (active, validated 2025-12-09; certificate 4735 also active), as Google states for its services. Qdrant: Not CMVP-validated as deployed (not built or run in an approved mode)"
+        "protects": "Data in transit: administrative browser path to the workflow console, behind Identity-Aware Proxy on a second global HTTPS load balancer with the same restricted SSL policy. Behind it, the hop to the workflow console is inside Google's network and inherited. Until 2026-10-26 the same path also reached the vector database's API, without the load balancer verifying the database's certificate; that path was retired that day.",
+        "module": "Edge: Google Front End TLS.",
+        "operatedBy": "Google",
+        "cmvpStatus": "Validated: BoringCrypto, FIPS 140-3 certificate 5104 (active, validated 2025-12-09; certificate 4735 also active), as Google states for its services."
       },
       {
-        "protects": "Data in transit: calls from the application to Google APIs inside the boundary (Vertex AI on the assured route, Cloud Storage, and the IAM Credentials API that signs Cloud Storage URLs).",
+        "protects": "Data in transit: calls from the application to Google APIs inside the boundary (Vertex AI on the assured route, Cloud Storage, and the IAM Credentials API that signs Cloud Storage URLs), and, for organizations not in CUI mode only, to Vertex AI in the peer project specbook-production at location global.",
         "module": "Client: Node.js OpenSSL. Server: Google Front End TLS.",
         "operatedBy": "Specset (client); Google (server)",
         "cmvpStatus": "Not CMVP-validated as deployed (not built or run in an approved mode) for the client; server validated: BoringCrypto, FIPS 140-3 certificate 5104 (active, validated 2025-12-09; certificate 4735 also active), as Google states for its services"
@@ -291,7 +291,7 @@
       },
       {
         "fedRampCertifiedThirdPartyInformationResource": "FR2525556241",
-        "useCase": "Vanta Trust Management Platform — continuous configuration monitoring of the production cloud accounts (read-only metadata), compliance evidence and policies, and the Specset Trust Center at trust.specset.com. No customer data."
+        "useCase": "Vanta Trust Management Platform — continuous configuration monitoring of the production cloud accounts (read-only metadata), compliance evidence and policies, and the Specset Trust Center at trust.specset.com. Its scanner's read-only grant can also read the boundary project's Data Access audit-log entries and list object names, both of which identify customer documents; whether Vanta reads them is not known."
       },
       {
         "fedRampCertifiedThirdPartyInformationResource": "FR1823447014",
@@ -354,14 +354,20 @@
       {
         "name": "Claude Code (Anthropic) — engineering assistant",
         "provider": "Anthropic, PBC",
-        "useCase": "Coding assistant used by the founders on operator laptops. It is in the assessment scope because what it reads is sent to the model provider and can include federal customer data. It acts with the operating founder's own access, and the founder operating it is responsible for what it reads. Specset's rule since 2026-10-09 is that data of organizations in CUI mode must not reach an engineering assistant, and the tooling keeps its default reads inside that rule. Infrastructure reads go through a dedicated read-only service account with reader roles only, no secret values and no write permission on production; since 2026-10-10 it cannot read the database rows of organizations in CUI mode, credential tables or Data Access audit logs, and it sees those organizations' application log entries only as sanitized copies. Database rows are read through a time-limited tunnel that a founder approves each session, with Cloud SQL IAM authentication and SELECT-only grants. Every tunnel start is recorded as an Admin Activity audit entry, and an alert fires if the account ever appears as the principal of a write.",
+        "useCase": "Coding assistant run on operator laptops by the two technical founders and, since 2026-10-23, a developer. It is in the assessment scope because what it reads is sent to the model provider and can include federal customer data. It acts with the operator's own access, and the operator is responsible for what it reads; as a developer, a person may mint only the read-only service account's tokens and holds no other Google Cloud access to production. Specset's rule since 2026-10-09 is that data of organizations in CUI mode must not reach an engineering assistant, and the tooling keeps its default reads inside that rule. Infrastructure reads go through a dedicated read-only service account with reader roles only, no secret values and no write permission on production; since 2026-10-10 it cannot read the database rows of organizations in CUI mode, credential tables or Data Access audit logs, and it sees those organizations' application log entries only as sanitized copies. Database rows are read through a time-limited tunnel whose start the person running the assistant approves each session, the same founder or developer, not a second person, with Cloud SQL IAM authentication and SELECT-only grants. Every tunnel start is recorded as an Admin Activity audit entry, and an alert fires if the account ever appears as the principal of a write.",
         "website": "https://www.anthropic.com"
       },
       {
         "name": "OpenAI Codex — engineering assistant",
         "provider": "OpenAI",
-        "useCase": "Coding assistant used by the founders on operator laptops, in the assessment scope on the same terms as Claude Code. It acts with the operating founder's own access, under the founder's responsibility for what it reads and the rule that data of organizations in CUI mode must not reach an engineering assistant. It reads the infrastructure as the same read-only service account, which has no write permission on production, and reads database rows through the founder-approved, SELECT-only, time-limited tunnel. Every tunnel start is recorded as an Admin Activity audit entry, and an alert fires on any write by that account. What it reads is sent to the model provider.",
+        "useCase": "Coding assistant run on operator laptops by the two technical founders and, since 2026-10-23, a developer, in the assessment scope on the same terms as Claude Code. It acts with the operator's own access, under the operator's responsibility for what it reads and the rule that data of organizations in CUI mode must not reach an engineering assistant. It reads the infrastructure as the same read-only service account, which has no write permission on production, and reads database rows through the same SELECT-only, time-limited tunnel, whose start the person running it approves. Every tunnel start is recorded as an Admin Activity audit entry, and an alert fires on any write by that account. What it reads is sent to the model provider.",
         "website": "https://openai.com/codex"
+      },
+      {
+        "name": "Cursor (Anysphere) — coding agent",
+        "provider": "Anysphere, Inc.",
+        "useCase": "Coding agent. Since 2026-10-23 a developer uses its local agent on the application and infrastructure source; its GitHub App, installed on the marketing website repository only, reads that site's source and proposes changes to it, and model inference runs through Cursor's service. It is in the assessment scope because its edits affect software integrity, and because a script it writes could use the developer's own credentials. Specset's rule is that it works on code only and reads no customer data, and a fail-closed hook in each repository refuses the known paths to production, customer data and credentials; what the developer's credentials reach is bounded by Google Cloud IAM (no production access beyond minting the read-only service account's tokens, and no grant on customer documents) and by the application. Changes reach the application, the infrastructure and www.specset.com only through pull requests that a founder approves under each repository's branch protection.",
+        "website": "https://cursor.com"
       },
       {
         "name": "Firecrawl",
@@ -383,9 +389,9 @@
       "title": "CEO and Co-Founder",
       "email": "gordon@specset.com"
     },
-    "version": "2026.10.21",
-    "lastUpdated": "2026-10-21T19:30:00Z",
-    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Version 2026.10.21, published with Security Decision Record v2026.09.14.14 and the information-resources inventory edition 2026-10-21: the bid-opportunity service and the Firecrawl entry no longer state a CUI-mode gap for the hosted scraper, which refuses an organization in CUI mode since 2026-10-21. The policy and procedure reference is regenerated: the Incident Response and Vulnerability Management procedures and the privileged access procedure at edition 2026-10-21, and the Secure Configuration Guide as updated on 2026-10-20. Earlier versions are in this repository's history."
+    "version": "2026.10.28",
+    "lastUpdated": "2026-10-28T03:36:00Z",
+    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Version 2026.10.28, published with Security Decision Record v2026.09.14.15 and the information-resources inventory edition 2026-10-27: the Claude Code and Codex entries say who runs them, a technical founder or, since 2026-10-23, a developer whose only production access is minting the read-only service account's tokens; Cursor, which a developer uses on code since 2026-10-23, is listed; the Vanta entry states what its scanner's grant can read instead of saying no customer data; the cryptographic module list no longer lists the administrative load balancer's path to the vector database, retired on 2026-10-26, names the commercial Vertex AI route and gives the deployed component versions. The policy and procedure reference is regenerated: the Vulnerability Management Procedure at edition 2026-10-22, and the privileged access procedure as on the main branch, whose text specsetai/specbook-infra #237 lengthened on 2026-10-23 (2,935 words, was 2,694); the reference gives the date of the file's last commit, 2026-10-21, as its edition. Earlier versions are in this repository's history."
   },
   "documentation": [
     {
@@ -516,9 +522,9 @@
       "type": "Procedure",
       "file": "vulnerability-management.pdf",
       "summary": "Persistent vulnerability detection, PAIN-based evaluation, response timeframes, exceptions and risk acceptance, and the monthly vulnerability activity report.",
-      "wordCount": 4859,
-      "currentVersion": "2026-10-21",
-      "lastUpdated": "2026-10-21",
+      "wordCount": 4877,
+      "currentVersion": "2026-10-22",
+      "lastUpdated": "2026-10-22",
       "relatedFedRampPractices": [
         "VDR (all rules)",
         "VER (all rules)"
@@ -623,7 +629,7 @@
       "type": "Procedure",
       "file": "privileged-access.md",
       "summary": "How the founders obtain administrative access to production per task, with a reason and for a limited time, through Privileged Access Manager, and the last-resort path.",
-      "wordCount": 2694,
+      "wordCount": 2935,
       "currentVersion": "edition 2026-10-21",
       "lastUpdated": "2026-10-21",
       "relatedFedRampPractices": [

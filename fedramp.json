@@ -366,7 +366,7 @@
       {
         "name": "Cursor (Anysphere) — coding agent",
         "provider": "Anysphere, Inc.",
-        "useCase": "Coding agent. Since 2026-10-23 a developer uses its local agent on the application and infrastructure source; its GitHub App, installed on the marketing website repository only, reads that site's source and proposes changes to it, and model inference runs through Cursor's service. It is in the assessment scope because its edits affect software integrity, and because a script it writes could use the developer's own credentials. Specset's rule is that it works on code only and reads no customer data, and a fail-closed hook in each repository refuses the known paths to production, customer data and credentials; what the developer's credentials reach is bounded by Google Cloud IAM (no production access beyond minting the read-only service account's tokens, and no grant on customer documents) and by the application. Changes reach the application, the infrastructure and www.specset.com only through pull requests that a founder approves under each repository's branch protection.",
+        "useCase": "Coding agent. Its GitHub App, installed on the marketing website repository only, has read that site's source and proposed changes to it since 2026-09-29; since 2026-10-23 a developer also uses its local agent on the application and infrastructure source. Model inference runs through Cursor's service. It was outside the assessment scope while it reached only the marketing website, and is in it since the local agent began, because its edits affect software integrity and because a script it writes could use the developer's own credentials. Specset's rule is that it works on code only and reads no customer data, and a fail-closed hook in the application and infrastructure repositories refuses the known paths to production, customer data and credentials; what the developer's credentials reach is bounded by Google Cloud IAM (no production access beyond minting the read-only service account's tokens, and no grant on customer documents) and by the application. Changes reach the application, the infrastructure and www.specset.com only through pull requests that a founder approves under each repository's branch protection.",
         "website": "https://cursor.com"
       },
       {
@@ -554,7 +554,7 @@
       "summary": "For the administrators of a customer organization: the accounts that control an organization, the recommended security settings for one holding federal information or CUI, and how account access is requested and recovered.",
       "wordCount": 1355,
       "currentVersion": "2026.09.18.2",
-      "lastUpdated": "2026-10-20",
+      "lastUpdated": "2026-10-21",
       "relatedFedRampPractices": [
         "SCG-CSO-RSC",
         "SCG-CSO-PUB",
@@ -602,8 +602,8 @@
       "file": "significant-change-notification.md",
       "summary": "How each production change is evaluated for significance, confirmed by an operator, recorded and, when significant, notified.",
       "wordCount": 3151,
-      "currentVersion": "edition 2026-10-16",
-      "lastUpdated": "2026-10-16",
+      "currentVersion": "edition 2026-10-17",
+      "lastUpdated": "2026-10-17",
       "relatedFedRampPractices": [
         "SCN (all rules)",
         "KSI-CMT-LMC"
@@ -616,8 +616,8 @@
       "file": "use-of-representative-samples.md",
       "summary": "Every place where Specset's own verification and validation looks at a sample instead of a whole population, and why the sample stands for the rest.",
       "wordCount": 489,
-      "currentVersion": "edition 2026-10-16",
-      "lastUpdated": "2026-10-16",
+      "currentVersion": "edition 2026-10-17",
+      "lastUpdated": "2026-10-17",
       "relatedFedRampPractices": [
         "IVV-CSO-USR",
         "IVV-CSO-DUS"
@@ -630,8 +630,8 @@
       "file": "privileged-access.md",
       "summary": "How the founders obtain administrative access to production per task, with a reason and for a limited time, through Privileged Access Manager, and the last-resort path.",
       "wordCount": 2935,
-      "currentVersion": "edition 2026-10-21",
-      "lastUpdated": "2026-10-21",
+      "currentVersion": "edition 2026-10-24",
+      "lastUpdated": "2026-10-24",
       "relatedFedRampPractices": [
         "KSI-IAM-JIT",
         "KSI-IAM-ELP"

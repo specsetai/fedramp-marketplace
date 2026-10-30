@@ -275,7 +275,7 @@
       },
       {
         "fedRampCertifiedThirdPartyInformationResource": "AGENCYAMAZONEW",
-        "useCase": "AWS US East/West — supporting services: Amazon SES (transactional email), Route 53 (DNS), S3 (CI build cache, CloudTrail audit logs, and a legacy database-backup bucket from the pre-2026 hosting platform), GuardDuty (threat detection), and Amazon Bedrock (Claude model inference entered in us-west-2 through global cross-Region inference profiles, which may process requests in any AWS commercial Region; for organizations not in CUI mode only; prompts may include customer document text)."
+        "useCase": "AWS US East/West — supporting services: Amazon SES (outbound transactional email and, since 2026-10-29, email received for project addresses), Route 53 (DNS), S3 (CI build cache, CloudTrail audit logs, a legacy database-backup bucket from the pre-2026 hosting platform, and received email), SQS (received-email notifications), GuardDuty (threat detection), and Amazon Bedrock (Claude model inference entered in us-west-2 through global cross-Region inference profiles, which may process requests in any AWS commercial Region; for organizations not in CUI mode only; prompts may include customer document text). For an organization not in CUI mode, notification bodies may carry project content, and a submittal-review notification attaches the marked-up review PDF (on unless the project turns it off) and the review spreadsheet (off unless the project turns it on). Since 2026-10-21 05:32 UTC an organization in CUI mode receives, in place of each notification that can carry project content, a notice with a link and no project content or attachment; the link resolves only for an authenticated member of the organization. Since 2026-10-29 Amazon SES also receives email for project addresses (projects.specset.com): SES accepts the message outside the boundary, scans it, writes it to a KMS-encrypted S3 bucket in the same account and notifies an encrypted SQS queue, and the workers read the queue and the object and delete them. Project addresses are only for organizations with the project email feature and never for organizations in CUI mode; no organization has the feature as of 2026-10-30, and the bucket deletes a message after four days."
       },
       {
         "fedRampCertifiedThirdPartyInformationResource": "F1209051525",
@@ -291,7 +291,7 @@
       },
       {
         "fedRampCertifiedThirdPartyInformationResource": "FR2525556241",
-        "useCase": "Vanta Trust Management Platform — continuous configuration monitoring of the production cloud accounts (read-only metadata), compliance evidence and policies, and the Specset Trust Center at trust.specset.com. Its scanner's read-only grant can also read the boundary project's Data Access audit-log entries and list object names, both of which identify customer documents; whether Vanta reads them is not known."
+        "useCase": "Vanta Trust Management Platform — continuous configuration monitoring of the production cloud accounts (read-only metadata), compliance evidence and policies, and the Specset Trust Center at trust.specset.com. Since 2026-10-29 its scanner holds, on the boundary project, custom roles with the permissions of Google's Security Reviewer role except those that list log entries, Data Access audit-log entries and bucket objects. Until then it held that role, which also let it read the boundary project's Data Access audit-log entries and list object names, both of which identify customer documents; whether Vanta read them is not known."
       },
       {
         "fedRampCertifiedThirdPartyInformationResource": "FR1823447014",
@@ -390,8 +390,8 @@
       "email": "gordon@specset.com"
     },
     "version": "2026.10.30",
-    "lastUpdated": "2026-10-30T15:26:00Z",
-    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Version 2026.10.30, published with Security Decision Record v2026.09.14.16: the cryptographic module list says that since 2026-10-30 the application's Node.js processes run on the OpenSSL FIPS Provider, FIPS 140-3 certificate 4985, and names what stays outside a validated module; it had said the TLS libraries inside the containers Specset runs are not validated."
+    "lastUpdated": "2026-10-30T16:05:00Z",
+    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Version 2026.10.30, published with Security Decision Record v2026.09.14.16, follows version 2026.10.21, the last one published; version 2026.10.28 was merged into this repository but never published, and its changes are part of this version. Since 2026.10.21: the Claude Code and Codex entries say who runs them, a technical founder or, since 2026-10-23, a developer whose only production access is minting the read-only service account's tokens; Cursor is listed: its GitHub App has worked on the marketing website's source since 2026-09-29, and a developer has used its local agent on the application and infrastructure source since 2026-10-23; the Vanta entry, which said no customer data, says what its scanner's grant could read until 2026-10-29 and that since then its roles do not list log entries, Data Access audit-log entries or bucket objects; the AWS entry says what Amazon SES notifications carry and adds the email received for project addresses since 2026-10-29. The cryptographic module list says that since 2026-10-30 the application's Node.js processes run on the OpenSSL FIPS Provider, FIPS 140-3 certificate 4985, and names what stays outside a validated module, where it had said the TLS libraries inside the containers Specset runs are not validated; it no longer lists the administrative load balancer's path to the vector database, retired on 2026-10-26, names the commercial Vertex AI route and gives the deployed component versions. The policy and procedure reference is regenerated, each repository document dated by when its change reached the main branch (UTC): the Vulnerability Management Procedure at edition 2026-10-22, the privileged access procedure at edition 2026-10-29, the significant change notification and representative-samples procedures at edition 2026-10-17, and the Secure Configuration Guide last updated 2026-10-21. Earlier versions are in this repository's history."
   },
   "documentation": [
     {
@@ -629,9 +629,9 @@
       "type": "Procedure",
       "file": "privileged-access.md",
       "summary": "How the founders obtain administrative access to production per task, with a reason and for a limited time, through Privileged Access Manager, and the last-resort path.",
-      "wordCount": 2935,
-      "currentVersion": "edition 2026-10-24",
-      "lastUpdated": "2026-10-24",
+      "wordCount": 3993,
+      "currentVersion": "edition 2026-10-29",
+      "lastUpdated": "2026-10-29",
       "relatedFedRampPractices": [
         "KSI-IAM-JIT",
         "KSI-IAM-ELP"

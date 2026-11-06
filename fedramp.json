@@ -391,7 +391,7 @@
     },
     "version": "2026.11.06",
     "lastUpdated": "2026-11-06T20:21:00Z",
-    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Version 2026.11.06, published with Security Decision Record v2026.09.14.16, follows version 2026.10.30. Since 2026.10.30: FedRAMP certified the offering at 20x Class A on 2026-11-06; the trust center description says so and counts twenty-five resources open to access requests, and the documentation list names FedRAMP's Certification Report. Earlier versions are in this repository's history."
+    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Version 2026.11.06, published with Security Decision Record v2026.09.14.16, follows version 2026.10.30. Since 2026.10.30: FedRAMP certified the offering at 20x Class A on 2026-11-06; the trust center description says so and counts twenty-five resources open to access requests, and the documentation list names FedRAMP's Certification Report. The policy and procedure reference is regenerated: the significant change notification procedure and the privileged access procedure at edition 2026-11-06, and the Secure Configuration Guide last updated 2026-11-06. Earlier versions are in this repository's history."
   },
   "documentation": [
     {
@@ -558,9 +558,9 @@
       "type": "Procedure",
       "file": "https://docs.specset.com/docs/secure-configuration",
       "summary": "For the administrators of a customer organization: the accounts that control an organization, the recommended security settings for one holding federal information or CUI, and how account access is requested and recovered.",
-      "wordCount": 1355,
+      "wordCount": 1684,
       "currentVersion": "2026.09.18.2",
-      "lastUpdated": "2026-10-21",
+      "lastUpdated": "2026-11-06",
       "relatedFedRampPractices": [
         "SCG-CSO-RSC",
         "SCG-CSO-PUB",
@@ -607,9 +607,9 @@
       "type": "Procedure",
       "file": "significant-change-notification.md",
       "summary": "How each production change is evaluated for significance, confirmed by an operator, recorded and, when significant, notified.",
-      "wordCount": 3151,
-      "currentVersion": "edition 2026-10-17",
-      "lastUpdated": "2026-10-17",
+      "wordCount": 3171,
+      "currentVersion": "edition 2026-11-06",
+      "lastUpdated": "2026-11-06",
       "relatedFedRampPractices": [
         "SCN (all rules)",
         "KSI-CMT-LMC"
@@ -635,9 +635,9 @@
       "type": "Procedure",
       "file": "privileged-access.md",
       "summary": "How the founders obtain administrative access to production per task, with a reason and for a limited time, through Privileged Access Manager, and the last-resort path.",
-      "wordCount": 4055,
-      "currentVersion": "edition 2026-10-31",
-      "lastUpdated": "2026-10-31",
+      "wordCount": 4056,
+      "currentVersion": "edition 2026-11-06",
+      "lastUpdated": "2026-11-06",
       "relatedFedRampPractices": [
         "KSI-IAM-JIT",
         "KSI-IAM-ELP"

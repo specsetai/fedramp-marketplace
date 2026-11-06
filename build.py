@@ -169,7 +169,7 @@ FIELDS = [
     ("Trust Center", tc_html),
     ("Next Ongoing Certification Report Date",
      esc(sp["nextOngoingCertificationReportDate"]) if sp.get("nextOngoingCertificationReportDate")
-     else na("Specset is at the Initial Implementation stage and does not yet hold a FedRAMP certification, so no Ongoing Certification Report is scheduled")),
+     else na("No Ongoing Certification Report date is published")),
     ("Third-Party Information Resources",
      tp_html),
     ("FedRAMP Recognized Independent Assessor",
@@ -206,7 +206,7 @@ page = f"""<!doctype html>
 </head>
 <body>
   <h1>{esc(si['providerName'])} — FedRAMP Public Information</h1>
-  <p class="sub">{esc(si['serviceName'])} ({esc(si['serviceAcronym'])}) · FedRAMP {esc(si['certificationType'])} · Initial Implementation · last generated {today}</p>
+  <p class="sub">{esc(si['serviceName'])} ({esc(si['serviceAcronym'])}) · FedRAMP {esc(si['certificationType'])} · Class A Certified · last generated {today}</p>
 
   <div class="machine">
     <strong>Machine-readable format:</strong> <a href="https://specset.com/fedramp/fedramp.json">https://specset.com/fedramp/fedramp.json</a><br>

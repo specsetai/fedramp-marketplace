@@ -1,6 +1,6 @@
 # Specset — FedRAMP 20x Marketplace
 
-Source repository for Specset's public FedRAMP information supporting our **Initial Implementation** listing on the [FedRAMP Marketplace](https://www.fedramp.gov/20x/).
+Source repository for Specset's public FedRAMP information supporting our **FedRAMP 20x Class A Certified** listing on the [FedRAMP Marketplace](https://www.fedramp.gov/20x/).
 
 **Canonical public endpoints (CDS-CSO-PUB):**
 
@@ -11,11 +11,11 @@ Source repository for Specset's public FedRAMP information supporting our **Init
 
 - **Provider:** Specset
 - **Offering:** Specset Cloud Platform (SCP)
-- **FedRAMP Package ID:** **FR2631258135** — [Marketplace listing](https://www.fedramp.gov/marketplace/products/FR2631258135/) (Initial Implementation since 2026-08-13). This is the sole active listing for the offering; a duplicate created at intake, FR2631747321, is pending retirement, requested 2026-08-31 and again in listing-update ticket #67448 (2026-09-14).
+- **FedRAMP Package ID:** **FR2631258135** — [Marketplace listing](https://www.fedramp.gov/marketplace/products/FR2631258135/) (listed 2026-08-13; Class A certified 2026-11-06). This is the sole active listing for the offering; a duplicate created at intake, FR2631747321, is pending retirement, requested 2026-08-31 and again in listing-update ticket #67448 (2026-09-14).
 - **Website:** https://specset.com
 - **Trust Center:** https://trust.specset.com (live; landing page public, no login)
-- **Current stage:** Initial Implementation
-- **Target framework:** FedRAMP 20x Class A (pipeline open since 2026-08-03; application filed 2026-09-14, help.fedramp.gov #67451, under FedRAMP review — nothing is certified yet), then Class C on the same boundary (application targeted for the first week of December 2026)
+- **Current stage:** FedRAMP 20x Class A Certified (since 2026-11-06), in the Ongoing Certification phase
+- **Target framework:** FedRAMP 20x Class A (pipeline open since 2026-08-03; application filed 2026-09-14, help.fedramp.gov #67451; certified 2026-11-06), then Class C on the same boundary (application targeted for the first week of December 2026)
 - **Federal use case:** Direct Use (MKT-IIP-AGU) — agency staff will use the platform directly. The evidence of intent: a federal agency evaluation tenant provisioned with CUI mode enabled since 2026-09-13, the agency's confirmation of the Direct Use case on 2026-08-24, and a paid pilot pending procurement through one of the agency's contractors. No agency has used the service in production yet; the tenant will be listed in the Ongoing Certification Report when agency use begins. Contractor tenants are the contractor's own information systems; a contractor holding a federal contract may invite agency personnel as members of its tenant, and contractors handling CUI under their own contracts may request CUI mode. Specset is not included as a third-party information resource in another cloud service offering, so the Indirect Use case does not apply.
 - **Security contact / FedRAMP Security Inbox:** fedramp@specset.com
 
@@ -33,7 +33,7 @@ Progress is measured against the goals below and updated at least quarterly, per
 | SOC 2 Type II report (Class A basis, FRC-CLA-ASF) issued | Sep 2026 | **Complete** — Prescient Assurance LLC, issued 2026-08-31, Security TSC, period 2026-04-15 to 2026-07-15, unqualified, no exceptions; published on the Trust Center as a restricted, view-only resource with no NDA gate |
 | Certification Package (CPO, Security Decision Record, example Ongoing Certification Report, information-resources inventory, procedures, twelve supporting-evidence documents) assembled | Sep 2026 | **Complete** — Security Decision Record v2026.09.14.5 filed with the application; the package is published on the Trust Center as restricted resources (22 requestable, no NDA) since 2026-09-14, and was self-verified the same day (FRC-APP-FCP) |
 | FedRAMP 20x Class A application submitted | Sep 2026 | **Complete** — filed 2026-09-14 (help.fedramp.gov #67451); listing update requested the same day (#67448: refresh from this JSON, Direct Use only, retire FR2631747321) |
-| FedRAMP 20x Class A certification decision | Nov 2026 (was Oct 2026 until 2026-10-31) | In review — filed 2026-09-14; on 2026-10-15 FedRAMP said on the review ticket that the application is in its review queue, and on 2026-10-27 that the review would start soon, naming its review team, whom Specset gave trust-center access the same day. During review the package changes only for corrections and reviewer requests |
+| FedRAMP 20x Class A certification decision | Nov 2026 (was Oct 2026 until 2026-10-31) | **Complete** — certified 2026-11-06 (FedRAMP ID FR2631258135). FedRAMP's Certification Report is a restricted trust-center resource, open to access requests with no NDA, since the same day |
 | First Ongoing Certification Report published | 2026-12-01 | Scheduled — date published in `fedramp.json` (`nextOngoingCertificationReportDate`) |
 | Baseline Key Security Indicators (KSI) evidence assembled | Q4 2026 | In progress — persistent validation (drift detection, vulnerability detection, alerting) running since 2026-08-22 |
 | Independent assessment for a full operational class (B/C/D) **scheduled** | Within 24 months of listing (by Aug 2028) | In progress — Class C certification assessment by Prescient Security, LLC (statement of work issued 2026-07-15 and signed by both parties 2026-07-30; Specset received the executed copy on 2026-10-22), under way since October 2026: interview sessions on 2026-11-02 and 2026-11-03, as Prescient's invitations of 2026-10-27 schedule them, the assessment report about a week later, and the Class C application targeted for the first week of December 2026. Class A itself requires no independent assessment (FRC-CLA-IVV is optional) |
@@ -52,7 +52,7 @@ FedRAMP reads this listing from `fedramp.json` (it mirrors the JSON verbatim int
 3. Submit the **[For CSPs] Marketplace Listing Request Form** — https://help.fedramp.gov/hc/en-us/requests/new?ticket_form_id=50939227168027 — choosing **"an update to an existing listing"**, citing Package ID **FR2631258135**, and stating that the JSON at `https://specset.com/fedramp/fedramp.json` has been updated. FedRAMP does not accept listing changes by email. Per the form's guidance, CSPs onboarded via JSON update the JSON directly; the form tells FedRAMP to re-pull it.
 4. Update the milestone table above at least quarterly (MKT-IIP-DCP).
 
-The Class A application was filed on 2026-09-14 through the **[For CSPs] FedRAMP 20x Certification Application Form** — https://help.fedramp.gov/hc/en-us/requests/new?ticket_form_id=51137131584283 — as ticket #67451, after the FRC-APP-FCP self-verification that day (the byte check in step 2 included). While the application is under review, change `fedramp.json` only for corrections and reviewer requests, run the step 2 checks after each republish, and note the change on ticket #67451. The same seven-day self-verification applies before any later application (Class C).
+The Class A application was filed on 2026-09-14 through the **[For CSPs] FedRAMP 20x Certification Application Form** — https://help.fedramp.gov/hc/en-us/requests/new?ticket_form_id=51137131584283 — as ticket #67451, after the FRC-APP-FCP self-verification that day (the byte check in step 2 included). While the application was under review (2026-09-14 to 2026-11-06), `fedramp.json` changed only for corrections and reviewer requests, each noted on ticket #67451. FedRAMP certified the offering at Class A on 2026-11-06; run the step 2 checks after every republish. The same seven-day self-verification applies before any later application (Class C).
 
 ## References
 

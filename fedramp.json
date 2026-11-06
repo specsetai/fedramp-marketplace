@@ -28,7 +28,7 @@
         "Assessment Reports"
       ],
       "url": "https://trust.specset.com",
-      "repositoryDescription": "Specset Trust Center, the single repository for FedRAMP Certification Data for the Specset Cloud Platform. The landing page, compliance posture summary, subprocessor list and FedRAMP milestone information are public. The Class A certification data has been published there since 2026-09-14 as restricted resources, with no non-disclosure agreement or acceptance of terms required. Twenty-four are open to access requests; the documentation list here names each document. The two SOC 2 engagement letters and the management representation letter are private, supplied on request to fedramp@specset.com.",
+      "repositoryDescription": "Specset Trust Center, the single repository for FedRAMP Certification Data for the Specset Cloud Platform. The landing page, compliance posture summary, subprocessor list and FedRAMP milestone information are public. The Class A certification data has been published there since 2026-09-14 as restricted resources, with no non-disclosure agreement or acceptance of terms required. FedRAMP certified the offering at 20x Class A on 2026-11-06, and FedRAMP's Certification Report has been there since that day. Twenty-five are open to access requests; the documentation list here names each document. The two SOC 2 engagement letters and the management representation letter are private, supplied on request to fedramp@specset.com.",
       "authenticationRequired": true,
       "accessRequestInstructions": "The landing page at https://trust.specset.com requires no login. FedRAMP staff and agency reviewers request access to the restricted FedRAMP Certification Data from the Trust Center page. Requests from fedramp.gov and gsa.gov email addresses are approved automatically; Specset approves all other requests manually. Specset does not require acceptance of terms or a non-disclosure agreement. If a request is not approved within one business day, email fedramp@specset.com."
     },
@@ -389,9 +389,9 @@
       "title": "CEO and Co-Founder",
       "email": "gordon@specset.com"
     },
-    "version": "2026.10.30",
-    "lastUpdated": "2026-11-04T05:28:00Z",
-    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Version 2026.10.30, published with Security Decision Record v2026.09.14.16, follows version 2026.10.21, the last one published; version 2026.10.28 was merged into this repository but never published, and its changes are part of this version. Since 2026.10.21: the Claude Code and Codex entries say who runs them, a technical founder or, since 2026-10-23, a developer whose only production access is minting the read-only service account's tokens; Cursor is listed: its GitHub App has worked on the marketing website's source since 2026-09-29, and a developer has used its local agent on the application and infrastructure source since 2026-10-23; the Vanta entry, which said no customer data, says what its scanner's grant could read until 2026-10-29 and that since then its roles do not list log entries, Data Access audit-log entries or bucket objects; the AWS entry says what Amazon SES notifications carry and adds the email received for project addresses since 2026-10-29. The cryptographic module list says that since 2026-10-30 the application's Node.js processes run on the OpenSSL FIPS Provider, FIPS 140-3 certificate 4985, and names what stays outside a validated module or its approved mode, where it had said the TLS libraries inside the containers Specset runs are not validated; it no longer lists the administrative load balancer's path to the vector database, retired on 2026-10-26, names the commercial Vertex AI route and gives the deployed component versions. The policy and procedure reference is regenerated, each repository document dated by when its change reached the main branch (UTC): the Vulnerability Management Procedure at edition 2026-10-22, the privileged access procedure at edition 2026-10-31, the significant change notification and representative-samples procedures at edition 2026-10-17, and the Secure Configuration Guide last updated 2026-10-21. Earlier versions are in this repository's history."
+    "version": "2026.11.06",
+    "lastUpdated": "2026-11-06T20:21:00Z",
+    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Version 2026.11.06, published with Security Decision Record v2026.09.14.16, follows version 2026.10.30. Since 2026.10.30: FedRAMP certified the offering at 20x Class A on 2026-11-06; the trust center description says so and counts twenty-five resources open to access requests, and the documentation list names FedRAMP's Certification Report. The policy and procedure reference is regenerated: the significant change notification procedure and the privileged access procedure at edition 2026-11-06, and the Secure Configuration Guide last updated 2026-11-06. Earlier versions are in this repository's history."
   },
   "documentation": [
     {
@@ -483,6 +483,12 @@
       "type": "Web page",
       "summary": "The Secure Configuration Guide for the administrators of a customer organization: the roles that control an organization, the recommended security settings for an organization that holds federal information or CUI, managing Admin accounts, and account access. The Secure Configuration Guide rules (SCG-CSO) apply to Classes B, C and D, not to Class A; the guide was published on 2026-10-03, ahead of the Class C application, and is linked from serviceProperties.secureConfigurationGuidance in this document.",
       "availability": "Public, no login: https://docs.specset.com/docs/secure-configuration"
+    },
+    {
+      "name": "FedRAMP Certification Report (Class A)",
+      "type": "PDF, as FedRAMP issued it",
+      "summary": "FedRAMP's Certification Report for the 20x Class A certification of the Specset Cloud Platform, issued 2026-11-06: FedRAMP's certification letter, its validation report and its feedback. SHA-256 of the file as FedRAMP issued it: 4895a80c260103cf6ad1327e1fc084fecce2244f8a35ad25cf8eb9ebf9815354.",
+      "availability": "Trust center (trust.specset.com), restricted resource open to access requests since 2026-11-06, no NDA; the same file, byte for byte, is in the certification-data bucket (https://www.specset.com/fedramp/programmatic-access)"
     }
   ],
   "policiesAndProcedures": [
@@ -552,9 +558,9 @@
       "type": "Procedure",
       "file": "https://docs.specset.com/docs/secure-configuration",
       "summary": "For the administrators of a customer organization: the accounts that control an organization, the recommended security settings for one holding federal information or CUI, and how account access is requested and recovered.",
-      "wordCount": 1355,
+      "wordCount": 1684,
       "currentVersion": "2026.09.18.2",
-      "lastUpdated": "2026-10-21",
+      "lastUpdated": "2026-11-06",
       "relatedFedRampPractices": [
         "SCG-CSO-RSC",
         "SCG-CSO-PUB",
@@ -601,9 +607,9 @@
       "type": "Procedure",
       "file": "significant-change-notification.md",
       "summary": "How each production change is evaluated for significance, confirmed by an operator, recorded and, when significant, notified.",
-      "wordCount": 3151,
-      "currentVersion": "edition 2026-10-17",
-      "lastUpdated": "2026-10-17",
+      "wordCount": 3171,
+      "currentVersion": "edition 2026-11-06",
+      "lastUpdated": "2026-11-06",
       "relatedFedRampPractices": [
         "SCN (all rules)",
         "KSI-CMT-LMC"
@@ -629,9 +635,9 @@
       "type": "Procedure",
       "file": "privileged-access.md",
       "summary": "How the founders obtain administrative access to production per task, with a reason and for a limited time, through Privileged Access Manager, and the last-resort path.",
-      "wordCount": 4055,
-      "currentVersion": "edition 2026-10-31",
-      "lastUpdated": "2026-10-31",
+      "wordCount": 4056,
+      "currentVersion": "edition 2026-11-06",
+      "lastUpdated": "2026-11-06",
       "relatedFedRampPractices": [
         "KSI-IAM-JIT",
         "KSI-IAM-ELP"

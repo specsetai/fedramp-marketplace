@@ -306,7 +306,7 @@
       {
         "name": "Anthropic API (Claude, direct)",
         "provider": "Anthropic, PBC",
-        "useCase": "Direct Claude model inference for a small set of models not served through Amazon Bedrock, selectable only by Specset administrators; prompts may include customer document text. Never enabled for organizations in CUI mode.",
+        "useCase": "Direct Claude model inference for a small set of models not served through Amazon Bedrock, selectable only by Specset administrators; prompts may include customer document text. Never enabled for organizations in CUI mode. Retired on 2026-11-05: the application no longer calls this API and its egress allowance is removed, so no information flow reaches it; the entry stays until the information-resources inventory edition that retires the record.",
         "website": "https://www.anthropic.com"
       },
       {
@@ -397,6 +397,14 @@
         "securityCategory": "Moderate"
       },
       {
+        "name": "Support chat",
+        "from": "Customer users' browsers, for organizations not in CUI mode",
+        "to": "Intercom (United States hosting)",
+        "path": "HTTPS from the in-app support messenger; the messenger never loads for an organization in CUI mode",
+        "data": "Customer users' contact details and identification hashes, and support conversation content; no project documents",
+        "securityCategory": "Moderate"
+      },
+      {
         "name": "Processing and storage",
         "from": "Application API server and workers",
         "to": "Cloud SQL for PostgreSQL, Memorystore for Redis, Qdrant, Temporal and Cloud Storage (inside the boundary)",
@@ -459,6 +467,14 @@
         "path": "Identity-Aware Proxy (Google Workspace sign-in with security keys) for the workflow console; Connect Gateway to the private cluster control plane; per-task administrative access through Privileged Access Manager",
         "data": "Operational metadata; customer data through the founders' read identities (stored files through the gcs-reader service account; database rows of organizations not in CUI mode through the read-only inspection tunnel, approved per session) and through per-task administrative access under Privileged Access Manager",
         "securityCategory": "Moderate"
+      },
+      {
+        "name": "Engineering assistants",
+        "from": "Claude Code and OpenAI Codex on operator laptops (the two technical founders and a developer)",
+        "to": "Anthropic and OpenAI model inference (each provider's API; no processing-region selection)",
+        "path": "What the assistant reads with the operator's own access is sent to the provider. Infrastructure reads go through the read-only service account; database rows through the SELECT-only, time-limited tunnel whose start the operator approves each session",
+        "data": "Operational data and what the operator has the assistant read, which can include customer data of organizations not in CUI mode. Data of organizations in CUI mode must not reach an engineering assistant; the read-only service account cannot read their database rows and sees their application log entries only as sanitized copies",
+        "securityCategory": "Moderate"
       }
     ]
   },
@@ -470,7 +486,7 @@
     },
     "version": "2026.11.09",
     "lastUpdated": "2026-11-09T17:27:00Z",
-    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Version 2026.11.09, published with Security Decision Record v2026.09.14.16, follows version 2026.11.06. Since 2026.11.06: the overview carries the information flows (MAS-CSO-FLO) and names the permitted-connections document; the Ongoing Certification Report entry names the feedback route (CCM-OCR-FBM); the service description says FR2631747321 is no longer listed; the trust center description points to the dated progress on www.specset.com/security. Earlier versions are in this repository's history."
+    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Version 2026.11.09, published with Security Decision Record v2026.09.14.16, follows version 2026.11.06. Since 2026.11.06: the overview carries the information flows (MAS-CSO-FLO), support chat and the engineering assistants included, and names the permitted-connections document; the direct Anthropic API entry says that route was retired on 2026-11-05; the Ongoing Certification Report entry names the feedback route (CCM-OCR-FBM); the service description says FR2631747321 is no longer listed; the trust center description points to the dated progress on www.specset.com/security. Earlier versions are in this repository's history."
   },
   "documentation": [
     {

@@ -122,6 +122,23 @@ if policies:
 else:
     pol_html = ""
 
+# MAS-CSO-FLO (required in the overview by CPO-CSO-OVR): the information flows and security
+# categories. The 2026-06-24 schema has no field for them, so they are a top-level object of
+# their own, as cryptographicModules and policiesAndProcedures are.
+info_flows = data.get("informationFlows")
+if info_flows:
+    flow_rows = "".join(
+        f"<tr><td>{esc(f['name'])}</td><td>{esc(f['from'])}</td><td>{esc(f['to'])}</td>"
+        f"<td>{esc(f['path'])}</td><td>{esc(f['data'])}</td><td>{esc(f['securityCategory'])}</td></tr>"
+        for f in info_flows.get("flows", []))
+    flows_html = (f'<h2>Information flows</h2><p>{esc(info_flows.get("summary", ""))}</p>'
+                  f'<p>{esc(info_flows.get("securityCategory", ""))}</p>'
+                  f'<table class="inner"><thead><tr><th>Flow</th><th>From</th><th>To</th><th>Path and controls</th>'
+                  f'<th>Data</th><th>Security category</th></tr></thead><tbody>{flow_rows}</tbody></table>'
+                  f'<p>{esc(info_flows.get("machineReadable", ""))}</p>')
+else:
+    flows_html = ""
+
 # CMU-CSO-CMD: the cryptographic modules that protect federal customer data.
 crypto = data.get("cryptographicModules")
 if crypto:
@@ -221,6 +238,8 @@ page = f"""<!doctype html>
   <table>
     <tbody>{rows}</tbody>
   </table>
+
+  {flows_html}
 
   {pol_html}
 

@@ -304,12 +304,6 @@
     ],
     "nonCertified": [
       {
-        "name": "Anthropic API (Claude, direct)",
-        "provider": "Anthropic, PBC",
-        "useCase": "Direct Claude model inference for a small set of models not served through Amazon Bedrock, selectable only by Specset administrators; prompts may include customer document text. Never enabled for organizations in CUI mode. Retired on 2026-11-05: the application no longer calls this API and its egress allowance is removed, so no information flow reaches it; the entry stays until the information-resources inventory edition that retires the record.",
-        "website": "https://www.anthropic.com"
-      },
-      {
         "name": "Intercom",
         "provider": "Intercom, Inc.",
         "useCase": "In-app customer support chat for organizations not in CUI mode. Processes customer user contact details and support conversation content; no project documents. The messenger never loads for an organization in CUI mode and its memberships are never shared with Intercom.",
@@ -492,7 +486,7 @@
     },
     "version": "2026.11.10",
     "lastUpdated": "2026-11-10T22:07:00Z",
-    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Version 2026.11.10, published with Security Decision Record v2026.09.14.16, follows version 2026.11.09. Since 2026.11.09: the policy and procedure reference gives the policy editions Vanta holds as approved (4.0, 5.0 for Physical Security and 3.1 for Information Security Roles and Responsibilities, approved 2026-11-06; the renewals of 2026-10-12 for Human Resource Security, Secure Development and Operations Security) and the current editions of the Secure Configuration Guide and three procedures; the information flows add Google Antigravity to the engineering assistants and say how each assistant's reads are bounded, the customer sign-in flow covers an organization's own OpenID Connect provider, reachable only once its hostnames are added to the egress allow-list, and the summary names the internal services the network policies allow; Google Antigravity is listed as a third-party information resource, the OpenAI Codex entry corrects how its database tunnel is started, the Cursor entry names the local stores its hook refuses, and the customer identity-provider entry says a customer-configured provider is reachable only once Specset adds its hostnames. Earlier versions are in this repository's history."
+    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Version 2026.11.10, published with Security Decision Record v2026.09.14.16, follows version 2026.11.09. Since 2026.11.09: the policy and procedure reference gives the policy editions Vanta holds as approved (4.0, 5.0 for Physical Security and 3.1 for Information Security Roles and Responsibilities, approved 2026-11-06; the renewals of 2026-10-12 for Human Resource Security, Secure Development and Operations Security) and the current editions of the Secure Configuration Guide and three procedures; the information flows add Google Antigravity to the engineering assistants and say how each assistant's reads are bounded, the customer sign-in flow covers an organization's own OpenID Connect provider, reachable only once its hostnames are added to the egress allow-list, and the summary names the internal services the network policies allow; the direct Anthropic API entry is removed: that route was retired on 2026-11-05, no information flow reaches it, and the next information-resources inventory edition moves it to the excluded services; Google Antigravity is listed as a third-party information resource, the OpenAI Codex entry corrects how its database tunnel is started, the Cursor entry names the local stores its hook refuses, and the customer identity-provider entry says a customer-configured provider is reachable only once Specset adds its hostnames. Earlier versions are in this repository's history."
   },
   "documentation": [
     {

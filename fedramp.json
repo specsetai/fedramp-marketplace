@@ -279,7 +279,7 @@
       },
       {
         "fedRampCertifiedThirdPartyInformationResource": "F1603047866",
-        "useCase": "AWS GovCloud (US): Amazon Bedrock (Claude model inference) for organizations in CUI mode, with the IAM role the production application assumes for those calls, CloudTrail, KMS and GuardDuty. Not enabled: the setting that turns the route on is off, so no organization's data reaches it, and organizations in CUI mode use only Vertex AI in the Assured Workloads project."
+        "useCase": "AWS GovCloud (US): Amazon Bedrock (Claude model inference) for organizations in CUI mode, with the IAM role the production application assumes for those calls, CloudTrail, KMS and GuardDuty. Not enabled: the setting that turns the route on is off, so no organization's data reaches it, and organizations in CUI mode use only Vertex AI in the Assured Workloads project for model calls."
       },
       {
         "fedRampCertifiedThirdPartyInformationResource": "F1209051525",
@@ -489,8 +489,8 @@
       "email": "gordon@specset.com"
     },
     "version": "2026.11.10",
-    "lastUpdated": "2026-11-11T03:24:00Z",
-    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Version 2026.11.10, published with Security Decision Record v2026.09.14.16, follows version 2026.11.09. Since 2026.11.09: the policy and procedure reference gives the policy editions Vanta holds as approved (4.0, 5.0 for Physical Security and 3.1 for Information Security Roles and Responsibilities, approved 2026-11-06; the renewals of 2026-10-12 for Human Resource Security, Secure Development and Operations Security) and the current editions of the Secure Configuration Guide and three procedures; the information flows add Google Antigravity to the engineering assistants and say how each assistant's reads are bounded, the customer sign-in flow covers an organization's own OpenID Connect provider, reachable only once its hostnames are added to the egress allow-list, and the summary names the internal services the network policies allow and counts 35 allowed hostnames: since 2026-11-10 the allow-list also names two AWS GovCloud (US) hosts, for a model route for organizations in CUI mode that is not enabled, and AWS GovCloud (US) is listed as a FedRAMP certified third-party information resource with that route; the direct Anthropic API entry is removed: that route was retired on 2026-11-05, no information flow reaches it, and the next information-resources inventory edition moves it to the excluded services; Google Antigravity is listed as a third-party information resource, the OpenAI Codex entry corrects how its database tunnel is started, the Cursor entry names the local stores its hook refuses, and the customer identity-provider entry says a customer-configured provider is reachable only once Specset adds its hostnames. Earlier versions are in this repository's history."
+    "lastUpdated": "2026-11-11T03:25:00Z",
+    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Version 2026.11.10, published with Security Decision Record v2026.09.14.16, follows version 2026.11.09. Since 2026.11.09: the policy and procedure reference gives the policy editions Vanta holds as approved (4.0, 5.0 for Physical Security and 3.1 for Information Security Roles and Responsibilities, approved 2026-11-06; the renewals of 2026-10-12 for Human Resource Security, Secure Development and Operations Security; Data Management 3.3, approved 2026-11-10) and the current editions of the Secure Configuration Guide and three procedures; the information flows add Google Antigravity to the engineering assistants and say how each assistant's reads are bounded, the customer sign-in flow covers an organization's own OpenID Connect provider, reachable only once its hostnames are added to the egress allow-list, and the summary names the internal services the network policies allow and counts 35 allowed hostnames: since 2026-11-10 the allow-list also names two AWS GovCloud (US) hosts, for a model route for organizations in CUI mode that is not enabled, and AWS GovCloud (US) is listed as a FedRAMP certified third-party information resource with that route; the direct Anthropic API entry is removed: that route was retired on 2026-11-05, no information flow reaches it, and the next information-resources inventory edition moves it to the excluded services; Google Antigravity is listed as a third-party information resource, the OpenAI Codex entry corrects how its database tunnel is started, the Cursor entry names the local stores its hook refuses, and the customer identity-provider entry says a customer-configured provider is reachable only once Specset adds its hostnames. Earlier versions are in this repository's history."
   },
   "documentation": [
     {
@@ -712,9 +712,9 @@
       "type": "Procedure",
       "file": "significant-change-notification.md",
       "summary": "How each production change is evaluated for significance, confirmed by an operator, recorded and, when significant, notified.",
-      "wordCount": 3171,
-      "currentVersion": "edition 2026-11-07",
-      "lastUpdated": "2026-11-07",
+      "wordCount": 3213,
+      "currentVersion": "edition 2026-11-11",
+      "lastUpdated": "2026-11-11",
       "relatedFedRampPractices": [
         "SCN (all rules)",
         "KSI-CMT-LMC"
@@ -831,10 +831,10 @@
       "name": "Data Management Policy",
       "type": "Policy",
       "file": "Data Management Policy (Vanta policy document)",
-      "summary": "Classification, protection, retention and secure disposal of information according to its importance; version 3.2 amends the retained version 3.0 text.",
-      "wordCount": 3165,
-      "currentVersion": "3.2",
-      "lastUpdated": "2026-10-05",
+      "summary": "Classification, protection, retention and secure disposal of information according to its importance; version 3.3 amends the retained version 3.0 text.",
+      "wordCount": 3197,
+      "currentVersion": "3.3",
+      "lastUpdated": "2026-11-10",
       "relatedFedRampPractices": [
         "KSI-SVC-RUD",
         "KSI-SVC-SIN"

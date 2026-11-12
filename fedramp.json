@@ -283,7 +283,7 @@
       },
       {
         "fedRampCertifiedThirdPartyInformationResource": "F1209051525",
-        "useCase": "Azure Commercial Cloud — Azure OpenAI (GPT model inference for organizations not in CUI mode; prompts may include customer document text. A route for organizations in CUI mode, to the US Data Zone deployments only, is provisioned and not enabled: the setting that turns it on is off, so no organization in CUI mode uses Azure. By Microsoft's default, prompts and completions are stored for abuse monitoring in the account's US geography, and content the monitoring flags can be reviewed by authorized Microsoft employees; Specset plans to apply modified abuse monitoring to the deployments organizations in CUI mode would use by 2026-12-31, or to keep them off Azure OpenAI until it is applied), Microsoft Entra ID application registrations for customer 'Sign in with Microsoft' single sign-on, and a Windows evaluation lab in the same subscription, whose runbook allows public or synthetic files only (not technically enforced)."
+        "useCase": "Azure Commercial Cloud — Azure OpenAI (GPT model inference for organizations not in CUI mode; prompts may include customer document text. A route for organizations in CUI mode, to the US Data Zone deployments only, is provisioned and not enabled: the setting that turns it on is off, so no organization in CUI mode uses Azure OpenAI. By Microsoft's default, prompts and completions are stored for abuse monitoring in the account's US geography, and content the monitoring flags can be reviewed by authorized Microsoft employees; Specset plans to apply modified abuse monitoring to the deployments organizations in CUI mode would use by 2026-12-31, or to keep them off Azure OpenAI until it is applied), Microsoft Entra ID application registrations for customer 'Sign in with Microsoft' single sign-on, and a Windows evaluation lab in the same subscription, whose runbook allows public or synthetic files only (not technically enforced)."
       },
       {
         "fedRampCertifiedThirdPartyInformationResource": "F1206081364",
@@ -420,7 +420,7 @@
         "name": "AI processing for organizations in CUI mode",
         "from": "Application API server and workers",
         "to": "Vertex AI, project specset-prod-assured, location us (aiplatform.us.rep.googleapis.com); provisioned and not enabled: Amazon Bedrock in AWS GovCloud (US) and the Azure OpenAI US Data Zone deployments",
-        "path": "HTTPS; Workload Identity, no keys",
+        "path": "HTTPS, no static keys: Workload Identity for Vertex AI; for the routes provisioned and not enabled, an AWS GovCloud (US) role assumed through Google web identity (Amazon Bedrock) and a federated managed identity with key authentication disabled (Azure OpenAI)",
         "data": "Prompts, document content and embeddings",
         "securityCategory": "Moderate"
       },
@@ -489,8 +489,8 @@
       "email": "gordon@specset.com"
     },
     "version": "2026.11.12",
-    "lastUpdated": "2026-11-12T21:22:00Z",
-    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Version 2026.11.12, published with Security Decision Record v2026.09.14.18, follows version 2026.11.10. Since 2026.11.10: the policy and procedure reference gives the Incident Response and Vulnerability Management Procedures at edition 2026-11-12 and the current editions of the Ongoing Certification Reports and Quarterly Reviews and Significant Change Notification procedures; the cryptographic module list gives the component versions read from the deployed workloads on 2026-11-12 (Temporal 1.32.2, Temporal web UI 2.58.1, Temporal admin tools 1.32.2, cert-manager v1.21.3, Cloud SQL Auth Proxy 2.26.3, Temporal TypeScript SDK 1.25.0); the AWS supporting-services entry drops the legacy database-backup bucket, deleted on 2026-11-09; the Azure entry states the route for organizations in CUI mode to the US Data Zone deployments, provisioned and not enabled, and Microsoft's default abuse-monitoring storage with Specset's plan for it; the Google Cloud entry gives the location of the commercial Vertex AI route (global); and the information flow for organizations in CUI mode names the two routes that are provisioned and not enabled. Earlier versions are in this repository's history."
+    "lastUpdated": "2026-11-12T21:40:00Z",
+    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Version 2026.11.12, published with Security Decision Record v2026.09.14.18, follows version 2026.11.10. Since 2026.11.10: the policy and procedure reference gives the Incident Response and Vulnerability Management Procedures at edition 2026-11-12 and the current editions of the Ongoing Certification Reports and Quarterly Reviews and Significant Change Notification procedures; the cryptographic module list gives the component versions read from the deployed workloads on 2026-11-12 (Temporal 1.32.2, Temporal web UI 2.58.1, Temporal admin tools 1.32.2, cert-manager v1.21.3, Cloud SQL Auth Proxy 2.26.3, Temporal TypeScript SDK 1.25.0); the AWS supporting-services entry drops the legacy database-backup bucket, deleted on 2026-11-09; the Azure entry states the route for organizations in CUI mode to the US Data Zone deployments, provisioned and not enabled, and Microsoft's default abuse-monitoring storage with Specset's plan for it; the Google Cloud entry gives the location of the commercial Vertex AI route (global); the information flow for organizations in CUI mode names the two routes that are provisioned and not enabled; and the example Ongoing Certification Report's summary says the first report is planned for 2026-12-01 and due no later than 2026-12-04. Earlier versions are in this repository's history."
   },
   "documentation": [
     {
@@ -502,7 +502,7 @@
     {
       "name": "Ongoing Certification Report (OCR) — example",
       "type": "JSON + Markdown (FedRAMP 2026-06-24 schema)",
-      "summary": "Schema-conformant example of the quarterly report of certification-data changes, planned changes, accepted vulnerabilities, agencies and reportable incidents, labeled as an example. The first report is due 2026-12-01. Questions and feedback about any report go to fedramp@specset.com, from any sender and at any time (CCM-OCR-FBM); a founder answers within 2 business days, and the next report summarizes the questions and answers without identifying who asked.",
+      "summary": "Schema-conformant example of the quarterly report of certification-data changes, planned changes, accepted vulnerabilities, agencies and reportable incidents, labeled as an example. The first report is planned for 2026-12-01 and due no later than 2026-12-04. Questions and feedback about any report go to fedramp@specset.com, from any sender and at any time (CCM-OCR-FBM); a founder answers within 2 business days, and the next report summarizes the questions and answers without identifying who asked.",
       "availability": "Supplied with the Class A application; a restricted trust-center resource open to access requests since 2026-09-14, no NDA."
     },
     {

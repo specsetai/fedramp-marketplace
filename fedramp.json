@@ -245,7 +245,7 @@
         "protects": "Data in transit: administrative path to Cloud SQL. An operator's session reaches the in-cluster Cloud SQL Auth Proxy through a TLS-protected port-forward over Connect Gateway; the proxy carries it to the instance over TLS 1.3 with verified client and server identities.",
         "module": "Go's standard TLS library in Cloud SQL Auth Proxy 2.26.3 and in kubectl on the operator's machine; Google Front End TLS for Connect Gateway.",
         "operatedBy": "Specset (proxy, kubectl); Google (Connect Gateway)",
-        "cmvpStatus": "Not CMVP-validated as deployed (not built or run in an approved mode) for the Go library; Google's front end as above"
+        "cmvpStatus": "Not CMVP-validated as deployed (not built or run in an approved mode) for the Go library; Connect Gateway's front end validated: BoringCrypto, under Google's active FIPS 140-3 certificates (4735, 5104, 5244 and 5296), as Google states for its services"
       },
       {
         "protects": "Data in transit: administrative browser path to the workflow console, behind Identity-Aware Proxy on a second global HTTPS load balancer with the same restricted SSL policy. Behind it, the hop to the workflow console is inside Google's network and inherited. Until 2026-10-26 the same path also reached the vector database's API, without the load balancer verifying the database's certificate; that path was retired that day.",
@@ -263,10 +263,10 @@
         "protects": "Data in transit: calls from the application to services outside Google Cloud listed under third-party information resources (for example Amazon SES, customer identity providers and, for organizations not in CUI mode, the commercial model and integration providers). Amazon SES and AWS STS are called at AWS's standard regional endpoints (email.us-west-2.amazonaws.com, sts.us-west-2.amazonaws.com), not the FIPS endpoints AWS describes as using FIPS-validated modules; Specset plans to move both clients to the FIPS endpoints by 2026-12-01.",
         "module": "Client: the OpenSSL FIPS Provider, loaded by Node.js in FIPS mode since 2026-10-30. Server side and storage: the provider's own modules.",
         "operatedBy": "Specset (client); the provider (server)",
-        "cmvpStatus": "Validated for the client: OpenSSL FIPS Provider, FIPS 140-3 certificate 4985 (The OpenSSL Project; Level 1; active, sunset 2030-03-10), in its approved mode; the provider's modules are covered by its own FedRAMP certification where the resource is listed as certified"
+        "cmvpStatus": "Validated for the client: OpenSSL FIPS Provider, FIPS 140-3 certificate 4985 (The OpenSSL Project; Level 1; active, sunset 2030-03-10), in its approved mode; the provider's modules are covered by its own FedRAMP certification where the resource is listed as certified; for Amazon SES and AWS STS at their standard endpoints Specset makes no CMVP claim for the server side"
       },
       {
-        "protects": "Data in transit: Amazon SES to recipients' mail servers, for every organization's notification mail. Both of the application's SES configuration sets require TLS for delivery (TlsPolicy REQUIRE), so SES delivers a message only over TLS (STARTTLS) and does not deliver it to a server that does not offer TLS.",
+        "protects": "Data in transit: Amazon SES to recipients' mail servers, for every organization's notification mail. All three production SES configuration sets the application uses require TLS for delivery (TlsPolicy REQUIRE), so SES delivers a message only over TLS (STARTTLS) and does not deliver it to a server that does not offer TLS.",
         "module": "AWS's, in SES; the receiving mail provider's.",
         "operatedBy": "AWS (SES); the recipient's mail provider",
         "cmvpStatus": "SES is covered by AWS's FedRAMP certification; the receiving server is outside any boundary Specset controls, and Specset makes no claim for it"
@@ -496,7 +496,7 @@
     },
     "version": "2026.11.20",
     "lastUpdated": "2026-11-20T00:00:00Z",
-    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Version 2026.11.20, published with Security Decision Record v2026.09.14.18, follows version 2026.11.12. Since 2026.11.12: the cryptographic module list names BoringCrypto certificate 5244, which Google names for its external Application Load Balancers, at the load-balancer edge, and Google's active certificates (4735, 5104, 5244 and 5296) for its other services, where it named certificate 5104; it adds Amazon SES's onward delivery to recipients' mail servers, with TLS required; and it states that Amazon SES and AWS STS are called at AWS's standard regional endpoints, with the planned move to the FIPS endpoints."
+    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Version 2026.11.20, published with Security Decision Record v2026.09.14.18, follows version 2026.11.12. Since 2026.11.12: the cryptographic module list names BoringCrypto certificate 5244, which Google names for its external Application Load Balancers, at the load-balancer edge, and Google's active certificates (4735, 5104, 5244 and 5296) for its other services, where it named certificate 5104; it adds Amazon SES's onward delivery to recipients' mail servers, with TLS required; and it states that Amazon SES and AWS STS are called at AWS's standard regional endpoints, with the planned move to the FIPS endpoints. Earlier versions are in this repository's history."
   },
   "documentation": [
     {

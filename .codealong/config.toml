@@ -1,0 +1,6 @@
+# Codealong settings for everyone who works on this repo. Codealong reads this file from the branch
+# a pull request merges into, so a change here goes for the team once it's merged.
+# `codealong config check --repo .` checks it.
+
+[pull_requests]
+reviews_first = true                 # for everyone: pull requests waiting on your review come before the sessions that need you

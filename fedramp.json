@@ -495,8 +495,8 @@
       "email": "gordon@specset.com"
     },
     "version": "2026.11.20",
-    "lastUpdated": "2026-11-20T00:00:00Z",
-    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Version 2026.11.20, published with Security Decision Record v2026.09.14.18, follows version 2026.11.12. Since 2026.11.12: the cryptographic module list names BoringCrypto certificate 5244, which Google names for its external Application Load Balancers, at the load-balancer edge, and Google's active certificates (4735, 5104, 5244 and 5296) for its other services, where it named certificate 5104; it adds Amazon SES's onward delivery to recipients' mail servers, with TLS required; and it states that Amazon SES and AWS STS have been called at AWS's FIPS endpoints since 2026-11-17. Earlier versions are in this repository's history."
+    "lastUpdated": "2026-11-20T06:17:00Z",
+    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Version 2026.11.20, published with Security Decision Record v2026.09.14.19, follows version 2026.11.12. Since 2026.11.12: the cryptographic module list names BoringCrypto certificate 5244, which Google names for its external Application Load Balancers, at the load-balancer edge, and Google's active certificates (4735, 5104, 5244 and 5296) for its other services, where it named certificate 5104; it adds Amazon SES's onward delivery to recipients' mail servers, with TLS required; and it states that Amazon SES and AWS STS have been called at AWS's FIPS endpoints since 2026-11-17. Earlier versions are in this repository's history."
   },
   "documentation": [
     {
@@ -609,8 +609,8 @@
       "file": "incident-response.pdf",
       "summary": "Incident detection, triage, FedRAMP reportability evaluation, initial, ongoing and final incident reports, the FedRAMP Security Inbox procedure and the quarterly review.",
       "wordCount": 4029,
-      "currentVersion": "2026-11-12",
-      "lastUpdated": "2026-11-12",
+      "currentVersion": "2026-11-19",
+      "lastUpdated": "2026-11-19",
       "relatedFedRampPractices": [
         "IEC-CSO-EFR",
         "IEC-CSO-EFI",
@@ -639,9 +639,9 @@
       "type": "Procedure",
       "file": "vulnerability-management.pdf",
       "summary": "Persistent vulnerability detection, PAIN-based evaluation, response timeframes, exceptions and risk acceptance, and the monthly vulnerability activity report.",
-      "wordCount": 5482,
-      "currentVersion": "2026-11-12",
-      "lastUpdated": "2026-11-12",
+      "wordCount": 5650,
+      "currentVersion": "2026-11-19",
+      "lastUpdated": "2026-11-19",
       "relatedFedRampPractices": [
         "VDR (all rules)",
         "VER (all rules)"
@@ -669,9 +669,9 @@
       "type": "Procedure",
       "file": "https://docs.specset.com/docs/secure-configuration",
       "summary": "For the administrators of a customer organization: the accounts that control an organization, the recommended security settings for one holding federal information or CUI, and how account access is requested and recovered.",
-      "wordCount": 1707,
+      "wordCount": 1883,
       "currentVersion": "2026.09.18.2",
-      "lastUpdated": "2026-11-10",
+      "lastUpdated": "2026-11-16",
       "relatedFedRampPractices": [
         "SCG-CSO-RSC",
         "SCG-CSO-PUB",
@@ -746,9 +746,9 @@
       "type": "Procedure",
       "file": "privileged-access.md",
       "summary": "How the founders obtain administrative access to production per task, with a reason and for a limited time, through Privileged Access Manager, and the last-resort path.",
-      "wordCount": 4104,
-      "currentVersion": "edition 2026-11-10",
-      "lastUpdated": "2026-11-10",
+      "wordCount": 4400,
+      "currentVersion": "edition 2026-11-12",
+      "lastUpdated": "2026-11-12",
       "relatedFedRampPractices": [
         "KSI-IAM-JIT",
         "KSI-IAM-ELP"

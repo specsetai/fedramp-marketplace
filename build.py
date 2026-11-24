@@ -152,6 +152,49 @@ if crypto:
 else:
     cm_html = ""
 
+# CPO-CSO-OSA (Class C): the assessor's overall summary of the independent assessment. The 2026-06-24
+# schema has no field for it, so it is a top-level object of its own, written from the assessor's file
+# by assessment_summary.py. Everything in it except `introduction` and the two statements of where the
+# findings are is the assessor's text, rendered as written.
+osa = data.get("overallSummaryOfAssessment")
+if osa:
+    summary_paras = "".join(f"<p>{esc(p)}</p>" for p in osa["summary"])
+    process_rows = "".join(
+        f"<tr><td>{esc(p['requirement'])}</td><td>{esc(p['statement'])}</td></tr>"
+        for p in osa.get("assessmentProcess", []))
+    st = osa["providerImplementationStatus"]
+    scope = st["scope"]
+    status_rows = "".join(f"<tr><td>{esc(k)}</td><td>{esc(v)}</td></tr>" for k, v in st["counts"].items())
+    status_rows += (f"<tr><td><strong>Total</strong></td><td><strong>{esc(scope['total'])}</strong> "
+                    f"({esc(scope['keySecurityIndicators'])} Key Security Indicators and "
+                    f"{esc(scope['providerRules'])} provider rules)</td></tr>")
+    rf = osa["recordedFindings"]
+    finding_rows = "".join(
+        f"<tr><td>{esc(f['requirement_id'])}<br><small>{esc(f['title'])}</small></td>"
+        f"<td>{esc(f['provider_implementation_status'])}</td><td>{esc(f['assessor_free_text'])}</td>"
+        f"<td>{esc(f['accepted_current_state'])}</td>"
+        f"<td><ul>{''.join(f'<li>{esc(x)}</li>' for x in f['limitations'])}</ul></td></tr>"
+        for f in rf.get("findings", []))
+    findings_table = (f'<table class="inner"><thead><tr><th>Requirement</th><th>Provider status</th><th>Finding</th>'
+                      f'<th>Accepted current state</th><th>Limitations</th></tr></thead><tbody>{finding_rows}</tbody></table>'
+                      if finding_rows else "")
+    osa_html = (f'<h2 id="assessment-summary">Overall summary of the independent assessment</h2>'
+                f'<p>{esc(osa["introduction"])}</p>'
+                f'<p class="sub">{esc(osa["assessor"])} (Assessor ID {esc(osa["assessorID"])}) · as of {esc(osa["asOf"])} · '
+                f'<a href="https://www.fedramp.gov/2026/reference/20x/c/certification-package-overview/">{esc(osa["rule"])}</a></p>'
+                f'<blockquote class="assessor">{summary_paras}</blockquote>'
+                f'<h3>Assessment process and sampling scope</h3>'
+                f'<table class="inner"><thead><tr><th>Requirement</th><th>Assessor statement</th></tr></thead><tbody>{process_rows}</tbody></table>'
+                f'<h3>{esc(st["label"])}</h3>'
+                f'<table class="inner"><thead><tr><th>Status</th><th>Practices</th></tr></thead><tbody>{status_rows}</tbody></table>'
+                f'<p>{esc(st["ownership"])}</p>'
+                f'<p><small>SHA-256 of the Security Decision Record assessed: {esc(st["assessedRecordSha256"])}</small></p>'
+                f'<h3>Recorded findings ({esc(rf["count"])})</h3><p>{esc(rf["statement"])}</p>{findings_table}'
+                f'<p><small>Copied without change from {esc(osa["suppliedFile"]["name"])}, '
+                f'SHA-256 {esc(osa["suppliedFile"]["sha256"])}.</small></p>')
+else:
+    osa_html = ""
+
 meta = data.get("metadata")
 if meta:
     ao = meta.get("accountableOfficial", {})
@@ -190,7 +233,8 @@ FIELDS = [
     ("Third-Party Information Resources",
      tp_html),
     ("FedRAMP Recognized Independent Assessor",
-     f'{esc(assessor["name"])} (Assessor ID {esc(assessor["assessorID"])})' if assessor
+     f'{esc(assessor["name"])} (Assessor ID {esc(assessor["assessorID"])})'
+     + ('<br><a href="#assessment-summary">Overall summary of the independent assessment</a>' if osa else '') if assessor
      else na("Class A rests on an approved alternative security framework assessment (FRC-CLA-ASF) and independent verification and validation of the package is optional at Class A (FRC-CLA-IVV); an assessor is engaged for the Class C assessment; its dates are not yet set, and MKT-IIP-DLA requires the assessment to be scheduled within 24 months of the initial listing")),
 ]
 
@@ -217,6 +261,8 @@ page = f"""<!doctype html>
   table.inner th {{ width: auto; font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; color: #667085; }}
   .na {{ color: #667085; }}
   .pending {{ color: #93370d; }}
+  blockquote.assessor {{ margin: 1rem 0 1.5rem; padding: .25rem 1rem; border-left: 4px solid #e4e7ec; }}
+  @media (prefers-color-scheme: dark) {{ blockquote.assessor {{ border-color: #333; }} }}
   footer {{ color: #667085; font-size: .85rem; margin-top: 2.5rem; border-top: 1px solid #e4e7ec; padding-top: 1rem; }}
   a {{ color: #1570ef; }}
 </style>
@@ -238,6 +284,8 @@ page = f"""<!doctype html>
   <table>
     <tbody>{rows}</tbody>
   </table>
+
+  {osa_html}
 
   {flows_html}
 

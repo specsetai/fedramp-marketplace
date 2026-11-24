@@ -555,7 +555,7 @@
     },
     {
       "name": "Class C independent assessment: overall summary and recorded findings",
-      "type": "JSON + HTML, as the assessor supplied them",
+      "type": "JSON, as the assessor supplied it",
       "summary": "Prescient Security's overall summary of the Class C independent assessment (IVV-IAS-OSA), supplied on 2026-11-23, with its 51 recorded findings, each with the accepted current state, its limitations and its source references, and its statements of the assessment process and sampling scope. The summary itself is reproduced unchanged in this document, under overallSummaryOfAssessment. SHA-256 of the JSON file as supplied: 6045607dd9c941e19e01c007c4f5c5551d91219b9b157834aa014f63c866becc.",
       "availability": "A restricted trust-center resource open to access requests, no NDA."
     },

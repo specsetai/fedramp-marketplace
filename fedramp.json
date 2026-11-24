@@ -28,7 +28,7 @@
         "Assessment Reports"
       ],
       "url": "https://trust.specset.com",
-      "repositoryDescription": "Specset Trust Center, the single repository for FedRAMP Certification Data for the Specset Cloud Platform. The landing page, compliance posture summary, subprocessor list and FAQ are public. Specset's dated progress toward FedRAMP Certification (MKT-IIP-DCP) is published at https://www.specset.com/security#fedramp-progress. The certification data is published there as restricted resources, with no non-disclosure agreement or acceptance of terms required: the Class A certification package since 2026-09-14, FedRAMP's Certification Report for the 20x Class A certification of 2026-11-06 since that day, and the documents of the Class C certification package. The documentation list here names each resource open to access requests. The two SOC 2 engagement letters and the management representation letter are private, supplied on request to fedramp@specset.com.",
+      "repositoryDescription": "Specset Trust Center, the single repository for FedRAMP Certification Data for the Specset Cloud Platform. The landing page, compliance posture summary, subprocessor list and FAQ are public. Specset's dated progress toward FedRAMP Certification (MKT-IIP-DCP) is published at https://www.specset.com/security#fedramp-progress. The certification data is published there as restricted resources, with no non-disclosure agreement or acceptance of terms required: the Class A certification package since 2026-09-14, FedRAMP's Certification Report for the 20x Class A certification of 2026-11-06 since that day, and the documents of the Class C certification package. The documentation list and the policy and procedure reference here name each document open to access requests. The two SOC 2 engagement letters and the management representation letter are private, supplied on request to fedramp@specset.com.",
       "authenticationRequired": true,
       "accessRequestInstructions": "The landing page at https://trust.specset.com requires no login. FedRAMP staff and agency reviewers request access to the restricted FedRAMP Certification Data from the Trust Center page. Requests from fedramp.gov and gsa.gov email addresses are approved automatically; Specset approves all other requests manually. Specset does not require acceptance of terms or a non-disclosure agreement. If a request is not approved within one business day, email fedramp@specset.com."
     },
@@ -370,7 +370,7 @@
       {
         "name": "Google Generative AI (AI Studio)",
         "provider": "Google LLC",
-        "useCase": "Gemini API path outside the Google Cloud FedRAMP boundary, used as the embedding provider for organizations not in CUI mode; prompts may include customer document text. Never used for organizations in CUI mode, whose embeddings run on Vertex AI in the Assured Workloads project. Retirement is planned before the Class C application.",
+        "useCase": "Gemini API path outside the Google Cloud FedRAMP boundary. Since 2026-11-20 it is only the fallback for embeddings of organizations not in CUI mode: Vertex AI (commercial route, project specbook-production) embeds first, and this API receives only the values Vertex AI could not embed (rate limit, quota, server error or a dropped connection); before then it was their embedding provider. Prompts may include customer document text. Never used for organizations in CUI mode, whose embeddings run on Vertex AI in the Assured Workloads project. Retirement is planned by 2026-12-04.",
         "website": "https://aistudio.google.com"
       },
       {
@@ -542,9 +542,9 @@
       "title": "CEO and Co-Founder",
       "email": "gordon@specset.com"
     },
-    "version": "2026.11.24",
-    "lastUpdated": "2026-11-24T05:06:00Z",
-    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Version 2026.11.24, the overview in the Class C certification package, follows version 2026.11.20. Since 2026.11.20: it carries the overall summary of the Class C independent assessment that Prescient Security supplied on 2026-11-23, unchanged, under overallSummaryOfAssessment (CPO-CSO-OSA), copied by assessment_summary.py from the supplied file, whose SHA-256 it records; the documentation list adds the Class C Security Decision Record and the assessor's overall summary with its recorded findings, both open to access requests; and the documents' availability describes the Class C package instead of the Class A application. The policy and procedure reference carries the Secure Configuration Guide's edition 2026.11.20.1 of 2026-11-21. The Class A Security Decision Record is at version 2026.09.14.20. Earlier versions are in this repository's history."
+    "version": "2026.11.25",
+    "lastUpdated": "2026-11-25T17:00:00Z",
+    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Version 2026.11.25, the overview in the Class C certification package, published with the Class C Security Decision Record class-c.2026.11.24.35, follows version 2026.11.20. Since 2026.11.20: it carries the overall summary of the Class C independent assessment that Prescient Security supplied on 2026-11-23, unchanged, under overallSummaryOfAssessment (CPO-CSO-OSA), copied by assessment_summary.py from the supplied file, whose SHA-256 it records; the documentation list adds the Class C Security Decision Record and the assessor's overall summary with its recorded findings, both open to access requests; the documents' availability describes the Class C package instead of the Class A application; the policy and procedure reference carries the Secure Configuration Guide's edition 2026.11.20.1 of 2026-11-21 and the Class C procedures' trust-center route; and Google Generative AI (AI Studio) is described as the commercial embedding fallback it has been since 2026-11-20, with its retirement planned by 2026-12-04. The Class A Security Decision Record is at version 2026.09.14.20. Earlier versions are in this repository's history."
   },
   "documentation": [
     {
@@ -771,21 +771,21 @@
         "CPO-CSX-CPM",
         "KSI-CMT-RVP"
       ],
-      "availability": "Class C package procedure; supplied on request to fedramp@specset.com until the Class C package is filed with it."
+      "availability": "Class C package procedure. Trust center (https://trust.specset.com), restricted resource open to access requests, no NDA."
     },
     {
       "name": "Significant Change Notification procedure",
       "type": "Procedure",
       "file": "significant-change-notification.md",
       "summary": "How each production change is evaluated for significance, confirmed by an operator, recorded and, when significant, notified.",
-      "wordCount": 3328,
-      "currentVersion": "edition 2026-11-12",
-      "lastUpdated": "2026-11-12",
+      "wordCount": 3331,
+      "currentVersion": "edition 2026-11-24",
+      "lastUpdated": "2026-11-24",
       "relatedFedRampPractices": [
         "SCN (all rules)",
         "KSI-CMT-LMC"
       ],
-      "availability": "Class C package procedure; supplied on request to fedramp@specset.com until the Class C package is filed with it."
+      "availability": "Class C package procedure. Trust center (https://trust.specset.com), restricted resource open to access requests, no NDA."
     },
     {
       "name": "Use of representative samples",
@@ -799,21 +799,21 @@
         "IVV-CSO-USR",
         "IVV-CSO-DUS"
       ],
-      "availability": "Class C package procedure; supplied on request to fedramp@specset.com until the Class C package is filed with it."
+      "availability": "Class C package procedure. Trust center (https://trust.specset.com), restricted resource open to access requests, no NDA."
     },
     {
       "name": "Privileged access procedure",
       "type": "Procedure",
       "file": "privileged-access.md",
       "summary": "How the founders obtain administrative access to production per task, with a reason and for a limited time, through Privileged Access Manager, and the last-resort path.",
-      "wordCount": 4400,
-      "currentVersion": "edition 2026-11-12",
-      "lastUpdated": "2026-11-12",
+      "wordCount": 4398,
+      "currentVersion": "edition 2026-11-24",
+      "lastUpdated": "2026-11-24",
       "relatedFedRampPractices": [
         "KSI-IAM-JIT",
         "KSI-IAM-ELP"
       ],
-      "availability": "Class C package procedure; supplied on request to fedramp@specset.com until the Class C package is filed with it."
+      "availability": "Class C package procedure. Trust center (https://trust.specset.com), restricted resource open to access requests, no NDA."
     },
     {
       "name": "Access Control Policy",

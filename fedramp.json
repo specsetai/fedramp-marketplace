@@ -370,7 +370,7 @@
       {
         "name": "Google Generative AI (AI Studio)",
         "provider": "Google LLC",
-        "useCase": "Gemini API path outside the Google Cloud FedRAMP boundary. Retired on 2026-11-24: the application no longer calls it, and that day its key was removed from the application's secrets and its hostname from the egress allow-list. It was the embedding provider for organizations not in CUI mode until 2026-11-20, when their embeddings moved to Vertex AI (commercial route, project specbook-production), and the fallback from then until its retirement; it last received text on 2026-11-20. Prompts could include customer document text, which Google may retain for up to 55 days, so this entry stays listed until about 2027-01-14. Never used for organizations in CUI mode, whose embeddings run on Vertex AI in the Assured Workloads project.",
+        "useCase": "Gemini API path outside the Google Cloud FedRAMP boundary. Retired on 2026-11-24: the application no longer calls it, and that day its key was removed from the application's secrets and its hostname from the egress allow-list. It was the embedding provider for organizations not in CUI mode until 2026-11-20, when their embeddings moved to Vertex AI (commercial route, project specbook-production), and from then until its retirement a monitored fallback that served no call; it last received text on 2026-11-20. Prompts could include customer document text, which Google may retain for up to 55 days, so this entry stays listed until about 2027-01-14. Never used for organizations in CUI mode, whose embeddings run on Vertex AI in the Assured Workloads project.",
         "website": "https://aistudio.google.com"
       },
       {

@@ -694,9 +694,9 @@
       "type": "Procedure",
       "file": "vulnerability-management.pdf",
       "summary": "Persistent vulnerability detection, PAIN-based evaluation, response timeframes, exceptions and risk acceptance, and the monthly vulnerability activity report.",
-      "wordCount": 5650,
-      "currentVersion": "2026-11-19",
-      "lastUpdated": "2026-11-19",
+      "wordCount": 5792,
+      "currentVersion": "2026-11-25",
+      "lastUpdated": "2026-11-25",
       "relatedFedRampPractices": [
         "VDR (all rules)",
         "VER (all rules)"
@@ -738,10 +738,10 @@
     {
       "name": "Ongoing Certification Reports and Quarterly Reviews",
       "type": "Procedure",
-      "file": "ongoing-certification-reports.md",
+      "file": "ccm-procedure.pdf",
       "summary": "How the quarterly Ongoing Certification Report is assembled, checked for sensitive information and published, how questions about it are answered, the reviews held in the same quarterly slot and the Class C Quarterly Review.",
       "wordCount": 1417,
-      "currentVersion": "edition 2026-11-12",
+      "currentVersion": "2026-11-12",
       "lastUpdated": "2026-11-12",
       "relatedFedRampPractices": [
         "CCM-OCR-AVL",
@@ -766,21 +766,21 @@
         "CPO-CSX-CPM",
         "KSI-CMT-RVP"
       ],
-      "availability": "Class C package procedure. Trust center (https://trust.specset.com), restricted resource open to access requests, no NDA."
+      "availability": "Trust center (https://trust.specset.com), restricted resource open to access requests, no NDA."
     },
     {
       "name": "Significant Change Notification procedure",
       "type": "Procedure",
-      "file": "significant-change-notification.md",
+      "file": "scn-procedure.pdf",
       "summary": "How each production change is evaluated for significance, confirmed by an operator, recorded and, when significant, notified.",
       "wordCount": 3331,
-      "currentVersion": "edition 2026-11-24",
-      "lastUpdated": "2026-11-24",
+      "currentVersion": "2026-11-25",
+      "lastUpdated": "2026-11-25",
       "relatedFedRampPractices": [
         "SCN (all rules)",
         "KSI-CMT-LMC"
       ],
-      "availability": "Class C package procedure. Trust center (https://trust.specset.com), restricted resource open to access requests, no NDA."
+      "availability": "Trust center (https://trust.specset.com), restricted resource open to access requests, no NDA."
     },
     {
       "name": "Use of representative samples",
@@ -794,7 +794,7 @@
         "IVV-CSO-USR",
         "IVV-CSO-DUS"
       ],
-      "availability": "Class C package procedure. Trust center (https://trust.specset.com), restricted resource open to access requests, no NDA."
+      "availability": "Class C package procedure; supplied on request to fedramp@specset.com. Publication on the trust center is planned by 2026-12-15."
     },
     {
       "name": "Privileged access procedure",
@@ -802,13 +802,13 @@
       "file": "privileged-access.md",
       "summary": "How the founders obtain administrative access to production per task, with a reason and for a limited time, through Privileged Access Manager, and the last-resort path.",
       "wordCount": 4398,
-      "currentVersion": "edition 2026-11-24",
-      "lastUpdated": "2026-11-24",
+      "currentVersion": "edition 2026-11-25",
+      "lastUpdated": "2026-11-25",
       "relatedFedRampPractices": [
         "KSI-IAM-JIT",
         "KSI-IAM-ELP"
       ],
-      "availability": "Class C package procedure. Trust center (https://trust.specset.com), restricted resource open to access requests, no NDA."
+      "availability": "Class C package procedure; supplied on request to fedramp@specset.com. Publication on the trust center is planned by 2026-12-15."
     },
     {
       "name": "Access Control Policy",

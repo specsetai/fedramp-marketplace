@@ -543,6 +543,12 @@
       "availability": "A restricted trust-center resource open to access requests, no NDA: https://trust.specset.com/?requestAccessOpen=true&requestedResources=PENDING-ANNEX-RESOURCE-ID. The same file, byte for byte, is the object resources/PENDING-ANNEX-RESOURCE-ID/3d7b5d56db5b7208e35fb36ebb6aa050e2fb923be86881db7cb7be258266869f.json in gs://specset-prod-certification-data, which necessary parties read directly as the trust center's access instructions in this document describe (https://www.specset.com/fedramp/programmatic-access)."
     },
     {
+      "name": "Class C independent assessment: evidence index",
+      "type": "HTML, as the assessor supplied it",
+      "summary": "Prescient Security's consolidated assessment evidence index, delivered with the complete controlled annex on 2026-11-24: for each Key Security Indicator and rule, the source files the assessment cites, and the 477 named source files (457 distinct source artifacts) with their original filenames. Its links are relative to the assessor's delivery folder and do not open from the trust center; the evidence files, reference workbooks and reviewed interview transcripts it names are supplied on request to fedramp@specset.com. SHA-256 of the HTML file as supplied: e67ae8adbe10f8ba19f3d95905597f89f162cf75baafd3747f2b44e4f70fa97b.",
+      "availability": "A restricted trust-center resource open to access requests, no NDA."
+    },
+    {
       "name": "Security Decision Record (SDR), Class A",
       "type": "JSON + Markdown (FedRAMP 2026-06-24 schema)",
       "summary": "Per-rule and per-KSI implementation, validation and assessment statements for the Class A package, with SOC 2 Type II control mappings and a gap statement for each partially implemented rule.",

@@ -545,8 +545,8 @@
     {
       "name": "Class C independent assessment: evidence index",
       "type": "HTML, as the assessor supplied it",
-      "summary": "Prescient Security's consolidated assessment evidence index, delivered with the complete controlled annex on 2026-11-24: for each Key Security Indicator and rule, the source files the assessment cites, and the 477 named source files (457 distinct source artifacts) with their original filenames. Its links are relative to the assessor's delivery folder and do not open from the trust center; the evidence files, reference workbooks and reviewed interview transcripts it names are supplied on request to fedramp@specset.com. SHA-256 of the HTML file as supplied: e67ae8adbe10f8ba19f3d95905597f89f162cf75baafd3747f2b44e4f70fa97b.",
-      "availability": "A restricted trust-center resource open to access requests, no NDA."
+      "summary": "Prescient Security's consolidated assessment evidence index, delivered with the complete controlled annex on 2026-11-24: for each Key Security Indicator and rule, the source files the assessment cites, and the 477 named source files (457 distinct source artifacts) with their original filenames. Its links are relative to the assessor's delivery folder; the evidence files, reference workbooks and reviewed interview transcripts it names are supplied on request to fedramp@specset.com. SHA-256 of the HTML file as supplied: e67ae8adbe10f8ba19f3d95905597f89f162cf75baafd3747f2b44e4f70fa97b.",
+      "availability": "Supplied on request to fedramp@specset.com."
     },
     {
       "name": "Security Decision Record (SDR), Class A",

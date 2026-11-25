@@ -621,6 +621,12 @@
       "availability": "Published within supporting-evidence document 7, \"Incident Response Records\", a restricted trust-center resource open to access requests since 2026-09-14, no NDA."
     },
     {
+      "name": "Final Incident Report (IEC-CSO-FIR)",
+      "type": "JSON (FedRAMP incident report schema 2026-06-24)",
+      "summary": "The final report of the incident of 2026-11-18, resolved 2026-11-19; the same report is in the FedRAMP Notifications resource, with the initial and ongoing reports.",
+      "availability": "A restricted trust-center resource open to access requests, no NDA."
+    },
+    {
       "name": "Class A supporting evidence documents",
       "type": "Twelve PDFs, each with its source exports as appendices",
       "summary": "Twelve documents, one per artifact the Security Decision Record cites by name, so a reviewer opens exactly what the record points to: change management record; network boundary and Cloud Armor configuration; egress enforcement verification; identity and access configuration; staff authentication verification; training effectiveness review; incident response records; encryption and secrets configuration; vulnerability detection baseline and exception EX-2026-001; information resources inventory sources; assessment materials and schedule; and recovery and backup configuration. Each states the facts, the rule identifiers it evidences and its source records, with the machine-readable export appended.",

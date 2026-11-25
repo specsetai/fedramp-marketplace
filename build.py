@@ -153,43 +153,29 @@ else:
     cm_html = ""
 
 # CPO-CSO-OSA (Class C): the assessor's overall summary of the independent assessment. The 2026-06-24
-# schema has no field for it, so it is a top-level object of its own, written from the assessor's file
-# by assessment_summary.py. Everything in it except `introduction` and the two statements of where the
-# findings are is the assessor's text, rendered as written.
+# schema has no field for it, so it is a top-level object of its own, written from the assessor's public
+# summary by assessment_summary.py. Everything in it except `introduction`, the annex `title` and
+# `statement`, and the labels below is the assessor's text, rendered as written.
 osa = data.get("overallSummaryOfAssessment")
 if osa:
     summary_paras = "".join(f"<p>{esc(p)}</p>" for p in osa["summary"])
-    process_rows = "".join(
-        f"<tr><td>{esc(p['requirement'])}</td><td>{esc(p['statement'])}</td></tr>"
-        for p in osa.get("assessmentProcess", []))
-    st = osa["providerImplementationStatus"]
-    scope = st["scope"]
-    status_rows = "".join(f"<tr><td>{esc(k)}</td><td>{esc(v)}</td></tr>" for k, v in st["counts"].items())
-    status_rows += (f"<tr><td><strong>Total</strong></td><td><strong>{esc(scope['total'])}</strong> "
-                    f"({esc(scope['keySecurityIndicators'])} Key Security Indicators and "
-                    f"{esc(scope['providerRules'])} provider rules)</td></tr>")
-    rf = osa["recordedFindings"]
-    finding_rows = "".join(
-        f"<tr><td>{esc(f['requirement_id'])}<br><small>{esc(f['title'])}</small></td>"
-        f"<td>{esc(f['provider_implementation_status'])}</td><td>{esc(f['assessor_free_text'])}</td>"
-        f"<td>{esc(f['accepted_current_state'])}</td>"
-        f"<td><ul>{''.join(f'<li>{esc(x)}</li>' for x in f['limitations'])}</ul></td></tr>"
-        for f in rf.get("findings", []))
-    findings_table = (f'<table class="inner"><thead><tr><th>Requirement</th><th>Provider status</th><th>Finding</th>'
-                      f'<th>Accepted current state</th><th>Limitations</th></tr></thead><tbody>{finding_rows}</tbody></table>'
-                      if finding_rows else "")
+    dates = osa["assessmentDates"]
+    annex = osa["controlledAnnex"]
     osa_html = (f'<h2 id="assessment-summary">Overall summary of the independent assessment</h2>'
                 f'<p>{esc(osa["introduction"])}</p>'
-                f'<p class="sub">{esc(osa["assessor"])} (Assessor ID {esc(osa["assessorID"])}) · as of {esc(osa["asOf"])} · '
+                f'<p class="sub">{esc(osa["assessor"])} (Assessor ID {esc(osa["assessorID"])}) · edition {esc(osa["edition"])} · '
                 f'<a href="https://www.fedramp.gov/2026/reference/20x/c/certification-package-overview/">{esc(osa["rule"])}</a></p>'
                 f'<blockquote class="assessor">{summary_paras}</blockquote>'
-                f'<h3>Assessment process and sampling scope</h3>'
-                f'<table class="inner"><thead><tr><th>Requirement</th><th>Assessor statement</th></tr></thead><tbody>{process_rows}</tbody></table>'
-                f'<h3>{esc(st["label"])}</h3>'
-                f'<table class="inner"><thead><tr><th>Status</th><th>Practices</th></tr></thead><tbody>{status_rows}</tbody></table>'
-                f'<p>{esc(st["ownership"])}</p>'
-                f'<p><small>SHA-256 of the Security Decision Record assessed: {esc(st["assessedRecordSha256"])}</small></p>'
-                f'<h3>Recorded findings ({esc(rf["count"])})</h3><p>{esc(rf["statement"])}</p>{findings_table}'
+                f'<h3>Assessment dates</h3>'
+                f'<table class="inner"><tbody>'
+                f'<tr><td>Original assessment completed</td><td>{esc(dates["originalAssessmentCompleted"])}</td></tr>'
+                f'<tr><td>Extended assessment review completed</td><td>{esc(dates["extendedReviewCompleted"])}</td></tr>'
+                f'<tr><td>FedRAMP rules release assessed</td><td>{esc(dates["rulesRelease"])}</td></tr>'
+                f'</tbody></table>'
+                f'<blockquote class="assessor"><p>{esc(dates["basis"])}</p></blockquote>'
+                f'<h3>Complete controlled annex</h3>'
+                f'<p>{esc(annex["statement"])}</p>'
+                f'<p><small>{esc(annex["name"])}, SHA-256 {esc(annex["sha256"])}, as the assessor supplied it.</small></p>'
                 f'<p><small>Copied without change from {esc(osa["suppliedFile"]["name"])}, '
                 f'SHA-256 {esc(osa["suppliedFile"]["sha256"])}.</small></p>')
 else:

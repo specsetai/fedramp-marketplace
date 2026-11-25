@@ -71,48 +71,31 @@
     "rule": "CPO-CSO-OSA",
     "assessor": "Prescient Security, LLC.",
     "assessorID": "202040",
-    "asOf": "2026-11-23",
-    "introduction": "Prescient Security, LLC. (Assessor ID 202040) assessed the Specset Cloud Platform for FedRAMP 20x Class C. Under IVV-IAS-OSA it supplied the overall summary of its assessment on 2026-11-23. This section reproduces the summary without change, with the assessor's statements of its assessment process and sampling scope and the provider implementation status counts it reports (CPO-CSO-OSA). The assessor's findings for each practice are in the Class C Security Decision Record, which carries the assessment of all 203 practices as supplied (IVV-CSO-ICP).",
+    "edition": "2026-11-24",
+    "introduction": "Prescient Security, LLC. (Assessor ID 202040) assessed the Specset Cloud Platform for FedRAMP 20x Class C. Under IVV-IAS-OSA it supplied the overall summary of its assessment for this overview, in its public edition of 2026-11-24. This section reproduces the summary's paragraphs and the assessor's statement of the assessment dates without change (CPO-CSO-OSA). The assessor's findings for each of the 203 practices are in its complete controlled annex, open to necessary parties as described below; the Class C Security Decision Record carries its assessment of each practice as supplied (IVV-CSO-ICP).",
     "summary": [
-      "Prescient Security has completed internal QA of the accepted Specset assessment record. This provider-facing assessment covers all 46 Key Security Indicators and 157 provider rules. The 23 assessor-rule records remain in the internal assessment materials. The assessment prose retains explicit coverage, timing and assurance qualifications.",
-      "Provider implementation status values are preserved as recorded and remain provider-owned declarations. The assessment findings are stated in prose without an additional assessor rating scale. New QA notes are credited at their actual scope; an acknowledgment or attestation is not represented as a new technical test or a silent amendment of an unchanged source status.",
-      "The QA-reviewed findings retain their documented implementation and evidence boundaries. Qualifications and valid departures remain explicit. These are settled current-state findings, not requests for additional customer evidence, interviews or validation.",
-      "The assessment-enriched SDR preserves all provider implementation, validation, test, evidence and metric fields. Only the 203 assessment arrays and three identified derivative metadata values change. The original SDR and CPO remain available unchanged with exact hashes and an assessment-field change record.",
-      "All 43 collection requests remain closed on the accepted baseline. Closure does not imply remediation of disclosed conditions. Internal QA completion does not establish signed opinion issuance, provider adoption, public publication or application submission; each such event retains its actual recorded state.",
-      "Official FedRAMP schema validation is reported separately for the exact machine-readable artifacts. Structural conformance does not establish operational effectiveness, factual accuracy, full applicable-rule satisfaction or FedRAMP certification."
+      "Prescient Security completed the original independent assessment of Specset Cloud Platform for FedRAMP 20x Class C on November 20, 2026 and extended the assessment review through November 24, 2026 to capture documentary corrections, provider responses and the review of existing evidence. November 24 is the completion date of the extended review; underlying technical execution dates remain unchanged. The assessment addresses all 46 Key Security Indicators and 157 provider rules using the current 2026.11.02.01 rules reference, with the original 2026.10.13.01 baseline retained in the assessment history.",
+      "The assessment used interviews, technical demonstrations, configuration and procedure inspection, recorded test results, provider documentation and assessor workpapers. Acceptance is limited to the capabilities, populations and evidence actually examined. The November 24 documentary revision does not represent a new execution of the underlying technical tests.",
+      "The reviewed record demonstrates operating security practices and accepted implementations within their stated scope. Remaining limitations affect automated control coverage, identity and non-user access, secret management, communications assurance, vulnerability treatment and complete service recovery. The record also includes incident-reporting timeliness and package-maintenance exceptions. The assessment does not establish full satisfaction of every applicable outcome.",
+      "The detailed assessment retains specific facts, departures, failures, disputed descriptions and unresolved matters for necessary parties. Six documentation and implementation clarifications remain closed. Review of retained evidence and current Vanta records corroborates a later incident-related change record and the package-check mechanism, but does not establish the reported completion of both incident lessons, application of the reporting correction or the seven later complete package-check runs. Those outcomes remain provider-reported and pending verification. Previously accepted implementations and QA conclusions remain unchanged; historical incident-reporting and package-maintenance exceptions are preserved.",
+      "All 203 per-practice findings accompany this summary in the controlled assessment annex, including every provider-declared Not Implemented entry. Provider implementation declarations are distinct from independent findings; no additional assessor rating scale is assigned. The public summary and controlled details must be read together, with documented access to the complete record for necessary parties.",
+      "Prescient Security has supplied its completed assessment for provider incorporation. Comparison of the final provider-hosted SDR and CPO under IVV-IAS-VIP remains a separate review of the actual published versions. Provider verification freshness, publication and application submission retain their actual dates. FedRAMP makes the certification decision."
     ],
-    "assessmentProcess": [
-      {
-        "requirement": "IVV-CSO-SEI",
-        "statement": "The November 2, 4 and 9 transcripts document technical screen-sharing, source/configuration discussion, inspection of recorded results and scoped acceptance. The November 19 workbook contains attributable KSI assessor statements. Dated session records exist in the assessment record, although the provider's evidence repository does not identify a filed copy. The conclusion concerns the documented work and its actual scope."
-      },
-      {
-        "requirement": "IVV-CSO-DUS",
-        "statement": "The sampling statement identifies rotating runbooks and five quarterly SDR entries as actual samples. It separately describes full image coverage, grouped findings and flow-log sampling. These populations and rationales define the sampling scope; they do not establish that every examined item was randomly selected."
-      }
-    ],
-    "providerImplementationStatus": {
-      "label": "Provider implementation status, as assessed",
-      "scope": {
-        "keySecurityIndicators": 46,
-        "providerRules": 157,
-        "total": 203
-      },
-      "counts": {
-        "Implemented": 145,
-        "Partially Implemented": 43,
-        "Not Implemented": 15
-      },
-      "ownership": "These counts summarize the unchanged provider SDR declarations only. They are not assessor ratings, new determinations or a conclusion that every implementation is complete.",
-      "assessedRecordSha256": "47fbe0dbb05b16e2877367c03743f8905427415167fb10aa4cb6edf04634bc1b"
+    "assessmentDates": {
+      "originalAssessmentCompleted": "2026-11-20",
+      "extendedReviewCompleted": "2026-11-24",
+      "rulesRelease": "2026.11.02.01",
+      "basis": "The original assessment date was November 20, 2026. Prescient Security extended the assessment review through November 24, 2026 to capture documentary corrections, provider responses and the review of existing evidence. November 24 is the completion date of that extended review, not a separate assessment or a new technical-test execution date."
     },
-    "recordedFindings": {
-      "count": 51,
-      "statement": "The assessor's overall summary as supplied, with its 51 recorded findings, each with the accepted current state and its limitations, is a restricted trust-center resource open to access requests, no NDA: \"Class C independent assessment: overall summary and recorded findings\" under documentation. The same findings are in the assessment of each practice in the Class C Security Decision Record."
+    "controlledAnnex": {
+      "title": "Class C independent assessment: complete controlled annex (all 203 findings)",
+      "name": "Specset-Assessor-Overall-Summary-2026-11-24.json",
+      "sha256": "3d7b5d56db5b7208e35fb36ebb6aa050e2fb923be86881db7cb7be258266869f",
+      "statement": "The assessor's complete controlled annex carries the same summary with its findings for all 203 practices (46 Key Security Indicators and 157 provider rules), each with the accepted current state, its limitations and its source references. It is not public. Necessary parties obtain it, as the assessor supplied it, as a restricted trust-center resource open to access requests, no NDA: \"Class C independent assessment: complete controlled annex (all 203 findings)\" under documentation, following the trust center's access instructions in this document."
     },
     "suppliedFile": {
-      "name": "Specset-Assessor-Overall-Summary-2026-11-23.json",
-      "sha256": "6045607dd9c941e19e01c007c4f5c5551d91219b9b157834aa014f63c866becc"
+      "name": "Specset-Public-Assessment-Summary-2026-11-24.json",
+      "sha256": "bc5dc788bd33d33dfe97181aa370a0e260a800fc9bec18e3fd2c8650430c6a8c"
     }
   },
   "certifiedServices": [
@@ -544,7 +527,7 @@
     },
     "version": "2026.11.25",
     "lastUpdated": "2026-11-25T17:00:00Z",
-    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Version 2026.11.25, the overview in the Class C certification package, published with the Class C Security Decision Record class-c.2026.11.25.35, follows version 2026.11.20. Since 2026.11.20: it carries the overall summary of the Class C independent assessment that Prescient Security supplied on 2026-11-23, unchanged, under overallSummaryOfAssessment (CPO-CSO-OSA), copied by assessment_summary.py from the supplied file, whose SHA-256 it records; the documentation list adds the Class C Security Decision Record and the assessor's overall summary with its recorded findings, both open to access requests; the documents' availability describes the Class C package instead of the Class A application; the policy and procedure reference carries the Secure Configuration Guide's edition 2026.11.20.1 of 2026-11-21 and the Class C procedures' trust-center route; Google Generative AI (AI Studio) is retired as of 2026-11-24 and stays listed until about 2027-01-14, while Google may retain text sent to it; commercial embeddings fall back to Vertex AI at location us; and the egress allow-list names 34 hostnames. The Class A Security Decision Record is at version 2026.09.14.20. Earlier versions are in this repository's history."
+    "updateSource": "github.com/specsetai/fedramp-marketplace (main branch; schema-validated by the repository's validate workflow; published to specset.com/fedramp/). Version 2026.11.25, the overview in the Class C certification package, published with the Class C Security Decision Record class-c.2026.11.25.35, follows version 2026.11.20. Since 2026.11.20: it carries the overall summary of the Class C independent assessment, in the public edition Prescient Security supplied on 2026-11-24 (original assessment completed 2026-11-20, extended review completed 2026-11-24), unchanged, under overallSummaryOfAssessment (CPO-CSO-OSA), copied by assessment_summary.py from the supplied file, whose SHA-256 it records; the documentation list adds the Class C Security Decision Record and the assessor's complete controlled annex, with its findings for all 203 practices, both open to access requests; the documents' availability describes the Class C package instead of the Class A application; the policy and procedure reference carries the Secure Configuration Guide's edition 2026.11.20.1 of 2026-11-21 and the Class C procedures' trust-center route; Google Generative AI (AI Studio) is retired as of 2026-11-24 and stays listed until about 2027-01-14, while Google may retain text sent to it; commercial embeddings fall back to Vertex AI at location us; and the egress allow-list names 34 hostnames. The Class A Security Decision Record is at version 2026.09.14.20. Earlier versions are in this repository's history."
   },
   "documentation": [
     {
@@ -554,10 +537,10 @@
       "availability": "Part of the Class C certification package; a restricted trust-center resource open to access requests, no NDA."
     },
     {
-      "name": "Class C independent assessment: overall summary and recorded findings",
+      "name": "Class C independent assessment: complete controlled annex (all 203 findings)",
       "type": "JSON, as the assessor supplied it",
-      "summary": "Prescient Security's overall summary of the Class C independent assessment (IVV-IAS-OSA), supplied on 2026-11-23, with its 51 recorded findings, each with the accepted current state, its limitations and its source references, and its statements of the assessment process and sampling scope. The summary itself is reproduced unchanged in this document, under overallSummaryOfAssessment. SHA-256 of the JSON file as supplied: 6045607dd9c941e19e01c007c4f5c5551d91219b9b157834aa014f63c866becc.",
-      "availability": "A restricted trust-center resource open to access requests, no NDA."
+      "summary": "Prescient Security's complete controlled annex to its overall summary of the Class C independent assessment (IVV-IAS-OSA), edition 2026-11-24: the summary with the assessment dates, its findings for all 203 practices (46 Key Security Indicators and 157 provider rules), each with the accepted current state, its limitations and its source references, and its statements of the assessment process and sampling scope. The summary's paragraphs are reproduced unchanged in this document, under overallSummaryOfAssessment. SHA-256 of the JSON file as supplied: 3d7b5d56db5b7208e35fb36ebb6aa050e2fb923be86881db7cb7be258266869f.",
+      "availability": "A restricted trust-center resource open to access requests, no NDA, following the trust center's access instructions in this document."
     },
     {
       "name": "Security Decision Record (SDR), Class A",

@@ -340,7 +340,7 @@
       },
       {
         "fedRampCertifiedThirdPartyInformationResource": "FR2604643715",
-        "useCase": "Perplexity Enterprise and API Platform (FedRAMP Certified, Class B) — web search for AI features of organizations not in CUI mode. Receives model-generated search queries; customer documents are not sent. Never called for organizations in CUI mode: their web lookups run on Vertex AI Web Grounding for Enterprise inside the Google Cloud Assured Workloads project."
+        "useCase": "Perplexity Enterprise and API Platform (FedRAMP Certified, Class C) — web search for AI features of organizations not in CUI mode. Receives model-generated search queries; customer documents are not sent. Never called for organizations in CUI mode: their web lookups run on Vertex AI Web Grounding for Enterprise inside the Google Cloud Assured Workloads project."
       }
     ],
     "nonCertified": [
